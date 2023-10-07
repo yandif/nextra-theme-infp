@@ -24,7 +24,8 @@
   "scripts": {
     "dev": "vite",
     "build": "rimraf ./lib && rimraf ./dist &&  pnpm build:lib && vite build",
-    "build:lib": "tsc  --project ./tsconfig.build.json"
+    "build:lib": "tsc  --project ./tsconfig.build.json",
+    "build:tailwind": "pnpm postcss css/styles.css -o style.css --verbose"
   },
   "dependencies": {
     "next": "^13.5.3",
@@ -37,6 +38,10 @@
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react-swc": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.6.0"
