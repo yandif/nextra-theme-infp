@@ -2,7 +2,14 @@ import Head from 'next/head';
 import type { NextraThemeLayoutProps } from 'nextra';
 import React from 'react';
 
-export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
+import { Button } from '@/components/ui/button';
+
+export default function Layout({
+  children,
+  ...context
+}: NextraThemeLayoutProps) {
+  // console.log(context);
+  const { pageOpts } = context;
   const { title, frontMatter, headings } = pageOpts;
 
   return (
@@ -11,7 +18,7 @@ export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
         <title>{title}</title>
         <meta name="og:image" content={frontMatter.image} />
       </Head>
-      <h1>My Theme</h1>
+      <Button>My Theme</Button>
       Table of Contents:
       <ul>
         {headings.map((heading) => (
