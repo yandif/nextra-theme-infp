@@ -3,15 +3,15 @@ import type { NextraThemeLayoutProps } from 'nextra';
 import React from 'react';
 
 import { Button } from '@/components/ui/button';
+import { store } from '@/store';
 
 export default function Layout({
   children,
   ...context
 }: NextraThemeLayoutProps) {
-  // console.log(context);
+  store.set({ init: true, ...context });
   const { pageOpts } = context;
   const { title, frontMatter, headings } = pageOpts;
-
   return (
     <div>
       <Head>
