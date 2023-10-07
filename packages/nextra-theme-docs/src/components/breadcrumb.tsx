@@ -1,20 +1,21 @@
-import cn from 'clsx'
-import { ArrowRightIcon } from 'nextra/icons'
-import type { Item } from 'nextra/normalize-pages'
-import type { ReactElement } from 'react'
-import { Fragment } from 'react'
-import { Anchor } from './anchor'
+import cn from 'clsx';
+import { ArrowRightIcon } from 'nextra/icons';
+import type { Item } from 'nextra/normalize-pages';
+import type { ReactElement } from 'react';
+import { Fragment } from 'react';
+
+import { Anchor } from './anchor';
 
 export function Breadcrumb({
-  activePath
+  activePath,
 }: {
-  activePath: Item[]
+  activePath: Item[];
 }): ReactElement {
   return (
     <div className="nextra-breadcrumb nx-mt-1.5 nx-flex nx-items-center nx-gap-1 nx-overflow-hidden nx-text-sm nx-text-gray-500 dark:nx-text-gray-400 contrast-more:nx-text-current">
       {activePath.map((item, index) => {
-        const isLink = !item.children || item.withIndexPage
-        const isActive = index === activePath.length - 1
+        const isLink = !item.children || item.withIndexPage;
+        const isActive = index === activePath.length - 1;
 
         return (
           <Fragment key={item.route + item.name}>
@@ -27,11 +28,10 @@ export function Breadcrumb({
                   : [
                       'nx-min-w-[24px] nx-overflow-hidden nx-text-ellipsis',
                       isLink &&
-                        'hover:nx-text-gray-900 dark:hover:nx-text-gray-100'
-                    ]
+                        'hover:nx-text-gray-900 dark:hover:nx-text-gray-100',
+                    ],
               )}
-              title={item.title}
-            >
+              title={item.title}>
               {isLink && !isActive ? (
                 <Anchor href={item.route}>{item.title}</Anchor>
               ) : (
@@ -39,8 +39,8 @@ export function Breadcrumb({
               )}
             </div>
           </Fragment>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

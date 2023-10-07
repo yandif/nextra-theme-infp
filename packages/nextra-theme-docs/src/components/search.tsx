@@ -1,28 +1,29 @@
-import { Transition } from '@headlessui/react'
-import cn from 'clsx'
-import { useRouter } from 'next/router'
-import { useMounted } from 'nextra/hooks'
-import { InformationCircleIcon, SpinnerIcon } from 'nextra/icons'
-import type { CompositionEvent, KeyboardEvent, ReactElement } from 'react'
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
-import { useConfig, useMenu } from '../contexts'
-import type { SearchResult } from '../types'
-import { renderComponent, renderString } from '../utils'
-import { Anchor } from './anchor'
-import { Input } from './input'
+import { Transition } from '@headlessui/react';
+import cn from 'clsx';
+import { useRouter } from 'next/router';
+import { useMounted } from 'nextra/hooks';
+import { InformationCircleIcon, SpinnerIcon } from 'nextra/icons';
+import type { CompositionEvent, KeyboardEvent, ReactElement } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+
+import { useConfig, useMenu } from '../contexts';
+import type { SearchResult } from '../types';
+import { renderComponent, renderString } from '../utils';
+import { Anchor } from './anchor';
+import { Input } from './input';
 
 type SearchProps = {
-  className?: string
-  overlayClassName?: string
-  value: string
-  onChange: (newValue: string) => void
-  onActive?: (active: boolean) => void
-  loading?: boolean
-  error?: boolean
-  results: SearchResult[]
-}
+  className?: string;
+  overlayClassName?: string;
+  value: string;
+  onChange: (newValue: string) => void;
+  onActive?: (active: boolean) => void;
+  loading?: boolean;
+  error?: boolean;
+  results: SearchResult[];
+};
 
-const INPUTS = ['input', 'select', 'button', 'textarea']
+const INPUTS = ['input', 'select', 'button', 'textarea'];
 
 export function Search({
   className,
@@ -32,68 +33,68 @@ export function Search({
   onActive,
   loading,
   error,
-  results
+  results,
 }: SearchProps): ReactElement {
-  const [show, setShow] = useState(false)
-  const config = useConfig()
-  const [active, setActive] = useState(0)
-  const router = useRouter()
-  const { setMenu } = useMenu()
-  const input = useRef<HTMLInputElement>(null)
-  const ulRef = useRef<HTMLUListElement>(null)
-  const [focused, setFocused] = useState(false)
+  const [show, setShow] = useState(false);
+  const config = useConfig();
+  const [active, setActive] = useState(0);
+  const router = useRouter();
+  const { setMenu } = useMenu();
+  const input = useRef<HTMLInputElement>(null);
+  const ulRef = useRef<HTMLUListElement>(null);
+  const [focused, setFocused] = useState(false);
   //  Trigger the search after the Input is complete for languages like Chinese
-  const [composition, setComposition] = useState(true)
+  const [composition, setComposition] = useState(true);
 
   useEffect(() => {
-    setActive(0)
-  }, [value])
+    setActive(0);
+  }, [value]);
 
   useEffect(() => {
     const down = (e: globalThis.KeyboardEvent): void => {
-      const activeElement = document.activeElement as HTMLElement
-      const tagName = activeElement?.tagName.toLowerCase()
+      const activeElement = document.activeElement as HTMLElement;
+      const tagName = activeElement?.tagName.toLowerCase();
       if (
         !input.current ||
         !tagName ||
         INPUTS.includes(tagName) ||
         activeElement?.isContentEditable
       )
-        return
+        return;
       if (
         e.key === '/' ||
         (e.key === 'k' &&
           (e.metaKey /* for Mac */ || /* for non-Mac */ e.ctrlKey))
       ) {
-        e.preventDefault()
+        e.preventDefault();
         // prevent to scroll to top
-        input.current.focus({ preventScroll: true })
+        input.current.focus({ preventScroll: true });
       } else if (e.key === 'Escape') {
-        setShow(false)
-        input.current.blur()
+        setShow(false);
+        input.current.blur();
       }
-    }
+    };
 
-    window.addEventListener('keydown', down)
+    window.addEventListener('keydown', down);
     return () => {
-      window.removeEventListener('keydown', down)
-    }
-  }, [])
+      window.removeEventListener('keydown', down);
+    };
+  }, []);
 
   const finishSearch = useCallback(() => {
-    input.current?.blur()
-    onChange('')
-    setShow(false)
-    setMenu(false)
-  }, [onChange, setMenu])
+    input.current?.blur();
+    onChange('');
+    setShow(false);
+    setMenu(false);
+  }, [onChange, setMenu]);
 
   const handleActive = useCallback(
     (e: { currentTarget: { dataset: DOMStringMap } }) => {
-      const { index } = e.currentTarget.dataset
-      setActive(Number(index))
+      const { index } = e.currentTarget.dataset;
+      setActive(Number(index));
     },
-    []
-  )
+    [],
+  );
 
   const handleKeyDown = useCallback(
     function <T>(e: KeyboardEvent<T>) {
@@ -101,49 +102,49 @@ export function Search({
         case 'ArrowDown': {
           if (active + 1 < results.length) {
             const el = ulRef.current?.querySelector<HTMLAnchorElement>(
-              `li:nth-of-type(${active + 2}) > a`
-            )
+              `li:nth-of-type(${active + 2}) > a`,
+            );
             if (el) {
-              e.preventDefault()
-              handleActive({ currentTarget: el })
-              el.focus()
+              e.preventDefault();
+              handleActive({ currentTarget: el });
+              el.focus();
             }
           }
-          break
+          break;
         }
         case 'ArrowUp': {
           if (active - 1 >= 0) {
             const el = ulRef.current?.querySelector<HTMLAnchorElement>(
-              `li:nth-of-type(${active}) > a`
-            )
+              `li:nth-of-type(${active}) > a`,
+            );
             if (el) {
-              e.preventDefault()
-              handleActive({ currentTarget: el })
-              el.focus()
+              e.preventDefault();
+              handleActive({ currentTarget: el });
+              el.focus();
             }
           }
-          break
+          break;
         }
         case 'Enter': {
-          const result = results[active]
+          const result = results[active];
           if (result && composition) {
-            void router.push(result.route)
-            finishSearch()
+            void router.push(result.route);
+            finishSearch();
           }
-          break
+          break;
         }
         case 'Escape': {
-          setShow(false)
-          input.current?.blur()
-          break
+          setShow(false);
+          input.current?.blur();
+          break;
         }
       }
     },
-    [active, results, router, finishSearch, handleActive, composition]
-  )
+    [active, results, router, finishSearch, handleActive, composition],
+  );
 
-  const mounted = useMounted()
-  const renderList = show && Boolean(value)
+  const mounted = useMounted();
+  const renderList = show && Boolean(value);
 
   const icon = (
     <Transition
@@ -154,8 +155,7 @@ export function Search({
       enterTo="nx-opacity-100"
       leave="nx-transition-opacity"
       leaveFrom="nx-opacity-100"
-      leaveTo="nx-opacity-0"
-    >
+      leaveTo="nx-opacity-0">
       <kbd
         className={cn(
           'nx-absolute nx-my-1.5 nx-select-none ltr:nx-right-1.5 rtl:nx-left-1.5',
@@ -165,13 +165,12 @@ export function Search({
           'nx-items-center nx-gap-1 nx-transition-opacity',
           value
             ? 'nx-z-20 nx-flex nx-cursor-pointer hover:nx-opacity-70'
-            : 'nx-pointer-events-none nx-hidden sm:nx-flex'
+            : 'nx-pointer-events-none nx-hidden sm:nx-flex',
         )}
         title={value ? 'Clear' : undefined}
         onClick={() => {
-          onChange('')
-        }}
-      >
+          onChange('');
+        }}>
         {value && focused
           ? 'ESC'
           : mounted &&
@@ -184,13 +183,13 @@ export function Search({
             ))}
       </kbd>
     </Transition>
-  )
+  );
   const handleComposition = useCallback(
     (e: CompositionEvent<HTMLInputElement>) => {
-      setComposition(e.type === 'compositionend')
+      setComposition(e.type === 'compositionend');
     },
-    []
-  )
+    [],
+  );
 
   return (
     <div className={cn('nextra-search nx-relative md:nx-w-64', className)}>
@@ -204,17 +203,17 @@ export function Search({
       <Input
         ref={input}
         value={value}
-        onChange={e => {
-          const { value } = e.target
-          onChange(value)
-          setShow(Boolean(value))
+        onChange={(e) => {
+          const { value } = e.target;
+          onChange(value);
+          setShow(Boolean(value));
         }}
         onFocus={() => {
-          onActive?.(true)
-          setFocused(true)
+          onActive?.(true);
+          setFocused(true);
         }}
         onBlur={() => {
-          setFocused(false)
+          setFocused(false);
         }}
         onCompositionStart={handleComposition}
         onCompositionEnd={handleComposition}
@@ -230,8 +229,7 @@ export function Search({
         as={Transition.Child}
         leave="nx-transition-opacity nx-duration-100"
         leaveFrom="nx-opacity-100"
-        leaveTo="nx-opacity-0"
-      >
+        leaveTo="nx-opacity-0">
         <ul
           className={cn(
             'nextra-scrollbar',
@@ -242,13 +240,12 @@ export function Search({
             'md:nx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)]',
             'nx-inset-x-0 ltr:md:nx-left-auto rtl:md:nx-right-auto',
             'contrast-more:nx-border contrast-more:nx-border-gray-900 contrast-more:dark:nx-border-gray-50',
-            overlayClassName
+            overlayClassName,
           )}
           ref={ulRef}
           style={{
-            transition: 'max-height .2s ease' // don't work with tailwindcss
-          }}
-        >
+            transition: 'max-height .2s ease', // don't work with tailwindcss
+          }}>
           {error ? (
             <span className="nx-flex nx-select-none nx-justify-center nx-gap-2 nx-p-8 nx-text-center nx-text-sm nx-text-red-500">
               <InformationCircleIcon className="nx-h-5 nx-w-5" />
@@ -269,9 +266,8 @@ export function Search({
                     'contrast-more:nx-border',
                     i === active
                       ? 'nx-bg-primary-500/10 nx-text-primary-600 contrast-more:nx-border-primary-500'
-                      : 'nx-text-gray-800 contrast-more:nx-border-transparent dark:nx-text-gray-300'
-                  )}
-                >
+                      : 'nx-text-gray-800 contrast-more:nx-border-transparent dark:nx-text-gray-300',
+                  )}>
                   <Anchor
                     className="nx-block nx-scroll-m-12 nx-px-2.5 nx-py-2"
                     href={route}
@@ -279,8 +275,7 @@ export function Search({
                     onFocus={handleActive}
                     onMouseMove={handleActive}
                     onClick={finishSearch}
-                    onKeyDown={handleKeyDown}
-                  >
+                    onKeyDown={handleKeyDown}>
                     {children}
                   </Anchor>
                 </li>
@@ -292,5 +287,5 @@ export function Search({
         </ul>
       </Transition>
     </div>
-  )
+  );
 }

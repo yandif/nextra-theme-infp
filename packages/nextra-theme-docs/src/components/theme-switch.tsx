@@ -1,37 +1,38 @@
-import { useTheme } from 'next-themes'
-import { useMounted } from 'nextra/hooks'
-import { MoonIcon, SunIcon } from 'nextra/icons'
-import type { ReactElement } from 'react'
-import { z } from 'zod'
-import { useConfig } from '../contexts'
-import { Select } from './select'
+import { useTheme } from 'next-themes';
+import { useMounted } from 'nextra/hooks';
+import { MoonIcon, SunIcon } from 'nextra/icons';
+import type { ReactElement } from 'react';
+import { z } from 'zod';
+
+import { useConfig } from '../contexts';
+import { Select } from './select';
 
 type ThemeSwitchProps = {
-  lite?: boolean
-  className?: string
-}
+  lite?: boolean;
+  className?: string;
+};
 
 export const themeOptionsSchema = z.strictObject({
   light: z.string(),
   dark: z.string(),
-  system: z.string()
-})
+  system: z.string(),
+});
 
-type ThemeOptions = z.infer<typeof themeOptionsSchema>
+type ThemeOptions = z.infer<typeof themeOptionsSchema>;
 
 export function ThemeSwitch({
   lite,
-  className
+  className,
 }: ThemeSwitchProps): ReactElement {
-  const { setTheme, resolvedTheme, theme = '' } = useTheme()
-  const mounted = useMounted()
-  const config = useConfig().themeSwitch
+  const { setTheme, resolvedTheme, theme = '' } = useTheme();
+  const mounted = useMounted();
+  const config = useConfig().themeSwitch;
 
-  const IconToUse = mounted && resolvedTheme === 'dark' ? MoonIcon : SunIcon
+  const IconToUse = mounted && resolvedTheme === 'dark' ? MoonIcon : SunIcon;
   const options: ThemeOptions =
     typeof config.useOptions === 'function'
       ? config.useOptions()
-      : config.useOptions
+      : config.useOptions;
 
   return (
     <Select
@@ -40,10 +41,10 @@ export function ThemeSwitch({
       options={[
         { key: 'light', name: options.light },
         { key: 'dark', name: options.dark },
-        { key: 'system', name: options.system }
+        { key: 'system', name: options.system },
       ]}
-      onChange={option => {
-        setTheme(option.key)
+      onChange={(option) => {
+        setTheme(option.key);
       }}
       selected={{
         key: theme,
@@ -54,8 +55,8 @@ export function ThemeSwitch({
               {mounted ? options[theme as keyof typeof options] : options.light}
             </span>
           </div>
-        )
+        ),
       }}
     />
-  )
+  );
 }
