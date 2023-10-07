@@ -1,0 +1,44 @@
+{
+  "name": "nextra-theme-infp",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "sideEffects": false,
+  "author": "Yandif <me.yandif@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/yandif/nextra-themes.git",
+    "type": "git",
+    "directory": "packages/nextra-theme-infp"
+  },
+  "keywords": [
+    "react",
+    "nextra",
+    "nextra-theme"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "rimraf ./lib && rimraf ./dist &&  pnpm build:lib && vite build",
+    "build:lib": "tsc  --project ./tsconfig.build.json"
+  },
+  "dependencies": {
+    "next": "^13.5.3",
+    "nextra": "^2.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react-swc": "^3.4.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.6.0"
+  }
+}

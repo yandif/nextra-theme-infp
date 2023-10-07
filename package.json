@@ -1,0 +1,33 @@
+{
+  "name": "nextra-themes",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Nextra Themes",
+  "main": "index.js",
+  "repository": "https://github.com/yandif/nextra-themes.git",
+  "author": "Yandif <me.yandif@gmail.com>",
+  "scripts": {
+    "build": "pnpm --stream -r run build",
+    "commit": "git-cz"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog-chinese": "^2.3.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-chinese"
+    }
+  }
+}
