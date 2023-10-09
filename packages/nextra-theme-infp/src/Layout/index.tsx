@@ -2,7 +2,7 @@ import Head from 'next/head';
 import type { NextraThemeLayoutProps } from 'nextra';
 import React from 'react';
 
-import { BackToTop } from '@/components/BackToTop';
+import { BackToTop } from '@/components/back-to-top';
 import { Button } from '@/components/ui/button';
 import { store } from '@/store';
 
