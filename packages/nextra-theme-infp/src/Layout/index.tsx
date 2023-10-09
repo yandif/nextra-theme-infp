@@ -20,7 +20,6 @@ export default function Layout({
         <meta name="og:image" content={frontMatter.image} />
       </Head>
       <Button>My Theme</Button>
-      <BackToTop />
       Table of Contents:
       <ul>
         {headings.map((heading) => (
@@ -28,6 +27,7 @@ export default function Layout({
         ))}
       </ul>
       <div style={{ border: '1px solid', minHeight: '1000px' }}>{children}</div>
+      <BackToTop>回到顶部</BackToTop>
     </div>
   );
 }

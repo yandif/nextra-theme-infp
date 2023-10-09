@@ -1,15 +1,16 @@
 import cn from 'clsx';
 import { ArrowRightIcon } from 'nextra/icons';
-import type { ReactElement } from 'react';
+import type { FC } from 'react';
 import React, { useEffect, useRef } from 'react';
 
 import { Button } from './ui/button';
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+export interface BackToTopProps {
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export function BackToTop({ className }: { className?: string }): ReactElement {
+export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {
   const ref = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     function toggleVisible() {
@@ -27,12 +28,13 @@ export function BackToTop({ className }: { className?: string }): ReactElement {
     <Button
       ref={ref}
       aria-hidden="true"
-      onClick={scrollToTop}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className={cn(
-        'fixed right-4 bottom-4 flex items-center p-0 w-8 h-8 transition shadow-md opacity-0',
+        'fixed right-4 bottom-4 flex items-center transition shadow-md opacity-0',
+        !children && 'p-0 w-8 h-8',
         className,
       )}>
-      <ArrowRightIcon className="-rotate-90 w-4 h-4" />
+      {children || <ArrowRightIcon className="-rotate-90 w-4 h-4" />}
     </Button>
   );
-}
+};
