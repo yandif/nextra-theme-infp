@@ -6,6 +6,6 @@ export const store = observable({ init: false });
 
 observe(() => {
   if (IS_BROWSER) {
-    // console.log('Latest message', store.get(true));
+    console.log('Latest message', store.get(true));
   }
 });

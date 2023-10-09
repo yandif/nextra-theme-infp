@@ -3,11 +3,7 @@
 import { observer } from '@legendapp/state/react';
 import React from 'react';
 
-import { store } from '@/store';
-
 export const NotFoundPage = observer(() => {
-  const data = store.get();
-  console.log(data);
   // const config = useConfig();
   // const mounted = useMounted();
   // const { asPath } = useRouter();
