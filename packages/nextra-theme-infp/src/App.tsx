@@ -11,6 +11,7 @@ const App = () => {
       <Header />
       <div className="h-[200vh] px-64">
         <Button
+          className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-500"
           onClick={() => {
             const next = theme === 'light' ? 'dark' : 'light';
             setTheme(next);
