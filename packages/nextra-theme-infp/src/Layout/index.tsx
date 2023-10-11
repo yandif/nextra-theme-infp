@@ -3,8 +3,6 @@ import type { NextraThemeLayoutProps } from 'nextra';
 import type { FC } from 'react';
 import React, { useEffect } from 'react';
 
-import { ThemeSwitch } from '@/components/theme-switch';
-
 import { BackToTop } from '..';
 import { Header } from './header';
 import { ThemeProvider } from './theme-provider';
@@ -21,11 +19,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
     <ThemeProvider>
       <Header />
       <div className="h-[1500px]">{children}</div>
-      <div className="w-[160px]">
-        <ThemeSwitch /> <br />
-        <ThemeSwitch lite />
-        <BackToTop />
-      </div>
+      <BackToTop />
     </ThemeProvider>
   );
 };

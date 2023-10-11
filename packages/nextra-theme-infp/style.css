@@ -704,9 +704,6 @@ video {
 .w-9 {
   width: 2.25rem;
 }
-.w-\[160px\] {
-  width: 160px;
-}
 .w-\[36px\] {
   width: 36px;
 }
@@ -1349,6 +1346,10 @@ video {
 :is(.dark .dark\:bg-dark) {
   --tw-bg-opacity: 1;
   background-color: rgb(28 33 39 / var(--tw-bg-opacity));
+}
+:is(.dark .dark\:text-gray-400) {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 :is(.dark .dark\:shadow-\[0_-1px_0_rgba\(255\2c 255\2c 255\2c \.1\)_inset\]) {
   --tw-shadow: 0 -1px 0 rgba(255,255,255,.1) inset;

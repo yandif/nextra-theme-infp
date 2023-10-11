@@ -24,9 +24,9 @@ export const DefaultThemeSchema: ThemeSchema = {
   header: {
     logo: (
       <>
-        <span className="font-extrabold">INFP</span>
-        <span className="ml-2 hidden font-normal text-gray-600 md:inline">
-          A Nextra Theme
+        <span className="text-primary font-extrabold">INFP</span>
+        <span className="ml-2 hidden text-xs font-normal text-gray-600 dark:text-gray-400 md:inline">
+          a nextra theme
         </span>
       </>
     ),
