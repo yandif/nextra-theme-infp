@@ -1,23 +1,22 @@
-import type { FC } from 'react';
+import type { ComponentProps, FC } from 'react';
 import React from 'react';
 
-export const ArrowTopIcon: FC<{ className?: string }> = ({ className }) => {
+export const ArrowTopIcon: FC<ComponentProps<'svg'>> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      strokeWidth="3"
-      stroke="currentColor"
+      width={16}
+      height={16}
       fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
-      strokeLinejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M12 5l0 14"></path>
-      <path d="M16 9l-4 -4"></path>
-      <path d="M8 9l4 -4"></path>
+      strokeLinejoin="round"
+      strokeWidth={2}
+      className="icon icon-tabler icon-tabler-arrow-up"
+      viewBox="0 0 24 24"
+      {...props}>
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M12 5v14M18 11l-6-6M6 11l6-6" />
     </svg>
   );
 };

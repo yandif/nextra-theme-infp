@@ -1,12 +1,12 @@
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
-import { MoonIcon, SunIcon } from 'nextra/icons';
 import type { ReactElement } from 'react';
 import React from 'react';
 import { z } from 'zod';
 
 import { store } from '@/store';
 
+import { MoonIcon, SunIcon, SystemIcon } from './icon';
 import {
   Select,
   SelectContent,
@@ -28,19 +28,50 @@ export const themeOptionsSchema = z.strictObject({
 
 type ThemeOptions = z.infer<typeof themeOptionsSchema>;
 
+const iconMap = {
+  light: MoonIcon,
+  dark: SunIcon,
+  system: SystemIcon,
+};
+
+const changeMap = {
+  light: 'dark',
+  dark: 'system',
+  system: 'light',
+};
+
 export function ThemeSwitch({
   lite,
   className,
 }: ThemeSwitchProps): ReactElement {
-  const { setTheme, resolvedTheme, theme = '' } = useTheme();
+  const { setTheme, theme = '' } = useTheme();
   const mounted = useMounted();
   const config = store.themeSchema.themeSwitch.get();
 
-  const IconToUse = mounted && resolvedTheme === 'dark' ? MoonIcon : SunIcon;
+  const IconToUse = mounted ? iconMap[theme as keyof typeof iconMap] : SunIcon;
   const options: ThemeOptions =
     typeof config.useOptions === 'function'
       ? config.useOptions()
       : config.useOptions;
+
+  if (lite) {
+    const handleClick = () => {
+      setTheme(changeMap[theme as keyof typeof changeMap]);
+    };
+
+    return (
+      <Select>
+        <SelectTrigger
+          className="w-[36px] p-0 flex items-center justify-center"
+          title="Change theme"
+          onClick={handleClick}
+          hideIcon
+          data-placeholder>
+          <IconToUse />
+        </SelectTrigger>
+      </Select>
+    );
+  }
 
   return (
     <Select value={theme} onValueChange={setTheme}>
@@ -50,11 +81,7 @@ export function ThemeSwitch({
         hideIcon
         data-placeholder>
         <IconToUse />
-        {mounted ? (
-          <SelectValue className={lite ? 'hidden' : ''} placeholder="Theme" />
-        ) : (
-          options.light
-        )}
+        {mounted ? <SelectValue placeholder="Theme" /> : options.light}
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="light">{options.light}</SelectItem>

@@ -681,6 +681,9 @@ video {
 .w-\[200px\] {
   width: 200px;
 }
+.w-\[36px\] {
+  width: 36px;
+}
 .w-full {
   width: 100%;
 }
