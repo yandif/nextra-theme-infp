@@ -62,7 +62,7 @@ export function ThemeSwitch({
     return (
       <Select>
         <SelectTrigger
-          className="w-[36px] p-0 flex items-center justify-center"
+          className="min-w-[36px] w-[36px] p-0 flex items-center justify-center"
           title="Change theme"
           onClick={handleClick}
           hideIcon
