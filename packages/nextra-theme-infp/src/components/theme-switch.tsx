@@ -44,7 +44,11 @@ export function ThemeSwitch({
 
   return (
     <Select value={theme} onValueChange={setTheme}>
-      <SelectTrigger className={className} title="Change theme">
+      <SelectTrigger
+        className={className}
+        title="Change theme"
+        hideIcon
+        data-placeholder>
         <IconToUse />
         {mounted ? (
           <SelectValue className={lite ? 'hidden' : ''} placeholder="Theme" />

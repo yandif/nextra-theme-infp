@@ -18,8 +18,10 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   return (
     <ThemeProvider>
       <div className="bg-container">{children}</div>
-      <ThemeSwitch /> <br />
-      <ThemeSwitch lite />
+      <div className="w-[160px]">
+        <ThemeSwitch /> <br />
+        <ThemeSwitch lite />
+      </div>
     </ThemeProvider>
   );
 };

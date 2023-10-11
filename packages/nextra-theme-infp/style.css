@@ -675,6 +675,12 @@ video {
 .w-9 {
   width: 2.25rem;
 }
+.w-\[160px\] {
+  width: 160px;
+}
+.w-\[200px\] {
+  width: 200px;
+}
 .w-full {
   width: 100%;
 }
@@ -799,6 +805,9 @@ video {
 }
 .p-1 {
   padding: 0.25rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .p-6 {
   padding: 1.5rem;
