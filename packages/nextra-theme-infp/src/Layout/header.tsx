@@ -1,9 +1,13 @@
 import { observer } from '@legendapp/state/react';
 import React from 'react';
 
+import { Anchor } from '@/components/anchor';
+import { store } from '@/store';
+import { renderComponent } from '@/utils/render';
 import { cn } from '@/utils/utils';
 
 export const Header = observer(() => {
+  const header = store.themeSchema.header.get();
   return (
     <div className="infp-header-container">
       <div
@@ -14,7 +18,19 @@ export const Header = observer(() => {
           'contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]',
         )}
       />
-      <nav className="mx-auto flex h-[var(--infp-header-height)] max-w-[90rem] items-center justify-end gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]"></nav>{' '}
+      <nav className="mx-auto flex h-[var(--infp-header-height)] max-w-[90rem] items-center justify-end gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
+        {header.logoLink ? (
+          <Anchor
+            href={typeof header.logoLink === 'string' ? header.logoLink : '/'}
+            className="flex items-center hover:opacity-75 ltr:mr-auto rtl:ml-auto">
+            {renderComponent(header.logo)}
+          </Anchor>
+        ) : (
+          <div className="flex items-center ltr:mr-auto rtl:ml-auto">
+            {renderComponent(header.logo)}
+          </div>
+        )}
+      </nav>
     </div>
   );
 });

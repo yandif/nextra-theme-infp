@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import { ThemeSwitch } from '@/components/theme-switch';
 
-export const DefaultThemeSchema = {
+import type { ThemeSchema } from './theme-schema';
+
+export const DefaultThemeSchema: ThemeSchema = {
   nextThemes: {
     defaultTheme: 'system',
     storageKey: 'theme',
@@ -17,5 +20,16 @@ export const DefaultThemeSchema = {
       }
       return { dark: 'Dark', light: 'Light', system: 'System' };
     },
+  },
+  header: {
+    logo: (
+      <>
+        <span className="font-extrabold">INFP</span>
+        <span className="ml-2 hidden font-normal text-gray-600 md:inline">
+          A Nextra Theme
+        </span>
+      </>
+    ),
+    logoLink: true,
   },
 };

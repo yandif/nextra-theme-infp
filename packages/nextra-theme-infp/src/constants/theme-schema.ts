@@ -30,6 +30,10 @@ export const themeSchema = z.strictObject({
     ),
     useOptions: themeOptionsSchema.or(z.function().returns(themeOptionsSchema)),
   }),
+  header: z.strictObject({
+    logo: z.custom<ReactNode | FC>(...reactNode),
+    logoLink: z.boolean().or(z.string()),
+  }),
 });
 
 export type ThemeSchema = z.infer<typeof themeSchema>;
