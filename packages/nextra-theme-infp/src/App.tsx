@@ -1,9 +1,28 @@
-import type { NextraThemeLayoutProps } from 'nextra';
 import React from 'react';
 
-import Layout from './layout';
-import { context } from './utils/data';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './components/ui/select';
 const App = () => {
-  return <Layout {...(context as any as NextraThemeLayoutProps)}>123</Layout>;
+  return (
+    <Select
+      value="light"
+      onValueChange={(value) => {
+        console.log(value);
+      }}>
+      <SelectTrigger title="Change theme">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="light">light</SelectItem>
+        <SelectItem value="dark">dark</SelectItem>
+        <SelectItem value="system">system</SelectItem>
+      </SelectContent>
+    </Select>
+  );
 };
 export default App;

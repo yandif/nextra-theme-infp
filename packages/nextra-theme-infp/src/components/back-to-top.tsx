@@ -1,6 +1,7 @@
-import cn from 'clsx';
 import type { FC } from 'react';
 import React, { useEffect, useRef } from 'react';
+
+import { cn } from '@/utils/utils';
 
 import { ArrowTopIcon } from './icon/arrow-top';
 import { Button } from './ui/button';
