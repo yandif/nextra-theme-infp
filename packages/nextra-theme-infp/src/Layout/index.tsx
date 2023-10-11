@@ -5,6 +5,8 @@ import React, { useEffect } from 'react';
 
 import { ThemeSwitch } from '@/components/theme-switch';
 
+import { BackToTop } from '..';
+import { Header } from './header';
 import { ThemeProvider } from './theme-provider';
 
 const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
@@ -17,10 +19,12 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
 
   return (
     <ThemeProvider>
-      <div className="bg-container">{children}</div>
+      <Header />
+      <div className="h-[1500px]">{children}</div>
       <div className="w-[160px]">
         <ThemeSwitch /> <br />
         <ThemeSwitch lite />
+        <BackToTop />
       </div>
     </ThemeProvider>
   );

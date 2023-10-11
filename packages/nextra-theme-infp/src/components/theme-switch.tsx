@@ -29,8 +29,8 @@ export const themeOptionsSchema = z.strictObject({
 type ThemeOptions = z.infer<typeof themeOptionsSchema>;
 
 const iconMap = {
-  light: MoonIcon,
-  dark: SunIcon,
+  light: SunIcon,
+  dark: MoonIcon,
   system: SystemIcon,
 };
 
@@ -66,6 +66,7 @@ export function ThemeSwitch({
           title="Change theme"
           onClick={handleClick}
           hideIcon
+          hideRing
           data-placeholder>
           <IconToUse />
         </SelectTrigger>
@@ -79,6 +80,7 @@ export function ThemeSwitch({
         className={className}
         title="Change theme"
         hideIcon
+        hideRing
         data-placeholder>
         <IconToUse />
         {mounted ? <SelectValue placeholder="Theme" /> : options.light}

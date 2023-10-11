@@ -1,30 +1,36 @@
 import React from 'react';
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './components/ui/select';
+import { BackToTop } from './components/back-to-top';
+import { Button } from './components/ui/button';
+import { Header } from './layout/header';
+
 const App = () => {
+  const [theme, setTheme] = React.useState('light');
   return (
-    <div className="w-[200px] p-4">
-      <Select
-        value="light"
-        onValueChange={(value) => {
-          console.log(value);
-        }}>
-        <SelectTrigger className="focus:outline-none" title="Change theme">
-          <SelectValue placeholder="Theme" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="light">light</SelectItem>
-          <SelectItem value="dark">dark</SelectItem>
-          <SelectItem value="system">system</SelectItem>
-        </SelectContent>
-      </Select>
-    </div>
+    <>
+      <Header />
+      <div className="h-[200vh] px-64">
+        <Button
+          onClick={() => {
+            const next = theme === 'light' ? 'dark' : 'light';
+            setTheme(next);
+            const html = document.querySelector('html');
+            html?.setAttribute('class', next);
+            html?.setAttribute('style', 'color-scheme: ' + next + ';');
+          }}>
+          {theme === 'light' ? 'Dark' : 'Light'}
+        </Button>
+        {new Array(20).fill(
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            deleniti nostrum accusantium molestiae, eum suscipit sunt illum
+            cupiditate consequuntur porro obcaecati fuga beatae dolor
+            consectetur tempore praesentium assumenda ab! Similique.
+          </h1>,
+        )}
+      </div>
+      <BackToTop />
+    </>
   );
 };
 export default App;

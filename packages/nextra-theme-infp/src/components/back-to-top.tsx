@@ -28,7 +28,7 @@ export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {
   return (
     <Button
       ref={ref}
-      variant="secondary"
+      variant="outline"
       aria-hidden="true"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className={cn(

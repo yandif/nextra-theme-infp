@@ -29,10 +29,10 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "vite",
     "build": "rimraf ./lib && rimraf ./dist && rimraf ./style.css &&  pnpm build:lib && vite build && pnpm build:tailwind",
+    "dev": "vite",
     "build:lib": "tsc -p ./tsconfig.build.json && tsc-alias -p ./tsconfig.build.json",
-    "build:tailwind": "pnpm postcss src/style.css -o style.css --verbose"
+    "build:tailwind": "pnpm postcss src/css/index.css -o style.css --verbose --minify"
   },
   "dependencies": {
     "@legendapp/state": "^1.11.3",
