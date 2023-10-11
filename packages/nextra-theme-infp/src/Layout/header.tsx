@@ -38,7 +38,9 @@ export const Menu = observer(({ isAtTop }: { isAtTop: boolean }) => {
           'hidden md:flex items-center justify-center px-6 h-9 rounded-full overflow-x-auto no-scrollbar',
           isAtTop && styles.shadow,
         )}>
-        {new Array(20).fill(<span className="mx-2 font-bold">编程</span>)}
+        {new Array(20).fill(
+          <span className="mx-2 whitespace-nowrap">编程</span>,
+        )}
       </div>
     </div>
   );
