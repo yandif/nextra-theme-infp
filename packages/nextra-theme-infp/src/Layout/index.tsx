@@ -22,6 +22,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
     <div className={theme}>
       <div className="bg-container">
         <Button
+          variant={'ghost'}
           onClick={() => {
             store.theme.set(theme === 'light' ? 'dark' : 'light');
           }}>

@@ -1,8 +1,8 @@
 import cn from 'clsx';
-import { ArrowRightIcon } from 'nextra/icons';
 import type { FC } from 'react';
 import React, { useEffect, useRef } from 'react';
 
+import { ArrowTopIcon } from './icon/arrow-top';
 import { Button } from './ui/button';
 
 export interface BackToTopProps {
@@ -27,6 +27,7 @@ export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {
   return (
     <Button
       ref={ref}
+      variant="outline"
       aria-hidden="true"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className={cn(
@@ -34,7 +35,7 @@ export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {
         !children && 'p-0 w-8 h-8',
         className,
       )}>
-      {children || <ArrowRightIcon className="-rotate-90 w-4 h-4" />}
+      {children || <ArrowTopIcon className="w-4 h-4" />}
     </Button>
   );
 };
