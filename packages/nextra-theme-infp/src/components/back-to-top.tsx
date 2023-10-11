@@ -27,11 +27,11 @@ export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {
   return (
     <Button
       ref={ref}
-      variant="outline"
+      variant="secondary"
       aria-hidden="true"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className={cn(
-        'fixed right-4 bottom-4 flex items-center transition shadow-md opacity-0',
+        'fixed right-4 bottom-4 flex items-center transition shadow-sm opacity-0',
         !children && 'p-0 w-8 h-8',
         className,
       )}>
