@@ -45,7 +45,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
       <Head />
       <Banner />
       <Header />
-      <div className="h-[1500px] px-80">{children}</div>
+      <div className="h-[1500px]">{children}</div>
       <BackToTop />
     </ThemeProvider>
   );

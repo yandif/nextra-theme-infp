@@ -1,5 +1,8 @@
 import 'nextra-theme-infp/style.css';
 import "./a.css"
+import {store} from "nextra-theme-infp";
+
 export default function MyApp({ Component, pageProps }) {
+  console.log(store)
   return <Component {...pageProps} />;
 }
