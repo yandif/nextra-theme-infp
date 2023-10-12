@@ -9,7 +9,7 @@ import { renderComponent } from '@/utils/render';
 import { cn } from '@/utils/utils';
 
 export const Logo = observer(() => {
-  const header = store.themeSchema.header.get();
+  const header = store.themeConfig.header.get();
   const { logoLink, logo } = header;
 
   return logoLink ? (

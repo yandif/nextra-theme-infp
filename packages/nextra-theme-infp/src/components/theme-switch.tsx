@@ -46,7 +46,7 @@ export function ThemeSwitch({
 }: ThemeSwitchProps): ReactElement {
   const { setTheme, theme = '' } = useTheme();
   const mounted = useMounted();
-  const config = store.themeSchema.themeSwitch.get();
+  const config = store.themeConfig.themeSwitch.get();
 
   const IconToUse = mounted ? iconMap[theme as keyof typeof iconMap] : SunIcon;
   const options: ThemeOptions =

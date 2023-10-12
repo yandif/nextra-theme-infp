@@ -7,7 +7,7 @@ import { store } from '@/store';
 import { renderComponent } from '@/utils/render';
 
 export const Banner = observer(() => {
-  const banner = store.themeSchema.banner.get();
+  const banner = store.themeConfig.banner.get();
   if (!banner.text) {
     return null;
   }
@@ -21,7 +21,7 @@ export const Banner = observer(() => {
       <div
         className={cn(
           'infp-banner-container sticky top-0 z-20 flex items-center md:relative',
-          'h-[var(--infp-x-height)] [body.infp-banner-hidden_&]:hidden',
+          'h-[var(--infp-banner-height)] [body.infp-banner-hidden_&]:hidden',
           'text-slate-50 dark:text-white bg-neutral-900 dark:bg-[linear-gradient(1deg,#383838,#212121)]',
           'px-2 ltr:pl-10 rtl:pr-10 print:hidden',
         )}>

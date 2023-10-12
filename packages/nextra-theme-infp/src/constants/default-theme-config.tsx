@@ -3,9 +3,9 @@ import React from 'react';
 
 import { ThemeSwitch } from '@/components/theme-switch';
 
-import type { ThemeSchema } from './theme-schema';
+import type { ThemeConfig } from './theme-schema';
 
-export const DefaultThemeSchema: ThemeSchema = {
+export const defaultThemeConfig: ThemeConfig = {
   nextThemes: {
     defaultTheme: 'system',
     storageKey: 'theme',
@@ -21,6 +21,27 @@ export const DefaultThemeSchema: ThemeSchema = {
       return { dark: 'Dark', light: 'Light', system: 'System' };
     },
   },
+  useNextSeoProps: () => ({ titleTemplate: '%s – Nextra' }),
+  primaryHue: {
+    dark: 204,
+    light: 212,
+  },
+  primarySaturation: {
+    dark: 100,
+    light: 100,
+  },
+  head: (
+    <>
+      <meta name="msapplication-TileColor" content="#fff" />
+      <meta httpEquiv="Content-Language" content="en" />
+      <meta name="description" content="INFP: a nextra theme" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@shuding_" />
+      <meta property="og:title" content="INFP: a nextra theme" />
+      <meta property="og:description" content="INFP: a nextra theme" />
+      <meta name="apple-mobile-web-app-title" content="INFP" />
+    </>
+  ),
   banner: {
     dismissible: true,
     key: 'infp-banner',

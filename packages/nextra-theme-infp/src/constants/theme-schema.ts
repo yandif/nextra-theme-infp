@@ -1,4 +1,5 @@
 import { isFunction } from 'lodash';
+import type { NextSeoProps } from 'next-seo';
 import { type FC, isValidElement, type ReactNode } from 'react';
 import { z } from 'zod';
 
@@ -18,6 +19,14 @@ const reactNode = [
   { message: 'Must be React.ReactNode or React.FC' },
 ] as const;
 
+const i18nSchema = z.array(
+  z.strictObject({
+    direction: z.enum(['ltr', 'rtl']).optional(),
+    locale: z.string(),
+    text: z.string(),
+  }),
+);
+
 export const themeSchema = z.strictObject({
   nextThemes: z.strictObject({
     defaultTheme: z.string(),
@@ -30,6 +39,22 @@ export const themeSchema = z.strictObject({
     ),
     useOptions: themeOptionsSchema.or(z.function().returns(themeOptionsSchema)),
   }),
+  title: z.string().optional(),
+  faviconGlyph: z.string().optional(),
+  useNextSeoProps: z.custom<() => NextSeoProps | void>(isFunction),
+  head: z.custom<ReactNode | FC>(...reactNode),
+  primaryHue: z.number().or(
+    z.strictObject({
+      dark: z.number(),
+      light: z.number(),
+    }),
+  ),
+  primarySaturation: z.number().or(
+    z.strictObject({
+      dark: z.number(),
+      light: z.number(),
+    }),
+  ),
   banner: z.strictObject({
     dismissible: z.boolean(),
     key: z.string(),
@@ -41,4 +66,9 @@ export const themeSchema = z.strictObject({
   }),
 });
 
-export type ThemeSchema = z.infer<typeof themeSchema>;
+const publicThemeSchema = themeSchema.deepPartial().extend({
+  i18n: i18nSchema.optional(),
+});
+
+export type ThemeConfig = z.infer<typeof themeSchema>;
+export type PartialThemeConfig = z.infer<typeof publicThemeSchema>;

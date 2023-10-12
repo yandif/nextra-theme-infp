@@ -11,7 +11,7 @@ export type ThemeProviderProps = {
 
 export const ThemeProvider: FC<ThemeProviderProps> = observer(
   ({ children }) => {
-    const nextThemes = store.themeSchema.nextThemes.get();
+    const nextThemes = store.themeConfig.nextThemes.get();
     return (
       <Provider
         attribute="class"
