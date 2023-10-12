@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { isValidElement } from 'react';
 
 import { ThemeSwitch } from '@/components/theme-switch';
 
@@ -22,14 +22,6 @@ export const defaultThemeConfig: ThemeConfig = {
     },
   },
   useNextSeoProps: () => ({ titleTemplate: '%s – Nextra' }),
-  primaryHue: {
-    dark: 204,
-    light: 212,
-  },
-  primarySaturation: {
-    dark: 100,
-    light: 100,
-  },
   head: (
     <>
       <meta name="msapplication-TileColor" content="#fff" />
@@ -59,3 +51,16 @@ export const defaultThemeConfig: ThemeConfig = {
     logoLink: true,
   },
 };
+
+export const DEEP_OBJECT_KEYS = Object.entries(defaultThemeConfig)
+  .map(([key, value]) => {
+    const isObject =
+      value &&
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      !isValidElement(value);
+    if (isObject) {
+      return key;
+    }
+  })
+  .filter(Boolean);

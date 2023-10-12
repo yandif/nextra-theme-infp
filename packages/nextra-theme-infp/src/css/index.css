@@ -53,6 +53,9 @@
 }
 
 @layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
   body {
     @apply w-full bg-white dark:bg-dark dark:text-gray-100;
     transition-property: color, background-color;

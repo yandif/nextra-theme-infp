@@ -43,18 +43,6 @@ export const themeSchema = z.strictObject({
   faviconGlyph: z.string().optional(),
   useNextSeoProps: z.custom<() => NextSeoProps | void>(isFunction),
   head: z.custom<ReactNode | FC>(...reactNode),
-  primaryHue: z.number().or(
-    z.strictObject({
-      dark: z.number(),
-      light: z.number(),
-    }),
-  ),
-  primarySaturation: z.number().or(
-    z.strictObject({
-      dark: z.number(),
-      light: z.number(),
-    }),
-  ),
   banner: z.strictObject({
     dismissible: z.boolean(),
     key: z.string(),

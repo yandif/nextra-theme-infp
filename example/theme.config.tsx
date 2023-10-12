@@ -4,6 +4,11 @@ import type { DocsThemeConfig } from 'nextra-theme-docs';
 import useLocalesMap from './hooks/use-locales-map';
 
 const config: DocsThemeConfig = {
+  banner: {
+    dismissible: true,
+    key: 'infp-banner',
+    text: '这是一个Banner1111！',
+  },
   logo: () => (
     <h1 style={{ fontSize: 20, color: '#228BE6' }}>
       {useLocalesMap({

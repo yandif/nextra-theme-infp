@@ -2,7 +2,6 @@ import { observable, observe } from '@legendapp/state';
 import type { PageOpts } from 'nextra';
 
 import { IS_BROWSER } from '@/constants';
-import { defaultThemeConfig } from '@/constants/default-theme-config';
 import type { ThemeConfig } from '@/constants/theme-schema';
 
 export const store = observable<{
@@ -10,7 +9,7 @@ export const store = observable<{
   pageOpts: PageOpts;
   pageProps: any;
 }>({
-  themeConfig: defaultThemeConfig,
+  themeConfig: {} as ThemeConfig,
   pageOpts: {} as PageOpts,
   pageProps: {},
 });
