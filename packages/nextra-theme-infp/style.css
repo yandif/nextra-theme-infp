@@ -614,10 +614,6 @@ video {
   margin-left: -0.25rem;
   margin-right: -0.25rem;
 }
-.mx-16 {
-  margin-left: 4rem;
-  margin-right: 4rem;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -776,6 +772,9 @@ video {
 .items-center {
   align-items: center;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-end {
   justify-content: flex-end;
 }
@@ -912,6 +911,10 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.px-80 {
+  padding-left: 20rem;
+  padding-right: 20rem;
 }
 .py-1 {
   padding-top: 0.25rem;

@@ -8,11 +8,6 @@ import { store } from '@/store';
 import { renderComponent } from '@/utils/render';
 import { cn } from '@/utils/utils';
 
-const styles = {
-  shadow:
-    'transition-[box-shadow] shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset]',
-};
-
 export const Logo = observer(() => {
   const header = store.themeSchema.header.get();
   const { logoLink, logo } = header;
@@ -30,15 +25,14 @@ export const Logo = observer(() => {
   );
 });
 
-export const Menu = observer(({ isAtTop }: { isAtTop: boolean }) => {
+export const Menu = observer(() => {
   return (
-    <div className="flex flex-1 sticky top-0 items-center justify-center h-[64px] overflow-hidden mx-16">
+    <div className="flex flex-1 sticky top-0 items-center justify-end overflow-hidden">
       <div
         className={cn(
-          'hidden md:flex items-center justify-center px-6 h-9 rounded-full overflow-x-auto no-scrollbar',
-          isAtTop && styles.shadow,
+          'hidden md:flex items-center justify-start h-9 rounded-full overflow-x-auto no-scrollbar',
         )}>
-        {new Array(20).fill(
+        {new Array(8).fill(
           <span className="mx-2 whitespace-nowrap">编程</span>,
         )}
       </div>
@@ -55,13 +49,14 @@ export const Header = observer(() => {
         className={cn(
           'infp-header-container-blur',
           'pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark',
-          !isAtTop && styles.shadow,
+          !isAtTop &&
+            'transition-[box-shadow] shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset]',
           'contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]',
         )}
       />
       <nav className="mx-auto flex h-[var(--infp-header-height)] max-w-[90rem] items-center justify-end gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
         <Logo />
-        <Menu isAtTop={isAtTop} />
+        <Menu />
         <ThemeSwitch lite />
       </nav>
     </div>
