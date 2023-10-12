@@ -1,0 +1,12 @@
+:root {
+  --infp-x-height: 2rem;
+}
+
+.infp-banner-hidden {
+  .infp-banner-container ~ div .infp-sidebar-container {
+    @apply pt-16;
+  }
+  .infp-header-container {
+    @apply !top-0;
+  }
+}

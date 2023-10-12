@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Diff from '../../../example/code/tool/diff';
 import { BackToTop } from './components/back-to-top';
 import { Button } from './components/ui/button';
 import { useIsAtTop } from './hooks/use-is-at-top';
 import { cn } from './utils/utils';
+
 const App = () => {
   const [theme, setTheme] = React.useState('light');
   const isAtTop = useIsAtTop();
@@ -40,7 +40,6 @@ const App = () => {
             consectetur tempore praesentium assumenda ab! Similique.
           </h1>,
         )}
-        <Diff />
       </div>
       <BackToTop />
     </>

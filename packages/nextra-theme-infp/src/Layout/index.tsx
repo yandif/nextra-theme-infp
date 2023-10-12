@@ -3,7 +3,9 @@ import type { NextraThemeLayoutProps } from 'nextra';
 import type { FC } from 'react';
 import React, { useEffect } from 'react';
 
-import { BackToTop } from '..';
+import { BackToTop } from '@/components/back-to-top';
+
+import { Banner } from './banner';
 import { Header } from './header';
 import { ThemeProvider } from './theme-provider';
 
@@ -17,6 +19,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
 
   return (
     <ThemeProvider>
+      <Banner />
       <Header />
       <div className="h-[1500px] px-80">{children}</div>
       <BackToTop />

@@ -21,6 +21,11 @@ export const DefaultThemeSchema: ThemeSchema = {
       return { dark: 'Dark', light: 'Light', system: 'System' };
     },
   },
+  banner: {
+    dismissible: true,
+    key: 'infp-banner',
+    text: '这是一个Banner！',
+  },
   header: {
     logo: (
       <>

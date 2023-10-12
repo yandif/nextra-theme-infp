@@ -30,6 +30,11 @@ export const themeSchema = z.strictObject({
     ),
     useOptions: themeOptionsSchema.or(z.function().returns(themeOptionsSchema)),
   }),
+  banner: z.strictObject({
+    dismissible: z.boolean(),
+    key: z.string(),
+    text: z.custom<ReactNode | FC>(...reactNode).optional(),
+  }),
   header: z.strictObject({
     logo: z.custom<ReactNode | FC>(...reactNode),
     logoLink: z.boolean().or(z.string()),
