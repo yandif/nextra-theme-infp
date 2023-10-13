@@ -1,5 +1,10 @@
 {
-  "index": { "title": "简介", "type": "page", "display": "hidden" },
+  "index": {
+    "title": "简介",
+    "type": "page",
+    "display": "hidden",
+    "createdDate": "2023-10-13"
+  },
   "notes": { "title": "笔记", "type": "page" },
   "stars": { "title": "收藏", "type": "page" },
   "tool": { "title": "工具", "type": "page" },
