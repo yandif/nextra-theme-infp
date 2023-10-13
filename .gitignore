@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 lib
-!packages/nextra-theme-infp/style.css
+packages/nextra-theme-infp/style.css
