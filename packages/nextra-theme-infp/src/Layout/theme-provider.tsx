@@ -3,7 +3,7 @@ import { ThemeProvider as Provider } from 'next-themes';
 import type { FC } from 'react';
 import React from 'react';
 
-import { useConfig } from '@/config/context';
+import { useStore } from '@/config/context';
 
 export type ThemeProviderProps = {
   children?: React.ReactNode;
@@ -11,7 +11,7 @@ export type ThemeProviderProps = {
 
 export const ThemeProvider: FC<ThemeProviderProps> = observer(
   ({ children }) => {
-    const nextThemes = useConfig().themeConfig.nextThemes.get();
+    const nextThemes = useStore().themeConfig.nextThemes.get();
     return (
       <Provider
         attribute="class"

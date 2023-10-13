@@ -3,13 +3,13 @@ import React from 'react';
 
 import { Anchor } from '@/components/anchor';
 import { ThemeSwitch } from '@/components/theme-switch';
-import { useConfig } from '@/config/context';
+import { useStore } from '@/config/context';
 import { useIsAtTop } from '@/hooks/use-is-at-top';
 import { renderComponent } from '@/utils/render';
 import { cn } from '@/utils/utils';
 
 export const Logo = observer(() => {
-  const header = useConfig().themeConfig.header.get();
+  const header = useStore().themeConfig.header.get();
   const { logoLink, logo } = header;
 
   return logoLink ? (

@@ -3,11 +3,11 @@ import cn from 'clsx';
 import React from 'react';
 
 import { XIcon } from '@/components/icon';
-import { useConfig } from '@/config/context';
+import { useStore } from '@/config/context';
 import { renderComponent } from '@/utils/render';
 
 export const Banner = observer(() => {
-  const banner = useConfig().themeConfig.banner.get();
+  const banner = useStore().themeConfig.banner.get();
   if (!banner.text) {
     return null;
   }

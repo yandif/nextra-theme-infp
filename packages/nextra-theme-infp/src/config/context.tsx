@@ -7,40 +7,35 @@ import React, { createContext, useContext } from 'react';
 
 import { defaultThemeConfig, mergeThemeConfig } from './default-theme-config';
 
-type Config = {
+type Store = {
   themeConfig: ThemeConfig;
   pageOpts: PageOpts;
   pageProps: any;
 };
 
-const config: ObservableObject<Config> = observable({
-  themeConfig: defaultThemeConfig,
-  pageOpts: {} as PageOpts,
-  pageProps: {},
-});
+const StoreContext = createContext<ObservableObject<Store>>(
+  observable({
+    themeConfig: defaultThemeConfig,
+    pageOpts: {} as PageOpts,
+    pageProps: {},
+  }),
+);
 
-const ConfigContext = createContext(config);
+export const useStore = () => useContext(StoreContext);
 
-export const useConfig = () => useContext(ConfigContext);
-
-export type ConfigProviderProps = {
+export const StoreProvider: FC<{
   value: { pageOpts: PageOpts; pageProps: any; themeConfig: ThemeConfig };
   children: ReactNode;
-};
-
-export const ConfigProvider: FC<ConfigProviderProps> = ({
-  children,
-  value,
-}) => {
+}> = ({ children, value }) => {
   const { pageOpts, pageProps, themeConfig } = value;
 
-  const config = useObservable<Config>({
+  const store = useObservable<Store>({
     pageOpts,
     pageProps,
     themeConfig: mergeThemeConfig(themeConfig),
   });
 
   return (
-    <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
   );
 };

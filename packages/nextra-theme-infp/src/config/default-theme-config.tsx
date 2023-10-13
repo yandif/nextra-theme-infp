@@ -49,20 +49,20 @@ export const defaultThemeConfig: ThemeConfig = {
   },
 };
 
-const deepKeys = Object.entries(defaultThemeConfig)
-  .map(([key, value]) => {
-    const isObject =
-      value &&
-      typeof value === 'object' &&
-      !Array.isArray(value) &&
-      !isValidElement(value);
-    if (isObject) {
-      return key;
-    }
-  })
-  .filter(Boolean);
-
 export const mergeThemeConfig = (themeConfig: any) => {
+  const deepKeys = Object.entries(defaultThemeConfig)
+    .map(([key, value]) => {
+      const isObject =
+        value &&
+        typeof value === 'object' &&
+        !Array.isArray(value) &&
+        !isValidElement(value);
+      if (isObject) {
+        return key;
+      }
+    })
+    .filter(Boolean);
+
   return {
     ...defaultThemeConfig,
     ...Object.fromEntries(

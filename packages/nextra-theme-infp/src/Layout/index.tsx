@@ -1,12 +1,10 @@
-import { observer, useObservable } from '@legendapp/state/react';
+import { observer } from '@legendapp/state/react';
 import type { NextraThemeLayoutProps } from 'nextra';
 import type { FC } from 'react';
 import React from 'react';
 
 import { BackToTop } from '@/components/back-to-top';
-import type { INFPConfig } from '@/config/context';
-import { ConfigProvider } from '@/config/context';
-import { mergeThemeConfig } from '@/config/default-theme-config';
+import { StoreProvider } from '@/config/context';
 
 import { Banner } from './banner';
 import { Head } from './head';
@@ -15,7 +13,7 @@ import { ThemeProvider } from './theme-provider';
 
 const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   return (
-    <ConfigProvider value={context}>
+    <StoreProvider value={context}>
       <ThemeProvider>
         <Head />
         <Banner />
@@ -25,7 +23,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
         </div>
         <BackToTop />
       </ThemeProvider>
-    </ConfigProvider>
+    </StoreProvider>
   );
 };
 

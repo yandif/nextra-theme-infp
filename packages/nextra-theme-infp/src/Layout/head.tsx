@@ -7,10 +7,10 @@ import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
 import React from 'react';
 
-import { useConfig } from '@/config/context';
+import { useStore } from '@/config/context';
 
 export const Head = observer(() => {
-  const context = useConfig();
+  const context = useStore();
   const config = context.themeConfig.get();
   const pageOpts = context.pageOpts.get();
   const { resolvedTheme } = useTheme();
