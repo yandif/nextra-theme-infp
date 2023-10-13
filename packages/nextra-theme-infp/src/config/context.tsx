@@ -3,7 +3,7 @@ import { observable } from '@legendapp/state';
 import { useObservable } from '@legendapp/state/react';
 import type { PageOpts, ThemeConfig } from 'nextra';
 import type { FC, ReactNode } from 'react';
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
 import { defaultThemeConfig, mergeThemeConfig } from './default-theme-config';
 
@@ -34,6 +34,10 @@ export const StoreProvider: FC<{
     pageProps,
     themeConfig: mergeThemeConfig(themeConfig),
   });
+
+  useEffect(() => {
+    console.log(store.get(true));
+  }, []);
 
   return (
     <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

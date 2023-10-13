@@ -10,14 +10,15 @@ import React from 'react';
 import { useStore } from '@/config/context';
 
 export const Head = observer(() => {
-  const context = useStore();
-  const config = context.themeConfig.get();
-  const pageOpts = context.pageOpts.get();
+  const store = useStore();
+  const config = store.themeConfig.get();
+  const pageOpts = store.pageOpts.get();
+
   const { resolvedTheme } = useTheme();
   const mounted = useMounted();
 
   const head = isFunction(config.head) ? config.head({}) : config.head;
-  console.log(pageOpts);
+
   const frontMatter = pageOpts.frontMatter as NextSeoProps;
 
   return (

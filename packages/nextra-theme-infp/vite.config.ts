@@ -1,5 +1,6 @@
+import path from 'node:path';
+
 import react from '@vitejs/plugin-react-swc';
-import path from 'path';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -20,9 +21,15 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['react', 'nextra'],
+      external: ['path', 'fs', 'stream', 'zlib', 'react', 'nextra', 'next'],
       output: {
-        globals: { react: 'React' },
+        globals: {
+          react: 'React',
+          path: 'path',
+          fs: 'fs',
+          stream: 'stream',
+          zlib: 'zlib',
+        },
       },
     },
   },
