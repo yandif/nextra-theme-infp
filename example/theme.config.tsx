@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import type { DocsThemeConfig } from 'nextra-theme-docs';
 
 import useLocalesMap from './hooks/use-locales-map';
@@ -113,11 +114,10 @@ const config: DocsThemeConfig = {
         <meta httpEquiv="Content-Language" content="en" />
         <meta name="description" content={description} />
         <link rel="icon" href="/yandif.svg" />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}></script>
-        <script></script>
-        <script
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
+        />
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

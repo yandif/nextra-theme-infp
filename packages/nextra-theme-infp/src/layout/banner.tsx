@@ -1,5 +1,6 @@
 import { observer } from '@legendapp/state/react';
 import cn from 'clsx';
+import Script from 'next/script';
 import React from 'react';
 
 import { XIcon } from '@/components/icon';
@@ -17,7 +18,7 @@ export const Banner = observer(() => {
 
   return (
     <>
-      <script dangerouslySetInnerHTML={{ __html: hideBannerScript }} />
+      <Script dangerouslySetInnerHTML={{ __html: hideBannerScript }} />
       <div
         className={cn(
           'infp-banner-container sticky top-0 z-20 flex items-center md:relative',
