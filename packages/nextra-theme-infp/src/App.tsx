@@ -2,6 +2,11 @@ import React from 'react';
 
 import { BackToTop } from './components/back-to-top';
 import { Button } from './components/ui/button';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from './components/ui/collapsible';
 import { useIsAtTop } from './hooks/use-is-at-top';
 import { cn } from './utils/utils';
 
@@ -20,6 +25,14 @@ const App = () => {
           menu
         </div>
       </div>
+      <Collapsible>
+        <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+        <CollapsibleContent>
+          Yes. Free to use for personal and commercial projects. No attribution
+          required.
+        </CollapsibleContent>
+      </Collapsible>
+
       <div className="h-[200vh] px-64">
         <Button
           className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-500"

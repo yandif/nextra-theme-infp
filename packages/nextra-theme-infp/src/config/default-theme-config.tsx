@@ -47,6 +47,7 @@ export const defaultThemeConfig: ThemeConfig = {
     ),
     logoLink: true,
   },
+  components: {},
 };
 
 export const mergeThemeConfig = (themeConfig: any) => {

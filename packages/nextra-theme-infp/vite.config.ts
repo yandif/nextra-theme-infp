@@ -21,7 +21,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['path', 'fs', 'stream', 'zlib', 'react', 'nextra', 'next'],
+      external: ['path', 'fs', 'stream', 'zlib', 'react', 'nextra', 'util'],
       output: {
         globals: {
           react: 'React',
@@ -29,6 +29,7 @@ export default defineConfig({
           fs: 'fs',
           stream: 'stream',
           zlib: 'zlib',
+          util: 'util',
         },
       },
     },

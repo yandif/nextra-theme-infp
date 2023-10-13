@@ -19,6 +19,8 @@ const reactNode = [
   { message: 'Must be React.ReactNode or React.FC' },
 ] as const;
 
+const fc = [isFunction, { message: 'Must be React.FC' }] as const;
+
 const i18nSchema = z.array(
   z.strictObject({
     direction: z.enum(['ltr', 'rtl']).optional(),
@@ -52,6 +54,7 @@ export const themeSchema = z.strictObject({
     logo: z.custom<ReactNode | FC>(...reactNode),
     logoLink: z.boolean().or(z.string()),
   }),
+  components: z.record(z.custom<FC>(...fc)).optional(),
 });
 
 const publicThemeSchema = themeSchema.deepPartial().extend({

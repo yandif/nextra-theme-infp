@@ -27,7 +27,7 @@ export const Logo = observer(() => {
 
 export const Menu = observer(() => {
   return (
-    <div className="flex flex-1 sticky top-0 items-center justify-end overflow-hidden">
+    <div className="flex flex-1 items-center justify-end overflow-hidden">
       <div
         className={cn(
           'hidden md:flex items-center justify-start h-9 rounded-full overflow-x-auto no-scrollbar',

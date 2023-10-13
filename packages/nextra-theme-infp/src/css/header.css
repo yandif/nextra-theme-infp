@@ -1,7 +1,5 @@
-.infp-header {
-  &-container {
-    @apply sticky top-0 z-20 w-full bg-transparent print:hidden;
-  }
+.infp-header-container {
+  @apply sticky top-0 z-20 w-full bg-transparent print:hidden;
 }
 
 :root {

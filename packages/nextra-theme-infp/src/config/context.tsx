@@ -1,11 +1,12 @@
 import type { ObservableObject } from '@legendapp/state';
 import { observable } from '@legendapp/state';
 import { useObservable } from '@legendapp/state/react';
-import type { PageOpts, ThemeConfig } from 'nextra';
+import type { PageOpts } from 'nextra';
 import type { FC, ReactNode } from 'react';
 import React, { createContext, useContext, useEffect } from 'react';
 
 import { defaultThemeConfig, mergeThemeConfig } from './default-theme-config';
+import type { ThemeConfig } from './theme-schema';
 
 type Store = {
   themeConfig: ThemeConfig;
