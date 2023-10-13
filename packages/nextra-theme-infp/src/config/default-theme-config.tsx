@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { isValidElement } from 'react';
 
-import { ThemeSwitch } from '@/components/theme-switch';
-
 import type { ThemeConfig } from './theme-schema';
 
 export const defaultThemeConfig: ThemeConfig = {
@@ -11,7 +9,6 @@ export const defaultThemeConfig: ThemeConfig = {
     storageKey: 'theme',
   },
   themeSwitch: {
-    component: ThemeSwitch,
     useOptions() {
       const { locale } = useRouter();
 
@@ -52,7 +49,7 @@ export const defaultThemeConfig: ThemeConfig = {
   },
 };
 
-export const DEEP_OBJECT_KEYS = Object.entries(defaultThemeConfig)
+const deepKeys = Object.entries(defaultThemeConfig)
   .map(([key, value]) => {
     const isObject =
       value &&
@@ -64,3 +61,20 @@ export const DEEP_OBJECT_KEYS = Object.entries(defaultThemeConfig)
     }
   })
   .filter(Boolean);
+
+export const mergeThemeConfig = (themeConfig: any) => {
+  return {
+    ...defaultThemeConfig,
+    ...Object.fromEntries(
+      Object.entries(themeConfig).map(([key, value]) => [
+        key,
+        value && typeof value === 'object' && deepKeys.includes(key)
+          ? {
+              ...(defaultThemeConfig[key as keyof ThemeConfig] as {}),
+              ...value,
+            }
+          : value,
+      ]),
+    ),
+  };
+};

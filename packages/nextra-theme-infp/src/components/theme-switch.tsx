@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import React from 'react';
 import { z } from 'zod';
 
-import { store } from '@/store';
+import { useConfig } from '@/config/context';
 
 import { MoonIcon, SunIcon, SystemIcon } from './icon';
 import {
@@ -46,7 +46,7 @@ export function ThemeSwitch({
 }: ThemeSwitchProps): ReactElement {
   const { setTheme, theme = '' } = useTheme();
   const mounted = useMounted();
-  const config = store.themeConfig.themeSwitch.get();
+  const config = useConfig().themeConfig.themeSwitch.get();
 
   const IconToUse = mounted ? iconMap[theme as keyof typeof iconMap] : SunIcon;
   const options: ThemeOptions =

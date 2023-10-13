@@ -3,13 +3,13 @@ import React from 'react';
 
 import { Anchor } from '@/components/anchor';
 import { ThemeSwitch } from '@/components/theme-switch';
+import { useConfig } from '@/config/context';
 import { useIsAtTop } from '@/hooks/use-is-at-top';
-import { store } from '@/store';
 import { renderComponent } from '@/utils/render';
 import { cn } from '@/utils/utils';
 
 export const Logo = observer(() => {
-  const header = store.themeConfig.header.get();
+  const header = useConfig().themeConfig.header.get();
   const { logoLink, logo } = header;
 
   return logoLink ? (
@@ -32,9 +32,9 @@ export const Menu = observer(() => {
         className={cn(
           'hidden md:flex items-center justify-start h-9 rounded-full overflow-x-auto no-scrollbar',
         )}>
-        {new Array(8).fill(
-          <span className="mx-2 whitespace-nowrap">编程</span>,
-        )}
+        <span className="mx-2 whitespace-nowrap">编程</span>
+        <span className="mx-2 whitespace-nowrap">学习</span>
+        <span className="mx-2 whitespace-nowrap">开发</span>
       </div>
     </div>
   );

@@ -7,22 +7,23 @@ import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
 import React from 'react';
 
-import { store } from '@/store';
+import { useConfig } from '@/config/context';
 
 export const Head = observer(() => {
-  const config = store.themeConfig.get();
-  const pageOpts = store.pageOpts.get();
+  const context = useConfig();
+  const config = context.themeConfig.get();
+  const pageOpts = context.pageOpts.get();
   const { resolvedTheme } = useTheme();
   const mounted = useMounted();
 
   const head = isFunction(config.head) ? config.head({}) : config.head;
-
+  console.log(pageOpts);
   const frontMatter = pageOpts.frontMatter as NextSeoProps;
 
   return (
     <>
       <NextSeo
-        title={config.title}
+        title={pageOpts.title}
         description={frontMatter.description}
         canonical={frontMatter.canonical}
         openGraph={frontMatter.openGraph}
