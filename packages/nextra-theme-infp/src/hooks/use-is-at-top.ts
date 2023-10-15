@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 
 export const useIsAtTop = () => {
   const [isAtTop, setIsAtTop] = useState(true);
+  const handleScroll = () => {
+    setIsAtTop(window.scrollY === 0);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
-    };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
