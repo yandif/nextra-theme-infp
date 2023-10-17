@@ -26,6 +26,8 @@ export const Logo = observer(() => {
 });
 
 export const Menu = observer(() => {
+  useStore().pageOpts.get();
+
   return (
     <div className="flex flex-1 items-center justify-end overflow-hidden">
       <div
