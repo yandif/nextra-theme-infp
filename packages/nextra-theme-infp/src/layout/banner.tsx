@@ -1,6 +1,7 @@
 import { observer } from '@legendapp/state/react';
 import cn from 'clsx';
 import Script from 'next/script';
+import { useMounted } from 'nextra/hooks';
 import React from 'react';
 
 import { XIcon } from '@/components/icon';
@@ -9,9 +10,12 @@ import { renderComponent } from '@/utils/render';
 
 export const Banner = observer(() => {
   const banner = useStore().themeConfig.banner.get();
-  if (!banner.text) {
+  const mounted = useMounted();
+
+  if (!banner.text || !mounted) {
     return null;
   }
+
   const hideBannerScript = `try{if(localStorage.getItem(${JSON.stringify(
     banner.key,
   )})==='0'){document.body.classList.add('infp-banner-hidden')}}catch(e){}`;
