@@ -1,9 +1,9 @@
-.infp-header-container {
-  @apply sticky top-0 z-20 w-full bg-transparent print:hidden;
-}
-
 :root {
   --infp-header-height: 4rem;
+}
+
+.infp-header-container {
+  @apply sticky top-0 z-20 w-full bg-transparent print:hidden;
 }
 
 @supports (
