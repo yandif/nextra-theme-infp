@@ -1,29 +1,27 @@
-import NextHead from 'next/head';
-import type { NextSeoProps } from 'next-seo';
-import { NextSeo } from 'next-seo';
-import { useTheme } from 'next-themes';
-import { useMounted } from 'nextra/hooks';
-import type { ReactElement } from 'react';
-
-import { useConfig } from '../contexts';
+import type { NextSeoProps } from 'next-seo'
+import { NextSeo } from 'next-seo'
+import { useTheme } from 'next-themes'
+import NextHead from 'next/head'
+import { useMounted } from 'nextra/hooks'
+import type { ReactElement } from 'react'
+import { useConfig } from '../contexts'
 
 export function Head(): ReactElement {
-  const config = useConfig();
-  const { resolvedTheme } = useTheme();
-  const mounted = useMounted();
+  const config = useConfig()
+  const { resolvedTheme } = useTheme()
+  const mounted = useMounted()
 
   // `head` can be either FC or ReactNode. We have to directly call it if it's an
   // FC because hooks like Next.js' `useRouter` aren't allowed inside NextHead.
-  const head =
-    typeof config.head === 'function' ? config.head({}) : config.head;
-  const { primaryHue: hue, primarySaturation: saturation } = config;
+  const head = typeof config.head === 'function' ? config.head({}) : config.head
+  const { primaryHue: hue, primarySaturation: saturation } = config
   const { dark: darkHue, light: lightHue } =
-    typeof hue === 'number' ? { dark: hue, light: hue } : hue;
+    typeof hue === 'number' ? { dark: hue, light: hue } : hue
   const { dark: darkSaturation, light: lightSaturation } =
     typeof saturation === 'number'
       ? { dark: saturation, light: saturation }
-      : saturation;
-  const frontMatter = config.frontMatter as NextSeoProps;
+      : saturation
+  const frontMatter = config.frontMatter as NextSeoProps
 
   return (
     <>
@@ -81,5 +79,5 @@ export function Head(): ReactElement {
         {head}
       </NextHead>
     </>
-  );
+  )
 }

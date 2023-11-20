@@ -1,16 +1,16 @@
-import gitUrlParse from 'git-url-parse';
+import gitUrlParse from 'git-url-parse'
 
 export const getGitIssueUrl = ({
   repository = '',
   title,
-  labels,
+  labels
 }: {
-  repository?: string;
-  title: string;
-  labels?: string;
+  repository?: string
+  title: string
+  labels?: string
 }): string => {
-  const repo = gitUrlParse(repository);
-  if (!repo) throw new Error('Invalid `docsRepositoryBase` URL!');
+  const repo = gitUrlParse(repository)
+  if (!repo) throw new Error('Invalid `docsRepositoryBase` URL!')
 
   if (repo.resource.includes('gitlab')) {
     return `${repo.protocol}://${repo.resource}/${repo.owner}/${
@@ -19,12 +19,12 @@ export const getGitIssueUrl = ({
       labels
         ? `&issue[description]=/label${encodeURIComponent(` ~${labels}\n`)}`
         : ''
-    }`;
+    }`
   }
   if (repo.resource.includes('github')) {
     return `${repo.protocol}://${repo.resource}/${repo.owner}/${
       repo.name
-    }/issues/new?title=${encodeURIComponent(title)}&labels=${labels || ''}`;
+    }/issues/new?title=${encodeURIComponent(title)}&labels=${labels || ''}`
   }
-  return '#';
-};
+  return '#'
+}
