@@ -24,3 +24,7 @@
   <summary>Details</summary>
   Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.
 </details>
+
+```js
+let a = 123;
+```

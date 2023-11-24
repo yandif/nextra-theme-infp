@@ -4,6 +4,8 @@
 @import './banner.css';
 @import './header.css';
 @import './scroll.css';
+@import './shiki.css';
+@import './code-block.css';
 
 @layer base {
   :root {
