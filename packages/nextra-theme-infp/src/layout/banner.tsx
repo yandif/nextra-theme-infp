@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { useMounted } from 'nextra/hooks';
 import React from 'react';
 
-import { XIcon } from '@/components/icon';
+import { XIcon } from '@/components/icons';
 import { useStore } from '@/config/context';
 import { renderComponent } from '@/utils/render';
 

@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { useStore } from '@/config/context';
 
-import { MoonIcon, SunIcon, SystemIcon } from './icon';
+import { MoonIcon, SunIcon, SystemIcon } from './icons';
 import {
   Select,
   SelectContent,

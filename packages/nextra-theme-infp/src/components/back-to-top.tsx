@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { cn } from '@/utils/utils';
 
-import { ArrowTopIcon } from './icon/arrow-top';
+import { ArrowTopIcon } from './icons/arrow-top';
 import { Button } from './ui/button';
 
 export interface BackToTopProps {

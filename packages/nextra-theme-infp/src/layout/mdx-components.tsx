@@ -1,12 +1,20 @@
 import cn from 'clsx';
-import { Code, Pre, Table, Td, Th, Tr } from 'nextra/components';
 import type { Components } from 'nextra/mdx';
 import type { ComponentProps, ReactElement } from 'react';
 import React, { useEffect, useRef } from 'react';
 
 import type { AnchorProps } from '@/components/anchor';
 import { Anchor } from '@/components/anchor';
-import { Details, Summary } from '@/components/mdx/detail';
+import {
+  Code,
+  Details,
+  Pre,
+  Summary,
+  Table,
+  Td,
+  Th,
+  Tr,
+} from '@/components/mdx';
 import {
   useIntersectionObserver,
   useSetActiveAnchor,

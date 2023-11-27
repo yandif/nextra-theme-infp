@@ -25,6 +25,12 @@
   Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.
 </details>
 
-```js
+```js filename="package.json"
 let a = 123;
+```
+
+```json filename="lov.json"
+{
+  a:"123"
+}
 ```
