@@ -1,8 +1,8 @@
 import cn from 'clsx';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, FC } from 'react';
 import React from 'react';
 
-export const Tr = ({ className = '', ...props }: ComponentProps<'tr'>) => (
+export const Tr: FC<ComponentProps<'tr'>> = ({ className = '', ...props }) => (
   <tr
     className={cn(
       'm-0 border-t border-gray-300 p-0 dark:border-gray-600',

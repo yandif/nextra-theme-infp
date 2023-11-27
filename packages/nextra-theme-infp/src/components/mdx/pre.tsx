@@ -1,21 +1,23 @@
 import cn from 'clsx';
-import type { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps, FC } from 'react';
 import React, { useCallback, useRef } from 'react';
 
 import { CopyToClipboard } from '../copy-to-clipboard';
 import { WordWrapIcon } from '../icons';
 import { Button } from '../ui/button';
 
-export const Pre = ({
+type PreProps = ComponentProps<'pre'> & {
+  filename?: string;
+  hasCopyCode?: boolean;
+};
+
+export const Pre: FC<PreProps> = ({
   children,
   className,
   hasCopyCode,
   filename,
   ...props
-}: ComponentProps<'pre'> & {
-  filename?: string;
-  hasCopyCode?: boolean;
-}): ReactElement => {
+}) => {
   const preRef = useRef<HTMLPreElement | null>(null);
 
   const toggleWordWrap = useCallback(() => {
@@ -31,13 +33,13 @@ export const Pre = ({
   return (
     <div className="nextra-code-block relative mt-6 first:mt-0">
       {filename && (
-        <div className="absolute top-0 z-[1] w-full truncate rounded-t-xl bg-primary-700/5 py-2 px-4 text-xs text-gray-700 dark:bg-primary-300/10 dark:text-gray-200">
+        <div className="absolute top-0 z-[1] w-full truncate rounded-t-xl bg-card text-card-foreground  py-2 px-4 text-xs">
           {filename}
         </div>
       )}
       <pre
         className={cn(
-          'bg-primary-700/5 mb-4 overflow-x-auto rounded-xl subpixel-antialiased dark:bg-primary-300/10 text-[.9em]',
+          'bg-card mb-4 overflow-x-auto rounded-xl subpixel-antialiased text-[.9em]',
           'contrast-more:border contrast-more:border-primary-900/20 contrast-more:contrast-150 contrast-more:dark:border-primary-100/40',
           filename ? 'pt-12 pb-4' : 'py-4',
           className,

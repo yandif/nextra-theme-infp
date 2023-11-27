@@ -1,10 +1,8 @@
 import cn from 'clsx';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, FC } from 'react';
 import React from 'react';
 
-export const Table = ({
+export const Table: FC<ComponentProps<'table'>> = ({
   className = '',
   ...props
-}: ComponentProps<'table'>) => (
-  <table className={cn('block overflow-x-scroll', className)} {...props} />
-);
+}) => <table className={cn('block overflow-x-scroll', className)} {...props} />;
