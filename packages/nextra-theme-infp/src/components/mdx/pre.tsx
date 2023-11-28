@@ -22,16 +22,16 @@ export const Pre: FC<PreProps> = ({
 
   const toggleWordWrap = useCallback(() => {
     const htmlDataset = document.documentElement.dataset;
-    const hasWordWrap = 'nextraWordWrap' in htmlDataset;
+    const hasWordWrap = 'infpWordWrap' in htmlDataset;
     if (hasWordWrap) {
-      delete htmlDataset.nextraWordWrap;
+      delete htmlDataset.infpWordWrap;
     } else {
-      htmlDataset.nextraWordWrap = '';
+      htmlDataset.infpWordWrap = '';
     }
   }, []);
 
   return (
-    <div className="nextra-code-block relative mt-6 first:mt-0">
+    <div className="infp-code-block relative mt-6 first:mt-0">
       {filename && (
         <div className="absolute top-0 z-[1] w-full truncate rounded-t-xl bg-card text-card-foreground  py-2 px-4 text-xs">
           {filename}
@@ -57,12 +57,13 @@ export const Pre: FC<PreProps> = ({
         <Button
           variant="outline"
           onClick={toggleWordWrap}
-          className="md:hidden min-w-[36px] w-[36px] p-0 flex items-center justify-center"
+          className="md:hidden  min-w-[36px] w-[36px] p-0 flex items-center justify-center"
           title="Toggle word wrap">
           <WordWrapIcon className="pointer-events-none h-4 w-4" />
         </Button>
         {hasCopyCode && (
           <CopyToClipboard
+            className="infp-copy-icon"
             getValue={() =>
               preRef.current?.querySelector('code')?.textContent || ''
             }
