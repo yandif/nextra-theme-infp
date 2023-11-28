@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BackToTop } from './components/back-to-top';
+import { WordWrapIcon } from './components/icons';
 import { Button } from './components/ui/button';
 import {
   Collapsible,
@@ -32,7 +33,12 @@ const App = () => {
           required.
         </CollapsibleContent>
       </Collapsible>
-
+      <Button
+        variant="outline"
+        className="min-w-[36px] w-[36px] p-0 flex items-center justify-center"
+        title="Toggle word wrap">
+        <WordWrapIcon className="pointer-events-none h-4 w-4" />
+      </Button>
       <div className="h-[200vh] px-64">
         <Button
           className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-500"
@@ -54,6 +60,7 @@ const App = () => {
           </h1>,
         )}
       </div>
+
       <BackToTop />
     </>
   );

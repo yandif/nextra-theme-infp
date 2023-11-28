@@ -55,8 +55,9 @@ export const Pre: FC<PreProps> = ({
           filename ? 'top-8' : 'top-0',
         )}>
         <Button
+          variant="outline"
           onClick={toggleWordWrap}
-          className="md:hidden"
+          className="md:hidden  min-w-[36px] w-[36px] p-0 flex items-center justify-center"
           title="Toggle word wrap">
           <WordWrapIcon className="pointer-events-none h-4 w-4" />
         </Button>
