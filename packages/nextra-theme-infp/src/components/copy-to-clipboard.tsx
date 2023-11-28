@@ -1,3 +1,4 @@
+import cn from 'clsx';
 import type { ComponentProps, ReactElement } from 'react';
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -7,6 +8,7 @@ import { Button } from './ui/button';
 
 export const CopyToClipboard = ({
   getValue,
+  className,
   ...props
 }: {
   getValue: () => string;
@@ -41,7 +43,16 @@ export const CopyToClipboard = ({
   const IconToUse = isCopied ? CheckIcon : CopyIcon;
 
   return (
-    <Button onClick={handleClick} title="Copy code" tabIndex={0} {...props}>
+    <Button
+      variant="outline"
+      onClick={handleClick}
+      title="Copy code"
+      tabIndex={0}
+      className={cn(
+        'min-w-[36px] w-[36px] p-0 flex items-center justify-center',
+        className,
+      )}
+      {...props}>
       <IconToUse className="nextra-copy-icon pointer-events-none h-4 w-4" />
     </Button>
   );
