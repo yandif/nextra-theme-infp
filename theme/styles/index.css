@@ -57,6 +57,10 @@
 }
 
 @layer base {
+  html {
+    @apply antialiased text-base scroll-pt-[--infp-header-height];
+  }
+
   body {
     @apply w-full bg-white dark:bg-dark dark:text-gray-100;
     transition-property: color, background-color;

@@ -17,7 +17,7 @@ import { ThemeProvider } from './theme-provider';
 const Main = observer(({ children }: { children: React.ReactNode }) => {
   const components = useStore()?.themeConfig.components.get();
   return (
-    <main className="infp-main h-[1500px] w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+    <main className="infp-main w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
       <MDXProvider
         components={getComponents({
           isRawLayout: false,
