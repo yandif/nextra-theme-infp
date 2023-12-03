@@ -11,13 +11,9 @@ type PreProps = ComponentProps<'pre'> & {
   hasCopyCode?: boolean;
 };
 
-export const Pre: FC<PreProps> = ({
-  children,
-  className,
-  hasCopyCode,
-  filename,
-  ...props
-}) => {
+export const Pre: FC<PreProps> = (a) => {
+  const { children, className, hasCopyCode, filename, ...props } = a;
+  console.log(a);
   const preRef = useRef<HTMLPreElement | null>(null);
 
   const toggleWordWrap = useCallback(() => {
@@ -33,7 +29,7 @@ export const Pre: FC<PreProps> = ({
   return (
     <div className="infp-code-block relative mt-6 first:mt-0">
       {filename && (
-        <div className="absolute top-0 z-[1] w-full truncate rounded-t-xl bg-card text-card-foreground  py-2 px-4 text-xs">
+        <div className="bg-[#ffffff] dark:bg-[#020817] border-b border-solid border-gray-200 dark:border-gray-700 absolute top-0 z-[1] w-full truncate rounded-t-xl bg-card text-card-foreground  py-2 px-4 text-xs">
           {filename}
         </div>
       )}

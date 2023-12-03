@@ -5,4 +5,9 @@ import React from 'react';
 export const Table: FC<ComponentProps<'table'>> = ({
   className = '',
   ...props
-}) => <table className={cn('block overflow-x-scroll', className)} {...props} />;
+}) => (
+  <table
+    className={cn('block overflow-x-scroll mr-[-12px]]', className)}
+    {...props}
+  />
+);
