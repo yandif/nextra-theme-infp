@@ -11,9 +11,13 @@ type PreProps = ComponentProps<'pre'> & {
   hasCopyCode?: boolean;
 };
 
-export const Pre: FC<PreProps> = (a) => {
-  const { children, className, hasCopyCode, filename, ...props } = a;
-  console.log(a);
+export const Pre: FC<PreProps> = ({
+  children,
+  className,
+  hasCopyCode,
+  filename,
+  ...props
+}) => {
   const preRef = useRef<HTMLPreElement | null>(null);
 
   const toggleWordWrap = useCallback(() => {

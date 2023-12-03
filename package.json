@@ -6,7 +6,9 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "dev": "next dev",
+    "dev:next": "next dev",
+    "build:next": "next build",
+    "start:next": "next start",
     "commit": "git add . && git-cz && git push",
     "build": "rimraf ./lib && rimraf ./dist && rimraf ./style.css && vite build && pnpm build:tailwind && pnpm build:lib",
     "build:lib": "tsc -p ./tsconfig.build.json && tsc-alias -p ./tsconfig.build.json",
