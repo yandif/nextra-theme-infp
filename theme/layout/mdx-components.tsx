@@ -64,13 +64,13 @@ function HeadingLink({
         className === 'sr-only'
           ? 'sr-only'
           : cn(
-              'font-semibold tracking-tight text-slate-900 dark:text-slate-100',
+              'font-semibold tracking-tight',
               {
-                h2: 'mt-10 border-b pb-1 text-3xl border-neutral-200/70 contrast-more:border-neutral-400 dark:border-primary-100/10 contrast-more:dark:border-neutral-400',
+                h2: 'mt-10 border-b text-slate-900 dark:text-slate-100 pb-1 text-3xl border-neutral-200/70 contrast-more:border-neutral-400 dark:border-primary-100/10 contrast-more:dark:border-neutral-400',
                 h3: 'mt-8 text-2xl text-[#2f80f2]',
-                h4: 'mt-8 text-xl text-[#ff82b2]',
-                h5: 'mt-8 text-lg',
-                h6: 'mt-8 text-base',
+                h4: 'mt-8 text-xl text-[#e5b567]',
+                h5: 'mt-8 text-lg text-[#e83e3e]',
+                h6: 'mt-8 text-base text-slate-900 dark:text-slate-100',
               }[Tag],
             )
       }
@@ -96,7 +96,7 @@ export const Link = ({ href = '', className, ...props }: AnchorProps) => (
     href={href}
     newWindow={EXTERNAL_HREF_REGEX.test(href)}
     className={cn(
-      'text-primary-600 underline decoration-from-font [text-underline-position:from-font]',
+      'text-[#4d8ce6] dark:text-[#79a9ec] underline decoration-from-font [text-underline-position:from-font]',
       className,
     )}
     {...props}
@@ -131,20 +131,20 @@ export const getComponents = ({
     h4: (props) => <HeadingLink tag="h4" context={context} {...props} />,
     h5: (props) => <HeadingLink tag="h5" context={context} {...props} />,
     h6: (props) => <HeadingLink tag="h6" context={context} {...props} />,
-    ul: (props) => (
-      <ul className="mt-6 list-disc first:mt-0 ltr:ml-6 rtl:mr-6" {...props} />
-    ),
+    ul: (props) => <ul className="mt-6 list-disc first:mt-0 ml-6" {...props} />,
     ol: (props) => (
-      <ol
-        className="mt-6 list-decimal first:mt-0 ltr:ml-6 rtl:mr-6"
+      <ol className="mt-6 list-decimal first:mt-0 ml-6 " {...props} />
+    ),
+    li: (props) => (
+      <li
+        className="marker:text-[#A2AAB3] dark:marker:text-[#5d6d7e]"
         {...props}
       />
     ),
-    li: (props) => <li className="my-2" {...props} />,
     blockquote: (props) => (
       <blockquote
         className={cn(
-          'mt-6  border-blue-500 italic text-gray-700 dark:border-blue-700 dark:text-gray-400',
+          'mt-6  border-blue-500 italic text-[#3eb4bf] dark:border-blue-700',
           'first:mt-0 border-solid border-l-2 pl-6',
         )}
         {...props}
@@ -152,7 +152,7 @@ export const getComponents = ({
     ),
     hr: (props) => (
       <hr
-        className="my-8 border-neutral-200/70 contrast-more:border-neutral-400 dark:border-primary-100/10 contrast-more:dark:border-neutral-400"
+        className="my-8 border-neutral-300 contrast-more:border-neutral-400 dark:border-primary-100/10 contrast-more:dark:border-neutral-400"
         {...props}
       />
     ),
@@ -160,7 +160,7 @@ export const getComponents = ({
     table: (props) => (
       <Table className="infp-scrollbar mt-6 p-0 first:mt-0" {...props} />
     ),
-    p: (props) => <p className="mt-6 leading-7 first:mt-0" {...props} />,
+    p: (props) => <p className="mt-4 leading-7 first:mt-0" {...props} />,
     tr: Tr,
     th: Th,
     td: Td,

@@ -1,57 +1,123 @@
-# 哈哈哈
-## 施工中
 
-### TODO
+### 标题
 
-- [x] Kitten-ui 重构
-- [x] Kitten-ui 文档
-- [ ] 学习算法与数据结构
-- [ ] 写一个 nextra 主题
-- [ ] 翻译 learn-javascript
-- [ ] prettier 可视化配置？
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
 
-123
+### 引用
 
-> 123123123
-> 123123
+> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci veritatis quisquam eligendi esse magnam quis, deleniti veniam atque distinctio molestias, at aliquid odit explicabo. Cum, assumenda odio! Odio, error facere.
 
-- 123
-- 123
-- 123
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
-### 要了解的概念
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
-- [ ] requestAnimationFrame
-- [ ] Proxy 和 Reflect
-- [ ] 浏览器原理
+### 无序列表
+
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+
+* This is the first list item.
+* Here's the second list item.
+    
+    I need to add another paragraph below the second list item.
+    
+    I need to add another paragraph below the second list item.
 
 
-<!-- 
-、Web 发展历史、互联网起源、JS 语言的演变有着深入的理解的看法。
- -->
-<details>
-  <summary>Details</summary>
-  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.  Something small enough to escape casual notice.
-</details>
+* And here's the third list item.
 
-```js filename="package.json"
-let a = 123;
+1. First item
+2. Second item
+3. Third item
+    - Indented item
+    - Indented item
+4. Fourth item
+
+### 有序列表
+
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
+
+### 任务列表
+
+- [ ] 复选框
+- [x] 复选框
+- [x] 复选框
+
+
+
+### 段落
+
+I really like using Markdown.
+
+I think I'll use it to format all of my documents from now on.
+
+This is the first line.  
+And this is the second line.
+
+I just love **bold text**.
+I just love __bold text__.
+Love**is**bold
+
+Italicized text is the *cat's meow*.
+
+This text is ***really important***.
+
+### 图片
+
+![Tux, the Linux mascot](https://www.markdown.xyz/assets/images/tux.png)
+
+### 代码
+
+At the command prompt, type `nano`.
+
+```html
+<html>
+  <head>
+  </head>
+</html>
 ```
 
-```json filename="lov.json"
-{
-  a:"1123112311231123112311231123112311231123112311231123112311231123112311231123112311231123112311231123112311231123112311231123"
-}
-```
-|test|test|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|
-|--|--|    --|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-|line|line|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|
-|line|line|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|
-|line|line|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|
-|line|line|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|2|
+### 分割线
 
-## 123
+***
 
-### 123
+### 链接
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
-#### 4344444444
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+
+### 网址和邮件
+
+<https://www.markdownguide.org>
+<fake@example.com>
+
+I love supporting the **[EFF](https://eff.org)**.
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+See the section on [`code`](#code).
+
+![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+
+### 表格
+
+|表格头|表格头|
+|---|---|
+|表格行|表格行|
+|表格行|表格行|
