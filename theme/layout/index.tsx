@@ -17,7 +17,7 @@ import { ThemeProvider } from './theme-provider';
 const Main = observer(({ children }: { children: React.ReactNode }) => {
   const components = useStore()?.themeConfig.components.get();
   return (
-    <div className="h-[1500px] md:px-80">
+    <main className="infp-main h-[1500px] md:px-80">
       <span>
         <MDXProvider
           components={getComponents({
@@ -27,7 +27,7 @@ const Main = observer(({ children }: { children: React.ReactNode }) => {
           {children}
         </MDXProvider>
       </span>
-    </div>
+    </main>
   );
 });
 

@@ -53,7 +53,7 @@ export const CopyToClipboard = ({
         className,
       )}
       {...props}>
-      <IconToUse className="nextra-copy-icon pointer-events-none h-4 w-4" />
+      <IconToUse className="nextra-copy-icon pointer-events-none h-[14px] w-[14px]" />
     </Button>
   );
 };

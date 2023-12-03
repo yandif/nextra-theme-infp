@@ -67,8 +67,8 @@ function HeadingLink({
               'font-semibold tracking-tight text-slate-900 dark:text-slate-100',
               {
                 h2: 'mt-10 border-b pb-1 text-3xl border-neutral-200/70 contrast-more:border-neutral-400 dark:border-primary-100/10 contrast-more:dark:border-neutral-400',
-                h3: 'mt-8 text-2xl',
-                h4: 'mt-8 text-xl',
+                h3: 'mt-8 text-2xl text-[#2f80f2]',
+                h4: 'mt-8 text-xl text-[#ff82b2]',
                 h5: 'mt-8 text-lg',
                 h6: 'mt-8 text-base',
               }[Tag],
@@ -140,7 +140,7 @@ export const getComponents = ({
         {...props}
       />
     ),
-    li: (props) => <li className="my-2" {...props} />,
+    li: (props) => <li className="my-2 bg-red-50" {...props} />,
     blockquote: (props) => (
       <blockquote
         className={cn(

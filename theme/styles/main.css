@@ -1,0 +1,12 @@
+.infp-main {
+  & .contains-task-list {
+    background: red;
+
+    & .task-list-item {
+      background: pink;
+      input[type='checkbox'] {
+        background: green;
+      }
+    }
+  }
+}

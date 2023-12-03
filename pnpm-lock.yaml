@@ -106,6 +106,9 @@ devDependencies:
   postcss-cli:
     specifier: ^10.1.0
     version: 10.1.0(postcss@8.4.31)
+  postcss-import:
+    specifier: ^15.1.0
+    version: 15.1.0(postcss@8.4.31)
   prettier:
     specifier: ^3.1.0
     version: 3.1.0
