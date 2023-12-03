@@ -17,16 +17,14 @@ import { ThemeProvider } from './theme-provider';
 const Main = observer(({ children }: { children: React.ReactNode }) => {
   const components = useStore()?.themeConfig.components.get();
   return (
-    <main className="infp-main h-[1500px] md:px-80">
-      <span>
-        <MDXProvider
-          components={getComponents({
-            isRawLayout: false,
-            components,
-          })}>
-          {children}
-        </MDXProvider>
-      </span>
+    <main className="infp-main h-[1500px] w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+      <MDXProvider
+        components={getComponents({
+          isRawLayout: false,
+          components,
+        })}>
+        {children}
+      </MDXProvider>
     </main>
   );
 });

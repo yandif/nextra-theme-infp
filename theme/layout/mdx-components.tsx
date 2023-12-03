@@ -140,12 +140,12 @@ export const getComponents = ({
         {...props}
       />
     ),
-    li: (props) => <li className="my-2 bg-red-50" {...props} />,
+    li: (props) => <li className="my-2" {...props} />,
     blockquote: (props) => (
       <blockquote
         className={cn(
-          'mt-6 border-gray-300 italic text-gray-700 dark:border-gray-700 dark:text-gray-400',
-          'first:mt-0 ltr:border-l-2 ltr:pl-6 rtl:border-r-2 rtl:pr-6',
+          'mt-6  border-blue-500 italic text-gray-700 dark:border-blue-700 dark:text-gray-400',
+          'first:mt-0 border-solid border-l-2 pl-6',
         )}
         {...props}
       />

@@ -44,8 +44,10 @@ export const Details: FC<ComponentProps<'details'>> = ({ children }) => {
   const [summary, restChildren] = findSummary(children);
 
   return (
-    <Collapsible>
-      <CollapsibleTrigger>{summary}</CollapsibleTrigger>
+    <Collapsible className="my-4">
+      <span className="border-1">
+        <CollapsibleTrigger>{summary}</CollapsibleTrigger>
+      </span>
       <CollapsibleContent className="(&[data-state='open']) ani">
         {restChildren}
       </CollapsibleContent>

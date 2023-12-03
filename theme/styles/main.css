@@ -1,12 +1,8 @@
 .infp-main {
-  & .contains-task-list {
-    background: red;
-
-    & .task-list-item {
-      background: pink;
-      input[type='checkbox'] {
-        background: green;
-      }
+  .contains-task-list {
+    @apply mt-6 first:mt-0 ltr:ml-6 rtl:mr-6;
+    .task-list-item {
+      @apply my-2;
     }
   }
 }
