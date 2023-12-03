@@ -40,13 +40,13 @@ export const Head = observer(() => {
         {mounted ? (
           <meta
             name="theme-color"
-            content={resolvedTheme === 'dark' ? '#1c2127' : '#f5f5f5'}
+            content={resolvedTheme === 'dark' ? '#1c2127' : '#f7f7f7'}
           />
         ) : (
           <>
             <meta
               name="theme-color"
-              content="#f5f5f5"
+              content="#f7f7f7"
               media="(prefers-color-scheme: light)"
             />
             <meta

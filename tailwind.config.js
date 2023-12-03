@@ -12,7 +12,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        white: '#f5f5f5',
+        white: '#f7f7f7',
         dark: '#1c2127',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
