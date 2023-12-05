@@ -1,6 +1,11 @@
 import { useRouter } from 'next/router';
-import React, { isValidElement } from 'react';
+import { isValidElement } from 'react';
 
+import { Anchor } from '../components/anchor';
+import { TOC } from '../components/toc';
+import { getGitIssueUrl } from '../utils/get-git-issue-url';
+import { useGitEditUrl } from '../utils/use-git-edit-url';
+import { useStore } from './context';
 import type { ThemeConfig } from './theme-schema';
 
 export const defaultThemeConfig: ThemeConfig = {
@@ -46,6 +51,40 @@ export const defaultThemeConfig: ThemeConfig = {
       </>
     ),
     logoLink: true,
+  },
+  docsRepositoryBase: 'https://github.com/shuding/nextra',
+  toc: {
+    backToTop: false,
+    component: TOC,
+    float: true,
+    title: 'On This Page',
+    extraContent: <>extraContent</>,
+  },
+  feedback: {
+    content: 'Question? Give us feedback →',
+    labels: 'feedback',
+    useLink() {
+      const config = useStore().themeConfig.get();
+      return getGitIssueUrl({
+        labels: config.feedback.labels,
+        repository: config.docsRepositoryBase,
+        title: `Feedback for “${config.title}”`,
+      });
+    },
+  },
+  editLink: {
+    component: function EditLink({ className, filePath, children }) {
+      const editUrl = useGitEditUrl(filePath);
+      if (!editUrl) {
+        return null;
+      }
+      return (
+        <Anchor className={className} href={editUrl}>
+          {children}
+        </Anchor>
+      );
+    },
+    text: 'Edit this page',
   },
   components: {},
 };

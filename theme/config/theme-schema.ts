@@ -1,9 +1,12 @@
 import { isFunction } from 'lodash';
 import type { NextSeoProps } from 'next-seo';
-import { type FC, isValidElement, type ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+import { isValidElement } from 'react';
 import { z } from 'zod';
 
 import { themeOptionsSchema } from '@/theme/components/theme-switch';
+
+import type { TOCProps } from '../components/toc';
 
 function isReactNode(value: unknown): boolean {
   return (
@@ -55,6 +58,32 @@ export const themeSchema = z.strictObject({
     logoLink: z.boolean().or(z.string()),
   }),
   components: z.record(z.custom<FC>(...fc)).optional(),
+  toc: z.strictObject({
+    backToTop: z.boolean(),
+    component: z.custom<ReactNode | FC<TOCProps>>(...reactNode),
+    extraContent: z.custom<ReactNode | FC>(...reactNode),
+    float: z.boolean(),
+    headingComponent: z
+      .custom<FC<{ id: string; children: string }>>(...fc)
+      .optional(),
+    title: z.custom<ReactNode | FC>(...reactNode),
+  }),
+  feedback: z.strictObject({
+    content: z.custom<ReactNode | FC>(...reactNode),
+    labels: z.string(),
+    useLink: z.function().returns(z.string()),
+  }),
+  docsRepositoryBase: z.string().startsWith('https://'),
+  editLink: z.strictObject({
+    component: z.custom<
+      FC<{
+        children: ReactNode;
+        className?: string;
+        filePath?: string;
+      }>
+    >(...fc),
+    text: z.custom<ReactNode | FC>(...reactNode),
+  }),
 });
 
 const publicThemeSchema = themeSchema.deepPartial().extend({

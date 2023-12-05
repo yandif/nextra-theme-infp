@@ -8,6 +8,7 @@ import { BackToTop } from '@/theme/components/back-to-top';
 import { ActiveAnchorProvider } from '@/theme/config/active-anchor';
 import { StoreProvider, useStore } from '@/theme/config/context';
 
+import { TOC } from '../components/toc';
 import { Banner } from './banner';
 import { Head } from './head';
 import { Header } from './header';
@@ -37,7 +38,12 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
           <Head />
           <Banner />
           <Header />
-          <Main>{children}</Main>
+          <div className="flex">
+            <Main>{children}</Main>
+            <div className="sticky top-[64px]">
+              <TOC {...context.pageOpts} />
+            </div>
+          </div>
           <BackToTop />
         </ActiveAnchorProvider>
       </ThemeProvider>
