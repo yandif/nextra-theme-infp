@@ -68,3 +68,10 @@
     transition-duration: 150ms;
   }
 }
+
+@media (min-width: 768px) {
+  .infp-toc > .div {
+    mask-image: linear-gradient(to bottom, transparent, #000 20px),
+      linear-gradient(to left, #000 10px, transparent 10px);
+  }
+}

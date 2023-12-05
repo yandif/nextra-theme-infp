@@ -8,7 +8,8 @@ import { BackToTop } from '@/theme/components/back-to-top';
 import { ActiveAnchorProvider } from '@/theme/config/active-anchor';
 import { StoreProvider, useStore } from '@/theme/config/context';
 
-import { TOC } from '../components/toc';
+import { renderComponent } from '../utils/render';
+import { cn } from '../utils/utils';
 import { Banner } from './banner';
 import { Head } from './head';
 import { Header } from './header';
@@ -30,6 +31,24 @@ const Main = observer(({ children }: { children: React.ReactNode }) => {
   );
 });
 
+const TOC = observer(() => {
+  const config = useStore()?.themeConfig.get();
+  const { headings, filePath } = useStore().pageOpts.get();
+  return (
+    <nav
+      className={cn(
+        cn('infp-toc order-last hidden w-64 shrink-0 md:block print:hidden'),
+        'px-4',
+      )}
+      aria-label="table of contents">
+      {renderComponent(config.toc.component, {
+        headings: config.toc.float ? headings : [],
+        filePath,
+      })}
+    </nav>
+  );
+});
+
 const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   return (
     <StoreProvider value={context}>
@@ -40,9 +59,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
           <Header />
           <div className="flex">
             <Main>{children}</Main>
-            <div className="sticky top-[64px]">
-              <TOC {...context.pageOpts} />
-            </div>
+            <TOC />
           </div>
           <BackToTop />
         </ActiveAnchorProvider>
