@@ -23,7 +23,7 @@ const linkClassName = cn(
 export const TOC = observer<TOCProps>(({ headings, filePath }) => {
   const activeAnchor = useActiveAnchor();
   const config = useStore().themeConfig.get();
-  console.log(config);
+
   const tocRef = useRef<HTMLDivElement>(null);
 
   const items = useMemo(

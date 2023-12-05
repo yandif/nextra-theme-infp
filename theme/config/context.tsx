@@ -17,6 +17,7 @@ type Store = {
   themeConfig: ThemeConfig;
   pageOpts: PageOpts;
   pageProps: any;
+  normalizePages: ReturnType<typeof normalizePages>;
 };
 
 const StoreContext = createContext<ObservableObject<Store>>(
@@ -24,6 +25,7 @@ const StoreContext = createContext<ObservableObject<Store>>(
     themeConfig: defaultThemeConfig,
     pageOpts: {} as PageOpts,
     pageProps: {},
+    normalizePages: {} as ReturnType<typeof normalizePages>,
   }),
 );
 
@@ -37,17 +39,7 @@ export const StoreProvider: FC<{
   const { locale = 'zh-CN', defaultLocale } = useRouter();
   const fsPath = useFSRoute();
   const { pageMap } = pageOpts;
-  const {
-    activeType,
-    activeIndex,
-    activeThemeContext,
-    activePath,
-    topLevelNavbarItems,
-    docsDirectories,
-    flatDirectories,
-    flatDocsDirectories,
-    directories,
-  } = useMemo(
+  const _normalizePages = useMemo(
     () =>
       normalizePages({
         list: pageMap,
@@ -59,23 +51,14 @@ export const StoreProvider: FC<{
   );
 
   if (isBrowser) {
-    console.log({
-      activeType,
-      activeIndex,
-      activeThemeContext,
-      activePath,
-      topLevelNavbarItems,
-      docsDirectories,
-      flatDirectories,
-      flatDocsDirectories,
-      directories,
-    });
+    console.log(_normalizePages);
   }
 
   const store = useObservable<Store>({
     pageOpts,
     pageProps,
     themeConfig: mergeThemeConfig(themeConfig),
+    normalizePages: _normalizePages,
   });
 
   // TODO：校验主题配置是是否合法。
