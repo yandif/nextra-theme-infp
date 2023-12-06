@@ -33,8 +33,9 @@ const Body = observer(({ children }: { children: React.ReactNode }) => {
 export const DEFAULT_LOCALE = 'en-US';
 
 const Main = observer(({ children }: { children: React.ReactNode }) => {
-  const config = useStore()?.themeConfig.get();
-  const { headings, filePath } = useStore().pageOpts.get();
+  const store = useStore();
+  const config = store.themeConfig.get();
+  const { headings, filePath } = store.pageOpts.get();
 
   const tocEl = (
     <nav
@@ -71,4 +72,4 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   );
 };
 
-export default observer(Layout);
+export default Layout;
