@@ -16,7 +16,7 @@ import { getComponents } from './mdx-components';
 import { ThemeProvider } from './theme-provider';
 
 const Body = observer(({ children }: { children: React.ReactNode }) => {
-  const components = useStore()?.themeConfig.components.get();
+  const components = useStore().themeConfig.components.get();
   return (
     <main className="infp-main w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
       <MDXProvider
@@ -29,8 +29,6 @@ const Body = observer(({ children }: { children: React.ReactNode }) => {
     </main>
   );
 });
-
-export const DEFAULT_LOCALE = 'en-US';
 
 const Main = observer(({ children }: { children: React.ReactNode }) => {
   const store = useStore();
