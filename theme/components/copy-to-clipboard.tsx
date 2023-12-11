@@ -1,6 +1,6 @@
 import cn from 'clsx';
 import type { ComponentProps, ReactElement } from 'react';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { CheckIcon, CopyIcon } from './icons';
 import type { ButtonProps } from './ui/button';

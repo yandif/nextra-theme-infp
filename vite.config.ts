@@ -20,7 +20,16 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['path', 'fs', 'stream', 'zlib', 'react', 'nextra', 'util'],
+      external: [
+        'path',
+        'fs',
+        'stream',
+        'zlib',
+        'react',
+        'nextra',
+        'util',
+        'intersection-observer',
+      ],
       output: {
         globals: {
           react: 'React',

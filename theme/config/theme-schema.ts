@@ -59,6 +59,7 @@ export const themeSchema = z.strictObject({
   }),
   components: z.record(z.custom<FC>(...fc)).optional(),
   toc: z.strictObject({
+    /** 是否显示回到顶部按钮 */
     backToTop: z.boolean(),
     component: z.custom<ReactNode | FC<TOCProps>>(...reactNode),
     extraContent: z.custom<ReactNode | FC>(...reactNode),

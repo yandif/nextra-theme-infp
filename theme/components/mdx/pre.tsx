@@ -1,6 +1,6 @@
 import cn from 'clsx';
 import type { ComponentProps, FC } from 'react';
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 import { CopyToClipboard } from '../copy-to-clipboard';
 import { WordWrapIcon } from '../icons';

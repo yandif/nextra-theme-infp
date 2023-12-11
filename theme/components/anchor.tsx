@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import type { ComponentPropsWithoutRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 export type AnchorProps = ComponentPropsWithoutRef<'a'> & {
   newWindow?: boolean;

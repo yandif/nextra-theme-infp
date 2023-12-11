@@ -5,7 +5,6 @@ import type { NextSeoProps } from 'next-seo';
 import { NextSeo } from 'next-seo';
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
-import React from 'react';
 
 import { useStore } from '@/theme/config/context';
 

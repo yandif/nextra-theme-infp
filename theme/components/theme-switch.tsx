@@ -1,7 +1,6 @@
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
 import type { ReactElement } from 'react';
-import React from 'react';
 import { z } from 'zod';
 
 import { useStore } from '@/theme/config/context';

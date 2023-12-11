@@ -1,5 +1,5 @@
-import type { FC } from 'react';
-import React, { useEffect, useRef } from 'react';
+import type { FC, ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { cn } from '@/theme/utils/utils';
 
@@ -8,7 +8,7 @@ import { Button } from './ui/button';
 
 export interface BackToTopProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export const BackToTop: FC<BackToTopProps> = ({ className, children }) => {

@@ -1,4 +1,4 @@
-.subheading-anchor {
+.infp-subheading-anchor {
   @apply md:opacity-0 transition-opacity ml-1;
 
   :hover > &,

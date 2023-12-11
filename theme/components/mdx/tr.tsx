@@ -1,6 +1,5 @@
 import cn from 'clsx';
 import type { ComponentProps, FC } from 'react';
-import React from 'react';
 
 export const Tr: FC<ComponentProps<'tr'>> = ({ className = '', ...props }) => (
   <tr

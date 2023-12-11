@@ -104,9 +104,8 @@ export const TOC = observer<TOCProps>(({ headings, filePath }) => {
       {hasMetaInfo && (
         <div
           className={cn(
-            hasHeadings &&
-              'mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111]',
-            'sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800',
+            hasHeadings && ' bg-white dark:bg-dark mt-8 pt-8',
+            'sticky bottom-0 flex flex-col items-start gap-2 pb-8 ',
             'contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400',
           )}>
           {config.feedback.content ? (

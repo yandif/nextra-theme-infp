@@ -1,7 +1,7 @@
 import cn from 'clsx';
 import type { Components } from 'nextra/mdx';
 import type { ComponentProps, ReactElement } from 'react';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import type { AnchorProps } from '@/theme/components/anchor';
 import { Anchor } from '@/theme/components/anchor';
@@ -80,7 +80,7 @@ function HeadingLink({
         <a
           href={`#${id}`}
           id={id}
-          className="subheading-anchor"
+          className="infp-subheading-anchor"
           aria-label="Permalink for this section"
           ref={obRef}
         />

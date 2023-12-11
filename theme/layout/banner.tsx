@@ -2,7 +2,6 @@ import { observer } from '@legendapp/state/react';
 import cn from 'clsx';
 import Script from 'next/script';
 import { useMounted } from 'nextra/hooks';
-import React from 'react';
 
 import { XIcon } from '@/theme/components/icons';
 import { useStore } from '@/theme/config/context';

@@ -1,5 +1,5 @@
 import type { ComponentProps, FC, ReactElement, ReactNode } from 'react';
-import React, { Children, cloneElement } from 'react';
+import { Children, cloneElement } from 'react';
 
 import {
   Collapsible,

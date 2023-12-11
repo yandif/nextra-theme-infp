@@ -6,7 +6,7 @@ import type { PageOpts } from 'nextra';
 import { useFSRoute } from 'nextra/hooks';
 import { normalizePages } from 'nextra/normalize-pages';
 import type { FC, ReactNode } from 'react';
-import React, { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 import { isBrowser } from '@/theme/utils';
 

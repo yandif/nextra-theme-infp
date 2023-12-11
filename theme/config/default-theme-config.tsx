@@ -54,7 +54,7 @@ export const defaultThemeConfig: ThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra',
   toc: {
-    backToTop: false,
+    backToTop: true,
     component: (props) => <TOC {...props} />,
     float: true,
     title: 'On This Page',

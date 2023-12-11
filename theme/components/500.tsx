@@ -1,5 +1,4 @@
 import { observer } from '@legendapp/state/react';
-import React from 'react';
 
 import { Anchor } from './anchor';
 

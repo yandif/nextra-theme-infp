@@ -1,7 +1,7 @@
 import 'intersection-observer';
 
 import type { Dispatch, ReactElement, ReactNode, SetStateAction } from 'react';
-import React, { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 import { isBrowser } from '@/theme/utils';
 
@@ -88,7 +88,8 @@ export const ActiveAnchorProvider = ({
         });
       },
       {
-        rootMargin: '0px 0px -50%',
+        // margin top need to be adjusted based on the height of the header
+        rootMargin: '-64px 0px -50%',
         threshold: [0, 1],
       },
     );

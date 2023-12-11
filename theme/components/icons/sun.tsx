@@ -1,5 +1,4 @@
 import type { ComponentProps, FC } from 'react';
-import React from 'react';
 
 export const SunIcon: FC<ComponentProps<'svg'>> = (props) => (
   <svg
