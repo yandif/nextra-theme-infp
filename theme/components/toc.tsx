@@ -63,8 +63,8 @@ export const TOC = observer<TOCProps>(({ headings, filePath }) => {
     <div
       ref={tocRef}
       className={cn(
-        'nextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto]',
-        'max-h-[calc(100vh-var(--nextra-navbar-height)-env(safe-area-inset-bottom))] -mr-4',
+        'infp-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto]',
+        'max-h-[calc(100vh-var(--infp-header-height)-env(safe-area-inset-bottom))] -mr-4',
       )}>
       {hasHeadings && (
         <>
