@@ -3,7 +3,7 @@ import { useMounted } from 'nextra/hooks';
 import type { ReactElement } from 'react';
 import { z } from 'zod';
 
-import { useStore } from '@/theme/config/context';
+import { useStore } from '@/theme/content/context';
 
 import { MoonIcon, SunIcon, SystemIcon } from './icons';
 import {

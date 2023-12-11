@@ -10,7 +10,7 @@ import { createContext, useContext, useMemo } from 'react';
 
 import { isBrowser } from '@/theme/utils';
 
-import { defaultThemeConfig, mergeThemeConfig } from './default-theme-config';
+import { defaultThemeConfig, mergeThemeConfig } from './theme';
 import type { ThemeConfig } from './theme-schema';
 
 type Store = {
@@ -29,8 +29,14 @@ const StoreContext = createContext<ObservableObject<Store>>(
   }),
 );
 
+/**
+ *  获取主题全局上下文
+ */
 export const useStore = () => useContext(StoreContext);
 
+/**
+ * 主题全局上下文
+ */
 export const StoreProvider: FC<{
   value: { pageOpts: PageOpts; pageProps: any; themeConfig: ThemeConfig };
   children: ReactNode;

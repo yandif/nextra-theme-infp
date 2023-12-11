@@ -19,8 +19,8 @@ import {
   useIntersectionObserver,
   useSetActiveAnchor,
   useSlugs,
-} from '@/theme/config/active-anchor';
-import type { ThemeConfig } from '@/theme/config/theme-schema';
+} from '@/theme/content/active-anchor';
+import type { ThemeConfig } from '@/theme/content/theme-schema';
 
 // Anchor links
 function HeadingLink({

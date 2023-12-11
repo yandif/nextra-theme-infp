@@ -3,8 +3,8 @@ import type { NextraThemeLayoutProps } from 'nextra';
 import { MDXProvider } from 'nextra/mdx';
 import type { FC, ReactNode } from 'react';
 
-import { ActiveAnchorProvider } from '@/theme/config/active-anchor';
-import { StoreProvider, useStore } from '@/theme/config/context';
+import { ActiveAnchorProvider } from '@/theme/content/active-anchor';
+import { StoreProvider, useStore } from '@/theme/content/context';
 
 import { renderComponent } from '../utils/render';
 import { Banner } from './banner';
@@ -17,7 +17,7 @@ import { ThemeProvider } from './theme-provider';
 const Body = observer(({ children }: { children: ReactNode }) => {
   const components = useStore().themeConfig.components.get();
   return (
-    <main className="infp-main w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+    <main className="infp-main w-full min-w-0 max-w-6xl px-6 pb-24 pt-4 md:px-12">
       <MDXProvider
         components={getComponents({
           isRawLayout: false,

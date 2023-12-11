@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo';
 import { useTheme } from 'next-themes';
 import { useMounted } from 'nextra/hooks';
 
-import { useStore } from '@/theme/config/context';
+import { useStore } from '@/theme/content/context';
 
 export const Head = observer(() => {
   const store = useStore();

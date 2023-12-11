@@ -1,6 +1,6 @@
 import gitUrlParse from 'git-url-parse';
 
-import { useStore } from '../config/context';
+import { useStore } from '../content/context';
 
 export function useGitEditUrl(filePath = ''): string {
   const config = useStore().themeConfig.get();

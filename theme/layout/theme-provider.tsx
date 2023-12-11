@@ -2,7 +2,7 @@ import { observer } from '@legendapp/state/react';
 import { ThemeProvider as Provider } from 'next-themes';
 import type { FC, ReactNode } from 'react';
 
-import { useStore } from '@/theme/config/context';
+import { useStore } from '@/theme/content/context';
 
 export type ThemeProviderProps = {
   children?: ReactNode;

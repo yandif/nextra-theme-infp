@@ -5,8 +5,7 @@ import { isValidElement } from 'react';
 import { z } from 'zod';
 
 import { themeOptionsSchema } from '@/theme/components/theme-switch';
-
-import type { TOCProps } from '../components/toc';
+import type { TOCProps } from '@/theme/components/toc';
 
 function isReactNode(value: unknown): boolean {
   return (

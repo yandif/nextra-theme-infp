@@ -40,7 +40,7 @@ const logo = (
 );
 
 const config: DocsThemeConfig = {
-  banner: { text: 'Nextra 2.0', key: '123' },
+  banner: { text: 'Nextra 2.0', key: 'aaa' },
   project: {
     link: 'https://github.com/shuding/nextra',
   },
@@ -147,7 +147,7 @@ const config: DocsThemeConfig = {
     ),
   },
   toc: {
-    backToTop: false,
+    backToTop: true,
   },
 };
 

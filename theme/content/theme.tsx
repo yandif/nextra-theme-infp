@@ -8,6 +8,9 @@ import { useGitEditUrl } from '../utils/use-git-edit-url';
 import { useStore } from './context';
 import type { ThemeConfig } from './theme-schema';
 
+/**
+ * 主题默认配置
+ */
 export const defaultThemeConfig: ThemeConfig = {
   nextThemes: {
     defaultTheme: 'system',
@@ -57,7 +60,7 @@ export const defaultThemeConfig: ThemeConfig = {
     backToTop: true,
     component: (props) => <TOC {...props} />,
     float: true,
-    title: 'On This Page',
+    title: '目录',
     extraContent: <>extraContent</>,
   },
   feedback: {
@@ -89,6 +92,9 @@ export const defaultThemeConfig: ThemeConfig = {
   components: {},
 };
 
+/**
+ * 合并主题配置
+ */
 export const mergeThemeConfig = (themeConfig: any) => {
   const deepKeys = Object.entries(defaultThemeConfig)
     .map(([key, value]) => {

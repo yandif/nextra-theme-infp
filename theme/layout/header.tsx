@@ -2,7 +2,7 @@ import { observer } from '@legendapp/state/react';
 
 import { Anchor } from '@/theme/components/anchor';
 import { ThemeSwitch } from '@/theme/components/theme-switch';
-import { useStore } from '@/theme/config/context';
+import { useStore } from '@/theme/content/context';
 import { useIsAtTop } from '@/theme/hooks/use-is-at-top';
 import { renderComponent } from '@/theme/utils/render';
 import { cn } from '@/theme/utils/utils';

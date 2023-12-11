@@ -33,6 +33,9 @@ export const useIntersectionObserver = () =>
   useContext(IntersectionObserverContext);
 export const useSlugs = () => useContext(SlugsContext);
 
+/**
+ * 为了实现 TOC 跟随页面滚动高亮对应的链接
+ */
 export const ActiveAnchorProvider = ({
   children,
 }: {
