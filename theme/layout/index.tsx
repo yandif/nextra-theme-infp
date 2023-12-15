@@ -16,8 +16,9 @@ import { ThemeProvider } from './theme-provider';
 
 const Body = observer(({ children }: { children: ReactNode }) => {
   const components = useStore().themeConfig.components.get();
+
   return (
-    <main className="infp-main w-full min-w-0 max-w-6xl px-6 pb-24 pt-4 md:px-12">
+    <main className="infp-main w-full min-w-0 max-w-6xl px-6 pb-24 pt-4 md:px-12 min-h-[calc(100vh-var(--infp-header-height))]">
       <MDXProvider
         components={getComponents({
           isRawLayout: false,
@@ -31,6 +32,7 @@ const Body = observer(({ children }: { children: ReactNode }) => {
 
 const Main = observer(({ children }: { children: ReactNode }) => {
   const store = useStore();
+  // console.log(useStore().pageOpts.get());
   const config = store.themeConfig.get();
   const { headings, filePath } = store.pageOpts.get();
 

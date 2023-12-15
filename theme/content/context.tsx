@@ -6,9 +6,7 @@ import type { PageOpts } from 'nextra';
 import { useFSRoute } from 'nextra/hooks';
 import { normalizePages } from 'nextra/normalize-pages';
 import type { FC, ReactNode } from 'react';
-import { createContext, useContext, useMemo } from 'react';
-
-import { isBrowser } from '@/theme/utils';
+import { createContext, useContext, useEffect, useMemo } from 'react';
 
 import { defaultThemeConfig, mergeThemeConfig } from './theme';
 import type { ThemeConfig } from './theme-schema';
@@ -42,9 +40,10 @@ export const StoreProvider: FC<{
   children: ReactNode;
 }> = ({ children, value }) => {
   const { pageOpts, pageProps, themeConfig } = value;
+  const { pageMap } = pageOpts;
   const { locale = 'zh-CN', defaultLocale } = useRouter();
   const fsPath = useFSRoute();
-  const { pageMap } = pageOpts;
+
   const _normalizePages = useMemo(
     () =>
       normalizePages({
@@ -56,16 +55,19 @@ export const StoreProvider: FC<{
     [pageMap, locale, defaultLocale, fsPath],
   );
 
-  if (isBrowser) {
-    console.log(_normalizePages);
-  }
-
-  const store = useObservable<Store>({
-    pageOpts,
-    pageProps,
+  const initialValue = {
     themeConfig: mergeThemeConfig(themeConfig),
     normalizePages: _normalizePages,
-  });
+    pageOpts,
+    pageProps,
+  };
+
+  const store = useObservable<Store>(initialValue);
+
+  // 由于 useObservable 只初始化一次，所以需要在每次路由变化的时候重新赋值
+  useEffect(() => {
+    store.set(initialValue);
+  }, [fsPath]);
 
   // TODO：校验主题配置是是否合法。
 
