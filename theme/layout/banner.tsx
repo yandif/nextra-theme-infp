@@ -26,7 +26,7 @@ export const Banner = observer(() => {
         className={cn(
           'infp-banner-container sticky top-0 z-20 flex items-center md:relative',
           'h-[var(--infp-banner-height)] [body.infp-banner-hidden_&]:hidden',
-          'text-slate-50 dark:text-white bg-neutral-900 ',
+          'text-slate-50 dark:text-white bg-neutral-900',
           'px-2 ltr:pl-10 rtl:pr-10 print:hidden',
         )}>
         <div className="w-full truncate px-4 text-center font-medium text-sm">
