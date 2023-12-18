@@ -16,6 +16,8 @@ import { useStore } from '@/theme/content/context';
 import { renderComponent } from '@/theme/utils/render';
 import { cn } from '@/theme/utils/utils';
 
+import { useIsAtTop } from '../hooks/use-is-at-top';
+
 export const Logo = observer(() => {
   const header = useStore().themeConfig.header.get();
   const { logoLink, logo } = header;
@@ -50,7 +52,7 @@ export const Menu = observer(() => {
         className={cn(
           'hidden md:flex items-center justify-start h-9 rounded-full overflow-x-auto no-scrollbar',
         )}>
-        <Menubar className="mx-2 border-none bg-transparent shadow-">
+        <Menubar className="mx-2 border-none bg-transparent">
           {items.map((pageOrMenu) => {
             if (pageOrMenu.display === 'hidden') return null;
 
@@ -126,12 +128,15 @@ export const Menu = observer(() => {
 });
 
 export const Header = observer(() => {
+  const isAtTop = useIsAtTop();
   return (
     <div className="infp-header-container">
       <div
         className={cn(
           'infp-header-container-blur',
           'pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark',
+          !isAtTop &&
+            'transition-[box-shadow] shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset]',
           'contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]',
         )}
       />

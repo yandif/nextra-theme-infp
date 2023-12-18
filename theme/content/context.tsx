@@ -16,6 +16,7 @@ type Store = {
   pageOpts: PageOpts;
   pageProps: any;
   normalizePages: ReturnType<typeof normalizePages>;
+  menu: boolean;
 };
 
 const StoreContext = createContext<ObservableObject<Store>>(
@@ -24,6 +25,7 @@ const StoreContext = createContext<ObservableObject<Store>>(
     pageOpts: {} as PageOpts,
     pageProps: {},
     normalizePages: {} as ReturnType<typeof normalizePages>,
+    menu: false,
   }),
 );
 
@@ -60,6 +62,7 @@ export const StoreProvider: FC<{
     normalizePages: _normalizePages,
     pageOpts,
     pageProps,
+    menu: false,
   };
 
   const store = useObservable<Store>(initialValue);

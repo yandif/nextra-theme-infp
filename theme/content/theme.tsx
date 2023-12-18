@@ -61,7 +61,6 @@ export const defaultThemeConfig: ThemeConfig = {
     component: (props) => <TOC {...props} />,
     float: true,
     title: '目录',
-    extraContent: <>extraContent</>,
   },
   feedback: {
     content: 'Question? Give us feedback →',

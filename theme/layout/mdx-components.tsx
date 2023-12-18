@@ -96,7 +96,7 @@ export const Link = ({ href = '', className, ...props }: AnchorProps) => (
     href={href}
     newWindow={EXTERNAL_HREF_REGEX.test(href)}
     className={cn(
-      'text-[#4d8ce6] dark:text-[#79a9ec] underline decoration-from-font [text-underline-position:from-font]',
+      'text-[#4d8ce6] dark:text-[#79a9ec] decoration-from-font [text-underline-position:from-font]',
       className,
     )}
     {...props}
