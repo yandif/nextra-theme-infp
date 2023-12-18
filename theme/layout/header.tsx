@@ -1,9 +1,18 @@
 import { observer } from '@legendapp/state/react';
+import { useFSRoute } from 'nextra/hooks';
+import { ArrowRightIcon } from 'nextra/icons';
+import type { MenuItem, PageItem } from 'nextra/normalize-pages';
 
 import { Anchor } from '@/theme/components/anchor';
 import { ThemeSwitch } from '@/theme/components/theme-switch';
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from '@/theme/components/ui/menubar';
 import { useStore } from '@/theme/content/context';
-import { useIsAtTop } from '@/theme/hooks/use-is-at-top';
 import { renderComponent } from '@/theme/utils/render';
 import { cn } from '@/theme/utils/utils';
 
@@ -24,8 +33,16 @@ export const Logo = observer(() => {
   );
 });
 
+const classes = {
+  active: cn('font-medium subpixel-antialiased'),
+  inactive: cn(
+    'cursor-pointer text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200',
+  ),
+};
+
 export const Menu = observer(() => {
-  useStore().pageOpts.get();
+  const items = useStore().normalizePages.topLevelNavbarItems.get();
+  const activeRoute = useFSRoute();
 
   return (
     <div className="flex flex-1 items-center justify-end overflow-hidden">
@@ -33,25 +50,88 @@ export const Menu = observer(() => {
         className={cn(
           'hidden md:flex items-center justify-start h-9 rounded-full overflow-x-auto no-scrollbar',
         )}>
-        <span className="mx-2 whitespace-nowrap">编程</span>
-        <span className="mx-2 whitespace-nowrap">学习</span>
-        <span className="mx-2 whitespace-nowrap">开发</span>
+        <Menubar className="mx-2 border-none bg-transparent shadow-">
+          {items.map((pageOrMenu) => {
+            if (pageOrMenu.display === 'hidden') return null;
+
+            if (pageOrMenu.type === 'menu') {
+              const menu = pageOrMenu as MenuItem;
+              const { items } = menu;
+              const routes = Object.fromEntries(
+                (menu.children || []).map((route) => [route.name, route]),
+              );
+
+              return (
+                <MenubarMenu key={menu.title}>
+                  <MenubarTrigger className={cn(classes.inactive)}>
+                    {menu.title}
+                    <ArrowRightIcon
+                      className="h-[18px] min-w-[18px] rounded-sm p-0.5"
+                      pathClassName="origin-center transition-transform rotate-90"
+                    />
+                  </MenubarTrigger>
+                  <MenubarContent className="min-w-[8rem] border-none">
+                    {Object.entries(items || {}).map(([key, item]) => (
+                      <MenubarItem asChild className="cursor-pointer" key={key}>
+                        <Anchor
+                          href={
+                            item.href ||
+                            routes[key]?.route ||
+                            menu.route + '/' + key
+                          }
+                          newWindow={item.newWindow}>
+                          {item.title || key}
+                        </Anchor>
+                      </MenubarItem>
+                    ))}
+                  </MenubarContent>
+                </MenubarMenu>
+              );
+            }
+            const page = pageOrMenu as PageItem;
+            let href = page.href || page.route || '#';
+            // If it's a directory
+            if (page.children) {
+              href =
+                (page.withIndexPage ? page.route : page.firstChildRoute) ||
+                href;
+            }
+            const isActive =
+              page.route === activeRoute ||
+              activeRoute.startsWith(page.route + '/');
+
+            return (
+              <MenubarMenu key={pageOrMenu.route}>
+                <MenubarTrigger asChild className="cursor-pointer">
+                  <Anchor
+                    href={href}
+                    key={href}
+                    className={cn(
+                      !isActive || page.newWindow
+                        ? classes.inactive
+                        : classes.active,
+                    )}
+                    newWindow={page.newWindow}
+                    aria-current={!page.newWindow && isActive}>
+                    {page.title}
+                  </Anchor>
+                </MenubarTrigger>
+              </MenubarMenu>
+            );
+          })}
+        </Menubar>
       </div>
     </div>
   );
 });
 
 export const Header = observer(() => {
-  const isAtTop = useIsAtTop();
-
   return (
     <div className="infp-header-container">
       <div
         className={cn(
           'infp-header-container-blur',
           'pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark',
-          !isAtTop &&
-            'transition-[box-shadow] shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset]',
           'contrast-more:shadow-[0_0_0_1px_#000] contrast-more:dark:shadow-[0_0_0_1px_#fff]',
         )}
       />

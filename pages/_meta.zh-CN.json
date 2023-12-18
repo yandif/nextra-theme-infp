@@ -8,5 +8,15 @@
   "notes": { "title": "笔记", "type": "page" },
   "stars": { "title": "收藏", "type": "page" },
   "tool": { "title": "工具", "type": "page" },
-  "about": { "title": "关于", "type": "page" }
+  "about": { "title": "关于", "type": "page" },
+  "team": {
+    "title": "Community",
+    "type": "menu",
+    "items": {
+      "team": {
+        "title": "Team",
+        "href": "/team"
+      }
+    }
+  }
 }

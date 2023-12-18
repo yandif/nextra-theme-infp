@@ -6,6 +6,7 @@ import type { FC, ReactNode } from 'react';
 import { ActiveAnchorProvider } from '@/theme/content/active-anchor';
 import { StoreProvider, useStore } from '@/theme/content/context';
 
+import { Breadcrumb } from '../components/breadcrumb';
 import { renderComponent } from '../utils/render';
 import { Banner } from './banner';
 import { Footer } from './footer';
@@ -24,6 +25,7 @@ const Body = observer(({ children }: { children: ReactNode }) => {
           isRawLayout: false,
           components,
         })}>
+        <Breadcrumb />
         {children}
       </MDXProvider>
     </main>
@@ -32,16 +34,15 @@ const Body = observer(({ children }: { children: ReactNode }) => {
 
 const Main = observer(({ children }: { children: ReactNode }) => {
   const store = useStore();
-  // console.log(useStore().pageOpts.get());
-  const config = store.themeConfig.get();
+  const toc = store.themeConfig.toc.get();
   const { headings, filePath } = store.pageOpts.get();
 
   const tocEl = (
     <nav
       className="infp-toc order-last hidden w-64 shrink-0 md:block print:hidden px-4"
       aria-label="table of contents">
-      {renderComponent(config.toc.component, {
-        headings: config.toc.float ? headings : [],
+      {renderComponent(toc.component, {
+        headings: toc.float ? headings : [],
         filePath,
       })}
     </nav>
