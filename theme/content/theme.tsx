@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { isValidElement } from 'react';
 
 import { Anchor } from '../components/anchor';
-import { TOC } from '../components/toc';
+import { TOC } from '../layout/toc';
 import { getGitIssueUrl } from '../utils/get-git-issue-url';
 import { useGitEditUrl } from '../utils/use-git-edit-url';
 import { useStore } from './context';

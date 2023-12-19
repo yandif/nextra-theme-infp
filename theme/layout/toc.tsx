@@ -4,11 +4,11 @@ import type { Heading } from 'nextra';
 import { useEffect, useMemo, useRef } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
+import { Anchor } from '../components/anchor';
+import { BackToTop } from '../components/back-to-top';
 import { useActiveAnchor } from '../content/active-anchor';
 import { useStore } from '../content/context';
 import { renderComponent } from '../utils/render';
-import { Anchor } from './anchor';
-import { BackToTop } from './back-to-top';
 
 export type TOCProps = {
   headings: Heading[];

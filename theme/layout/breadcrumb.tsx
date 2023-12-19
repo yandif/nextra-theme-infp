@@ -3,8 +3,8 @@ import cn from 'clsx';
 import { ArrowRightIcon } from 'nextra/icons';
 import { Fragment } from 'react';
 
+import { Anchor } from '../components/anchor';
 import { useStore } from '../content/context';
-import { Anchor } from './anchor';
 
 export const Breadcrumb = observer(() => {
   const { activePath, activeType } = useStore().normalizePages.get();

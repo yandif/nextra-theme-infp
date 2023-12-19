@@ -6,13 +6,14 @@ import type { FC, ReactNode } from 'react';
 import { ActiveAnchorProvider } from '@/theme/content/active-anchor';
 import { StoreProvider, useStore } from '@/theme/content/context';
 
-import { Breadcrumb } from '../components/breadcrumb';
 import { renderComponent } from '../utils/render';
 import { Banner } from './banner';
+import { Breadcrumb } from './breadcrumb';
 import { Footer } from './footer';
 import { Head } from './head';
 import { Header } from './header';
 import { getComponents } from './mdx-components';
+import { Sidebar } from './sidebar';
 import { ThemeProvider } from './theme-provider';
 
 const Body = observer(({ children }: { children: ReactNode }) => {
@@ -51,6 +52,7 @@ const Main = observer(({ children }: { children: ReactNode }) => {
   return (
     <div className="mx-auto max-w-[90rem] flex">
       <ActiveAnchorProvider>
+        <Sidebar />
         <Body>{children}</Body>
         {tocEl}
       </ActiveAnchorProvider>
