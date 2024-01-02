@@ -1,0 +1,15 @@
+.github {
+  --github-color: #262424;
+  --github-color-hover: #000000;
+
+  [data-mantine-color-scheme] & {
+    background-color: var(--github-color);
+    border-color: var(--github-color);
+    color: var(--mantine-color-white);
+
+    @mixin hover {
+      background-color: var(--github-color-hover);
+      border-color: var(--github-color-hover);
+    }
+  }
+}

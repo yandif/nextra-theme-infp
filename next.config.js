@@ -1,16 +1,19 @@
 const withNextra = require('nextra')({
-  theme: './theme',
-  // theme: 'nextra-theme-docs',
+  theme: './src',
   themeConfig: './theme.config.tsx',
   defaultShowCopyCode: true,
-  codeHighlight: true,
   latex: true,
-  flexsearch: {
-    codeblocks: false,
-  },
+  staticImage: true,
+  codeHighlight: true,
+  readingTime: true,
+  // flexsearch: {
+  //   codeblocks: false,
+  // },
 });
 
 module.exports = withNextra({
+  reactStrictMode: true,
+  swcMinify: true,
   i18n: {
     locales: ['zh-CN'],
     defaultLocale: 'zh-CN',

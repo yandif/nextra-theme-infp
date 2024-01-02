@@ -1,3 +1,1 @@
-# nextra-theme-infp
-
-a nextra theme
+# nextra theme

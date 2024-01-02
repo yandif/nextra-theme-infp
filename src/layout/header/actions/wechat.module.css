@@ -1,0 +1,15 @@
+.wechat {
+  --wechat-color: #0cc161;
+  --wechat-color-hover: #06b055;
+
+  [data-mantine-color-scheme] & {
+    background-color: var(--wechat-color);
+    border-color: var(--wechat-color);
+    color: var(--mantine-color-white);
+
+    @mixin hover {
+      background-color: var(--wechat-color-hover);
+      border-color: var(--wechat-color-hover);
+    }
+  }
+}

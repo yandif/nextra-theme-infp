@@ -1,0 +1,129 @@
+.root {
+  --infp-z-index-banner: 20;
+  --infp-z-index-header: 20;
+
+  --infp-banner-height: 2.5rem;
+  --infp-banner-text: var(--mantine-color-white);
+  --infp-banner-body: var(--mantine-primary-color-6);
+
+  --infp-header-height: 3.75rem;
+  --infp-header-border-color: var(--mantine-color-gray-2);
+  --infp-header-body: rgba(248, 248, 248, 0.6);
+
+  @mixin dark {
+    --infp-header-border-color: var(--mantine-color-dark-8);
+    --infp-header-body: rgba(7, 7, 7, 0.6);
+  }
+}
+
+.banner {
+  position: relative;
+  top: 0;
+  z-index: var(--infp-z-index-banner);
+  display: flex;
+  align-items: center;
+  height: var(--infp-banner-height);
+  padding-right: 0.5rem;
+  padding-left: 2.5rem;
+  text-align: center;
+  color: var(--infp-banner-text);
+  background-color: var(--infp-banner-body);
+
+  @media print {
+    & {
+      display: none;
+    }
+  }
+
+  &[data-hidden='true'] {
+    display: none;
+  }
+}
+
+.bannerText {
+  width: 100%;
+  padding: 0 1rem;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: var(--mantine-font-size-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bannerIcon {
+  color: var(--infp-banner-text);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--infp-z-index-header);
+  height: var(--infp-header-height);
+  padding: 0 1rem;
+  overflow: hidden;
+  background-color: var(--infp-header-body);
+  border-bottom: 0.0625rem solid var(--infp-header-border-color);
+  backdrop-filter: blur(0.75rem);
+
+  @media print {
+    & {
+      display: none;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.aside {
+  position: sticky;
+  top: 60px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 200px;
+  height: 600px;
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    display: none;
+  }
+}
+
+.content {
+  flex: 1;
+  width: 800px;
+  img {
+    max-width: 100%;
+  }
+  overflow: hidden;
+}
+
+.nav {
+  position: sticky;
+  top: 60px;
+  width: 200px;
+  height: 1200px;
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    display: none;
+  }
+}
+
+.footer {
+  height: 100px;
+}
+
+.mobile {
+  @mixin larger-than $mantine-breakpoint-sm {
+    display: none;
+  }
+}
+
+.desktop {
+  @mixin smaller-than $mantine-breakpoint-sm {
+    display: none;
+  }
+}

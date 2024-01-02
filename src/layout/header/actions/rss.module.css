@@ -1,0 +1,15 @@
+.rss {
+  --rss-color: #e47c33;
+  --rss-color-hover: #dc7429;
+
+  [data-mantine-color-scheme] & {
+    background-color: var(--rss-color);
+    border-color: var(--rss-color);
+    color: var(--mantine-color-white);
+
+    @mixin hover {
+      background-color: var(--rss-color-hover);
+      border-color: var(--rss-color-hover);
+    }
+  }
+}

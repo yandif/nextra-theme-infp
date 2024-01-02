@@ -4,5 +4,4 @@ build
 dist
 dist-ssr
 *.local
-lib
 next.config.js
