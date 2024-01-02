@@ -1,6 +1,7 @@
 import { DirectionProvider, MantineProvider } from '@mantine/core';
 import { NextraThemeLayoutProps } from 'nextra';
 import { FC } from 'react';
+
 import { theme } from '../../theme';
 import { StoreProvider } from '../contents';
 import { Banner } from './banner/banner';

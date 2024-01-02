@@ -1,12 +1,12 @@
 import type { ObservableObject } from '@legendapp/state';
 import { observable } from '@legendapp/state';
 import { useObservable, useSelector } from '@legendapp/state/react';
+import { useRouter } from 'next/router';
 import type { NextraThemeLayoutProps, PageOpts } from 'nextra';
+import { normalizePages } from 'nextra/normalize-pages';
 import type { FC, ReactNode } from 'react';
 import { createContext, useContext, useEffect, useMemo } from 'react';
 
-import { useRouter } from 'next/router';
-import { normalizePages } from 'nextra/normalize-pages';
 import { mergeThemeConfig } from '../utils';
 import { defaultThemeConfig } from './theme';
 import type { DefaultThemeConfig } from './theme-schema';
