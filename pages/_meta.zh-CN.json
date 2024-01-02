@@ -15,7 +15,32 @@
     "items": {
       "team": {
         "title": "Team",
-        "href": "/team"
+        "href": "/tool/tool"
+      }
+    }
+  },
+  "team2": {
+    "title": "Community1",
+    "type": "menu",
+    "items": {
+      "team2": {
+        "title": "前端",
+        "type": "label"
+      },
+      "team": {
+        "title": "1",
+        "href": "/tool/tool"
+      },
+      "team1": {
+        "type": "divider"
+      },
+      "team0": {
+        "title": "3",
+        "href": "/tool/tool"
+      },
+      "a": {
+        "title": "4444444444444444444444444444444",
+        "href": "/tool/tool"
       }
     }
   }

@@ -4,9 +4,9 @@
 }
 
 .inactive {
-  color: var(--mantine-color-gray-6);
+  color: var(--mantine-color-gray-7);
   @mixin hover {
-    color: var(--mantine-color-gray-8);
+    color: var(--mantine-color-gray-9);
   }
   @mixin dark {
     color: var(--mantine-color-gray-4);
@@ -21,4 +21,24 @@
   font-weight: 500;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
+}
+
+.dropText {
+  font-size: var(--mantine-font-size-sm);
+  color: var(--mantine-color-gray-7);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  @mixin hover {
+    color: var(--mantine-color-gray-9);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-gray-4);
+
+    @mixin hover {
+      color: var(--mantine-color-gray-2);
+    }
+  }
 }

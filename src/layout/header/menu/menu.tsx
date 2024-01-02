@@ -1,5 +1,5 @@
 import { observer } from '@legendapp/state/react';
-import { Anchor, Group } from '@mantine/core';
+import { Anchor, Center, Group, Menu as IMenu, Text } from '@mantine/core';
 import cx from 'clsx';
 import NextLink from 'next/link';
 import { useFSRoute } from 'nextra/hooks';
@@ -7,6 +7,8 @@ import { MenuItem, PageItem } from 'nextra/normalize-pages';
 
 import { useStore } from '../../../contents';
 import classes from './menu.module.css';
+
+type ItemType = 'divider' | 'label' | undefined;
 
 export const Menu = observer(() => {
   const store = useStore();
@@ -20,18 +22,51 @@ export const Menu = observer(() => {
 
         if (pageOrMenu.type === 'menu') {
           const menu = pageOrMenu as MenuItem;
-          // return (
-          //   <NavbarMenu
-          //     key={menu.title}
-          //     className={cx(classes.link, 'nx-flex nx-gap-1', classes.inactive)}
-          //     menu={menu}>
-          //     {menu.title}
-          //     <ArrowRightIcon
-          //       className="nx-h-[18px] nx-min-w-[18px] nx-rounded-sm nx-p-0.5"
-          //       pathClassName="nx-origin-center nx-transition-transform nx-rotate-90"
-          //     />
-          //   </NavbarMenu>
-          // );
+          const { items } = menu;
+          const routes = Object.fromEntries(
+            (menu.children || []).map((route) => [route.name, route]),
+          );
+          return (
+            <IMenu
+              key={menu.title}
+              trigger="hover"
+              shadow="md"
+              withArrow
+              transitionProps={{ transition: 'pop', duration: 150 }}
+              openDelay={100}
+              closeDelay={300}>
+              <IMenu.Target>
+                <Text className={cx(classes.dropText)}>{menu.title}</Text>
+              </IMenu.Target>
+              <IMenu.Dropdown miw={100}>
+                {Object.entries(items || {}).map(([key, item]) => {
+                  const type = (item as any).type as ItemType;
+                  if (type === 'divider') {
+                    console.log(key);
+                    return <IMenu.Divider key={key} />;
+                  }
+                  if (type === 'label') {
+                    return <IMenu.Label key={key}>{item.title}</IMenu.Label>;
+                  }
+                  return (
+                    <IMenu.Item
+                      key={key}
+                      component={NextLink}
+                      href={
+                        item.href ||
+                        routes[key]?.route ||
+                        menu.route + '/' + key
+                      }
+                      target={item.newWindow ? '_blank' : '_self'}>
+                      <Center maw={250}>
+                        <Text truncate="end">{item.title || key}</Text>
+                      </Center>
+                    </IMenu.Item>
+                  );
+                })}
+              </IMenu.Dropdown>
+            </IMenu>
+          );
         }
         const page = pageOrMenu as PageItem;
         let href = page.href || page.route || '#';
