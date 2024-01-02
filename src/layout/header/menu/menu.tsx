@@ -54,7 +54,6 @@ export const Menu = observer(() => {
             underline="never"
             className={cx(
               classes.text,
-
               !isActive || page.newWindow ? classes.inactive : classes.active,
             )}
             target={page.newWindow ? '_blank' : '_self'}

@@ -3,6 +3,7 @@ import { ActionIcon, Box } from '@mantine/core';
 import { IconX } from '@tabler/icons-react';
 import { useMounted } from 'nextra/hooks';
 import { useEffect, useState } from 'react';
+
 import { useStore } from '../../contents';
 import { renderComponent } from '../../utils';
 import classes from '../index.module.css';

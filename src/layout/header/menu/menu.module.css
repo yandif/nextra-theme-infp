@@ -1,16 +1,24 @@
 .text {
   font-size: var(--mantine-font-size-sm);
-  color: var(--mantine-color-gray-7);
   white-space: nowrap;
-  @mixin hover {
-    color: var(--mantine-color-gray-9);
-  }
+}
 
+.inactive {
+  color: var(--mantine-color-gray-6);
+  @mixin hover {
+    color: var(--mantine-color-gray-8);
+  }
   @mixin dark {
-    color: var(--mantine-color-gray-1);
+    color: var(--mantine-color-gray-4);
 
     @mixin hover {
-      color: #fff;
+      color: var(--mantine-color-gray-2);
     }
   }
+}
+
+.active {
+  font-weight: 500;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
 }

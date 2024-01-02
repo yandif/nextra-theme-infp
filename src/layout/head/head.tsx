@@ -1,10 +1,10 @@
 import { observer } from '@legendapp/state/react';
-import { NextSeo } from 'next-seo';
-import NextHead from 'next/head';
-
 import { useComputedColorScheme } from '@mantine/core';
 import { isFunction } from 'lodash';
+import NextHead from 'next/head';
+import { NextSeo } from 'next-seo';
 import { useMounted } from 'nextra/hooks';
+
 import { useStore } from '../../contents';
 
 const darkBg = '#1c2127';
