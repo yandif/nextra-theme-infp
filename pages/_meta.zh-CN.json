@@ -9,37 +9,43 @@
   "stars": { "title": "收藏", "type": "page" },
   "tool": { "title": "工具", "type": "page" },
   "about": { "title": "关于", "type": "page" },
-  "team": {
-    "title": "Community",
-    "type": "menu",
-    "items": {
-      "team": {
-        "title": "Team",
-        "href": "/tool/tool"
-      }
-    }
-  },
-  "team2": {
-    "title": "Community1",
+  "menus": {
+    "title": "技术",
     "type": "menu",
     "items": {
       "team2": {
         "title": "前端",
         "type": "label"
       },
-      "team": {
-        "title": "1",
+      "javascript": {
+        "title": "javascript",
+        "href": "/tool/tool"
+      },
+      "html": {
+        "title": "html",
+        "href": "/tool/tool"
+      },
+      "css": {
+        "title": "css",
         "href": "/tool/tool"
       },
       "team1": {
         "type": "divider"
       },
-      "team0": {
-        "title": "3",
+      "team22": {
+        "title": "后端",
+        "type": "label"
+      },
+      "mysql": {
+        "title": "mysql",
         "href": "/tool/tool"
       },
-      "a": {
-        "title": "4444444444444444444444444444444",
+      "prisma": {
+        "title": "prisma",
+        "href": "/tool/tool"
+      },
+      "node.js": {
+        "title": "node.js",
         "href": "/tool/tool"
       }
     }

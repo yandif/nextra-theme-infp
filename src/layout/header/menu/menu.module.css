@@ -1,6 +1,8 @@
 .text {
   font-size: var(--mantine-font-size-sm);
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 
 .inactive {
@@ -23,22 +25,12 @@
   -moz-osx-font-smoothing: auto;
 }
 
-.dropText {
-  font-size: var(--mantine-font-size-sm);
-  color: var(--mantine-color-gray-7);
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  @mixin hover {
-    color: var(--mantine-color-gray-9);
-  }
-
-  @mixin dark {
-    color: var(--mantine-color-gray-4);
-
-    @mixin hover {
-      color: var(--mantine-color-gray-2);
-    }
-  }
+.icon {
+  margin-left: rem(4px);
 }

@@ -1,5 +1,6 @@
 import { observer } from '@legendapp/state/react';
 import { Anchor, Center, Group, Menu as IMenu, Text } from '@mantine/core';
+import { IconCaretDownFilled } from '@tabler/icons-react';
 import cx from 'clsx';
 import NextLink from 'next/link';
 import { useFSRoute } from 'nextra/hooks';
@@ -26,6 +27,13 @@ export const Menu = observer(() => {
           const routes = Object.fromEntries(
             (menu.children || []).map((route) => [route.name, route]),
           );
+
+          const isActive = Object.entries(items || {}).some(([key, item]) => {
+            const route =
+              item.href || routes[key]?.route || menu.route + '/' + key;
+            return route === activeRoute || activeRoute.startsWith(route + '/');
+          });
+
           return (
             <IMenu
               key={menu.title}
@@ -36,13 +44,21 @@ export const Menu = observer(() => {
               openDelay={100}
               closeDelay={300}>
               <IMenu.Target>
-                <Text className={cx(classes.dropText)}>{menu.title}</Text>
+                <Anchor
+                  underline="never"
+                  className={cx(
+                    classes.iconWrapper,
+                    classes.text,
+                    isActive ? classes.active : classes.inactive,
+                  )}>
+                  {menu.title}
+                  <IconCaretDownFilled className={classes.icon} size={14} />
+                </Anchor>
               </IMenu.Target>
               <IMenu.Dropdown miw={100}>
                 {Object.entries(items || {}).map(([key, item]) => {
                   const type = (item as any).type as ItemType;
                   if (type === 'divider') {
-                    console.log(key);
                     return <IMenu.Divider key={key} />;
                   }
                   if (type === 'label') {
@@ -58,9 +74,9 @@ export const Menu = observer(() => {
                         menu.route + '/' + key
                       }
                       target={item.newWindow ? '_blank' : '_self'}>
-                      <Center maw={250}>
-                        <Text truncate="end">{item.title || key}</Text>
-                      </Center>
+                      <Text truncate="end" maw={250}>
+                        {item.title || key}
+                      </Text>
                     </IMenu.Item>
                   );
                 })}
