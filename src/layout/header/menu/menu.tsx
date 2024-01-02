@@ -14,7 +14,7 @@ export const Menu = observer(() => {
   const items = store.normalizePages.topLevelNavbarItems.get();
 
   return (
-    <Group gap="md">
+    <Group gap="md" wrap="nowrap">
       {items.map((pageOrMenu) => {
         if (pageOrMenu.display === 'hidden') return null;
 
@@ -54,7 +54,7 @@ export const Menu = observer(() => {
             underline="never"
             className={cx(
               classes.text,
-              'nx-relative -nx-ml-2 nx-hidden nx-whitespace-nowrap nx-p-2 md:nx-inline-block',
+
               !isActive || page.newWindow ? classes.inactive : classes.active,
             )}
             target={page.newWindow ? '_blank' : '_self'}

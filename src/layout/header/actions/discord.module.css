@@ -3,9 +3,9 @@
   --discord-color-hover: #4f5bd5;
 
   [data-mantine-color-scheme] & {
+    color: var(--mantine-color-white);
     background-color: var(--discord-color);
     border-color: var(--discord-color);
-    color: var(--mantine-color-white);
 
     @mixin hover {
       background-color: var(--discord-color-hover);

@@ -3,9 +3,9 @@
   --rss-color-hover: #dc7429;
 
   [data-mantine-color-scheme] & {
+    color: var(--mantine-color-white);
     background-color: var(--rss-color);
     border-color: var(--rss-color);
-    color: var(--mantine-color-white);
 
     @mixin hover {
       background-color: var(--rss-color-hover);

@@ -21,8 +21,8 @@
 }
 
 .logoTitle {
-  font-size: var(--mantine-font-size-lg);
   font-weight: 800;
+  font-size: var(--mantine-font-size-lg);
 }
 
 .logoDesc {

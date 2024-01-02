@@ -24,8 +24,10 @@ export const Header = observer(() => {
         w="100%"
         wrap="nowrap">
         <Logo />
-        <Menu />
-        <Actions />
+        <Group gap="xl" wrap="nowrap">
+          <Menu />
+          <Actions />
+        </Group>
       </Group>
       <Group
         component="header"

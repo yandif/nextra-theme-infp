@@ -3,9 +3,9 @@
   --github-color-hover: #000000;
 
   [data-mantine-color-scheme] & {
+    color: var(--mantine-color-white);
     background-color: var(--github-color);
     border-color: var(--github-color);
-    color: var(--mantine-color-white);
 
     @mixin hover {
       background-color: var(--github-color-hover);

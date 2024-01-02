@@ -3,9 +3,9 @@
   --twitter-color-hover: #000000;
 
   [data-mantine-color-scheme] & {
+    color: var(--mantine-color-white);
     background-color: var(--twitter-color);
     border-color: var(--twitter-color);
-    color: var(--mantine-color-white);
 
     @mixin hover {
       background-color: var(--twitter-color-hover);

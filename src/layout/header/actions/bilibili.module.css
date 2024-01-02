@@ -3,9 +3,9 @@
   --bilibili-color-hover: #f0648c;
 
   [data-mantine-color-scheme] & {
+    color: var(--mantine-color-white);
     background-color: var(--bilibili-color);
     border-color: var(--bilibili-color);
-    color: var(--mantine-color-white);
 
     @mixin hover {
       background-color: var(--bilibili-color-hover);

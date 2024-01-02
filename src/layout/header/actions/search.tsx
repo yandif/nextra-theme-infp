@@ -20,7 +20,7 @@ export function SearchAction({ className, ...others }: SearchActionProps) {
   const locale = useLocale();
   return (
     <UnstyledButton {...others} className={cx(classes.root, className)}>
-      <Group gap="xs">
+      <Group gap="xs" wrap="nowrap">
         <IconSearch style={{ width: rem(15), height: rem(15) }} stroke={1.5} />
         <Text fz="sm" c="dimmed" pr={40}>
           {locale.search}
