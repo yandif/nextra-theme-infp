@@ -1,7 +1,8 @@
 import { rem } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
-import { Action } from './action';
+
 import { useLocale } from '../../../contents';
+import { Action } from './action';
 
 interface SearchMobileActionProps {
   onClick?: () => void;

@@ -1,8 +1,10 @@
 import { observer } from '@legendapp/state/react';
 import { Anchor, Group } from '@mantine/core';
 import cx from 'clsx';
+import NextLink from 'next/link';
 import { useFSRoute } from 'nextra/hooks';
 import { MenuItem, PageItem } from 'nextra/normalize-pages';
+
 import { useStore } from '../../../contents';
 import classes from './menu.module.css';
 
@@ -48,19 +50,16 @@ export const Menu = observer(() => {
           <Anchor
             key={href}
             href={href}
+            component={NextLink}
+            underline="never"
             className={cx(
-              classes.link,
+              classes.text,
               'nx-relative -nx-ml-2 nx-hidden nx-whitespace-nowrap nx-p-2 md:nx-inline-block',
               !isActive || page.newWindow ? classes.inactive : classes.active,
             )}
             target={page.newWindow ? '_blank' : '_self'}
             aria-current={!page.newWindow && isActive}>
             {page.title}
-          </Anchor>
-        );
-        return (
-          <Anchor fz="md" underline="never">
-            {pageOrMenu.title}
           </Anchor>
         );
       })}

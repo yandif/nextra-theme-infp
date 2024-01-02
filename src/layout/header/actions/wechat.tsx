@@ -1,4 +1,5 @@
 import { IconBrandWechat } from '@tabler/icons-react';
+
 import { useLocale } from '../../../contents';
 import { Action } from './action';
 import classes from './wechat.module.css';

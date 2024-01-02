@@ -4,6 +4,7 @@ import cx from 'clsx';
 import { isString } from 'lodash';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+
 import { useStore } from '../../../contents';
 import { renderComponent } from '../../../utils';
 import classes from './logo.module.css';

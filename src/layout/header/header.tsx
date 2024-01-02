@@ -1,7 +1,7 @@
-import { Box, Burger, Group } from '@mantine/core';
-
 import { observer } from '@legendapp/state/react';
+import { Box, Burger, Group } from '@mantine/core';
 import cx from 'clsx';
+
 import { layoutStore } from '../../contents';
 import classes from '../index.module.css';
 import { Actions } from './actions';

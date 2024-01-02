@@ -1,4 +1,5 @@
 import { IconRss } from '@tabler/icons-react';
+
 import { useLocale } from '../../../contents';
 import { Action } from './action';
 import classes from './rss.module.css';

@@ -12,7 +12,7 @@
 
   @mixin dark {
     --infp-header-border-color: var(--mantine-color-dark-8);
-    --infp-header-body: rgba(7, 7, 7, 0.6);
+    --infp-header-body: var(--mantine-color-dark-7);
   }
 }
 

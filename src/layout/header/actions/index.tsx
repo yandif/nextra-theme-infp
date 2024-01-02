@@ -1,5 +1,7 @@
 import { observer } from '@legendapp/state/react';
 import { Group } from '@mantine/core';
+
+import { useStore } from '../../../contents';
 import classes from '../../index.module.css';
 import { BilibiliAction } from './bilibili';
 import { DirectionAction } from './direction';
@@ -11,7 +13,6 @@ import { SearchMobileAction } from './search-mobile';
 import { ThemeSwitchAction } from './theme-switch';
 import { TwitterAction } from './twitter';
 import { WechatAction } from './wechat';
-import { useStore } from '../../../contents';
 
 export const Actions = observer(() => {
   const {

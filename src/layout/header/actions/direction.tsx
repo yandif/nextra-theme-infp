@@ -3,6 +3,7 @@ import {
   IconTextDirectionLtr,
   IconTextDirectionRtl,
 } from '@tabler/icons-react';
+
 import { layoutStore, useLocale } from '../../../contents';
 import { Action } from './action';
 

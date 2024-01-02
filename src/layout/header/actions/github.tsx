@@ -1,6 +1,5 @@
-import {
-  IconBrandGithub
-} from '@tabler/icons-react';
+import { IconBrandGithub } from '@tabler/icons-react';
+
 import { useLocale } from '../../../contents';
 import { Action } from './action';
 import classes from './github.module.css';

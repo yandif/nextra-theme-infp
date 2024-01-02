@@ -1,9 +1,10 @@
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import cx from 'clsx';
+
+import { useLocale } from '../../../contents';
 import { Action } from './action';
 import classes from './theme-switch.module.css';
-import { useLocale } from '../../../contents';
 
 export function ThemeSwitchAction() {
   const locale = useLocale();

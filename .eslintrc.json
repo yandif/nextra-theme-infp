@@ -9,6 +9,6 @@
       { "max": 1, "maxEOF": 1, "maxBOF": 0 }
     ],
     "quotes": ["error", "single"],
-    "react-hooks/exhaustive-deps": false
+    "react-hooks/exhaustive-deps": "off"
   }
 }

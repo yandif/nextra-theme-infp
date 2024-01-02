@@ -1,6 +1,3 @@
-import React from 'react';
-import { IconSearch } from '@tabler/icons-react';
-import cx from 'clsx';
 import {
   BoxProps,
   ElementProps,
@@ -10,8 +7,12 @@ import {
   Text,
   UnstyledButton,
 } from '@mantine/core';
-import classes from './search.module.css';
+import { IconSearch } from '@tabler/icons-react';
+import cx from 'clsx';
+import React from 'react';
+
 import { useLocale } from '../../../contents';
+import classes from './search.module.css';
 
 interface SearchActionProps extends BoxProps, ElementProps<'button'> {}
 

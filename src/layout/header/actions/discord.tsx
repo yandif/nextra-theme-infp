@@ -1,4 +1,5 @@
 import { IconBrandDiscord } from '@tabler/icons-react';
+
 import { useLocale } from '../../../contents';
 import { Action } from './action';
 import classes from './discord.module.css';
