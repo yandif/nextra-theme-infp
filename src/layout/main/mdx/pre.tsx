@@ -13,6 +13,8 @@ type PreProps = ComponentProps<'pre'> & {
 import { ActionIcon, CopyButton, rem, Tooltip } from '@mantine/core';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
 
+import { useLocale } from '../../../contents';
+
 export const Pre: FC<PreProps> = ({
   children,
   hasCopyCode,
@@ -20,6 +22,7 @@ export const Pre: FC<PreProps> = ({
   ...props
 }) => {
   const preRef = useRef<HTMLPreElement | null>(null);
+  const locale = useLocale();
 
   const toggleWordWrap = useCallback(() => {
     const htmlDataset = document.documentElement.dataset;
@@ -45,7 +48,7 @@ export const Pre: FC<PreProps> = ({
       </Box>
 
       <Box className={classes.actions} data-filename={!!filename}>
-        <Tooltip label={'Toggle word wrap'} withArrow>
+        <Tooltip label={locale.codeWrap} withArrow>
           <ActionIcon variant="subtle" color="gray" onClick={toggleWordWrap}>
             <IconTextWrap style={{ width: rem(16) }} />
           </ActionIcon>
@@ -55,7 +58,7 @@ export const Pre: FC<PreProps> = ({
             value={preRef.current?.querySelector('code')?.textContent || ''}
             timeout={2000}>
             {({ copied, copy }) => (
-              <Tooltip label={copied ? 'Copied' : 'Copy'} withArrow>
+              <Tooltip label={copied ? locale.copied : locale.copy} withArrow>
                 <ActionIcon
                   color={copied ? 'teal' : 'gray'}
                   variant="subtle"

@@ -12,6 +12,9 @@ export const locale = z.object({
   search: z.string(),
   darkMode: z.string(),
   lightMode: z.string(),
+  codeWrap: z.string(),
+  copied: z.string(),
+  copy: z.string(),
 });
 
 export type Locale = z.infer<typeof locale>;
@@ -28,6 +31,9 @@ export const zhCN: Locale = {
   search: '搜索',
   darkMode: '深色模式',
   lightMode: '浅色模式',
+  codeWrap: '代码换行',
+  copied: '复制成功',
+  copy: '复制',
 };
 
 export const enUS: Locale = {
@@ -42,6 +48,9 @@ export const enUS: Locale = {
   search: 'Search',
   darkMode: 'Dark Mode',
   lightMode: 'Light Mode',
+  codeWrap: 'Code wrap',
+  copied: 'Copied',
+  copy: 'Copy',
 };
 
 const merge =
