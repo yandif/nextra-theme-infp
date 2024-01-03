@@ -3,8 +3,10 @@ import NextLink from 'next/link';
 import { Components } from 'nextra/mdx';
 
 import { DefaultThemeConfig } from '../../../contents';
+import { Details, Summary } from './details';
 import { HeadingLink } from './header-link';
 import classes from './index.module.css';
+import { Pre } from './pre';
 
 export const getComponents = ({
   isRawLayout,
@@ -31,7 +33,6 @@ export const getComponents = ({
     strong: (props) => <strong className={classes.strong} {...props} />,
     p: (props) => <p className={classes.p} {...props} />,
     blockquote: (props) => <Blockquote p="md" mt="md" {...(props as any)} />,
-    code: (props) => <Code {...(props as any)} />,
     a: (props) => (
       <Anchor
         component={NextLink}
@@ -57,6 +58,10 @@ export const getComponents = ({
     tr: (props) => <Table.Tr {...(props as any)} />,
     th: (props) => <Table.Th className={classes.th} {...(props as any)} />,
     td: (props) => <Table.Td className={classes.td} {...(props as any)} />,
+    summary: Summary,
+    details: Details,
+    pre: Pre,
+    code: (props) => <Code className={classes.code} {...(props as any)} />,
     ...components,
   };
 };

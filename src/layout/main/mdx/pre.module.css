@@ -1,0 +1,108 @@
+.root {
+  position: relative;
+  margin-top: rem(24px);
+
+  @mixin hover {
+    .actions {
+      opacity: 1;
+    }
+  }
+}
+
+.filename {
+  padding: rem(8px) rem(16px);
+  font-size: rem(13px);
+  background: var(--mantine-color-gray-0);
+
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+  border-top-left-radius: var(--mantine-radius-md);
+  border-top-right-radius: var(--mantine-radius-md);
+  @mixin dark {
+    background: var(--mantine-color-dark-6);
+    border-color: var(--mantine-color-dark-4);
+  }
+}
+
+.pre {
+  margin: 0;
+  padding: rem(16px) 0;
+  overflow: auto;
+  font-size: rem(13px);
+  background: var(--mantine-color-gray-0);
+  border-radius: var(--mantine-radius-md);
+  contain: paint;
+
+  @mixin dark {
+    background: var(--mantine-color-dark-6);
+  }
+
+  &[data-filename='true'] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  code {
+    padding: 0;
+
+    font-size: rem(13px);
+    background-color: transparent;
+    box-decoration-break: slice;
+    counter-reset: line;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
+
+    :global(.line) {
+      display: inline-block;
+      min-width: 100%;
+      padding: 0 rem(16px);
+      &:global(.highlighted) {
+        background-color: var(--mantine-primary-color-light);
+        box-shadow: inset rem(2px) 0 0 0 var(--mantine-primary-color-3);
+
+        @mixin dark {
+          box-shadow: inset rem(2px) 0 0 0 var(--mantine-primary-color-9);
+        }
+      }
+      :global(.highlighted) {
+        background-color: var(--mantine-primary-color-light-hover);
+      }
+    }
+
+    &[data-line-numbers] > :global(.line) {
+      padding-left: rem(8px) !important;
+      &::before {
+        content: counter(line);
+
+        float: left;
+        min-width: rem(36px);
+        padding-right: rem(16px);
+        line-height: var(--mantine-line-height);
+        text-align: right;
+        color: var(--mantine-color-gray-5);
+        counter-increment: line;
+      }
+    }
+  }
+
+  html[data-infp-word-wrap] & {
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    @mixin smaller-than $mantine-breakpoint-sm {
+      white-space: pre;
+    }
+
+    :global(.line) {
+      display: inline-block;
+    }
+  }
+}
+
+.actions {
+  position: absolute;
+  top: rem(8px);
+  right: rem(8px);
+  opacity: 0;
+  &[data-filename='true'] {
+    top: rem(45px);
+  }
+}

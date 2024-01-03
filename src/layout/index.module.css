@@ -76,6 +76,19 @@
   display: flex;
   margin-right: auto;
   margin-left: auto;
+
+  :global(.contains-task-list) {
+    margin-left: 0;
+    list-style-type: none;
+    padding-left: 0;
+    input[type='checkbox'] {
+      margin-right: rem(4px);
+    }
+    :global(.task-list-item) {
+      margin-top: rem(8px);
+      margin-bottom: rem(8px);
+    }
+  }
 }
 
 .aside {

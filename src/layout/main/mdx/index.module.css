@@ -50,3 +50,10 @@
 .th {
   white-space: nowrap;
 }
+
+.code {
+  --code-bg: var(--mantine-color-gray-0);
+  @mixin dark {
+    --code-bg: var(--mantine-color-dark-6);
+  }
+}

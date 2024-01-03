@@ -1,8 +1,6 @@
 @import '@mantine/core/styles.css';
 @import '@mantine/spotlight/styles.css';
 @import './code-block.css';
-@import './scrollbar';
-@import './mdx';
 
 html {
   scroll-padding-top: 3.75rem;
