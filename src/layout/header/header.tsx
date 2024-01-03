@@ -1,6 +1,6 @@
 import { observer } from '@legendapp/state/react';
 import { Box, Burger, Group } from '@mantine/core';
-import cx from 'clsx';
+import clsx from 'clsx';
 
 import { layoutStore } from '../../contents';
 import classes from '../index.module.css';
@@ -18,7 +18,7 @@ export const Header = observer(() => {
     <>
       <Group
         component="header"
-        className={cx(classes.header, classes.desktop)}
+        className={clsx(classes.header, classes.desktop)}
         justify="space-between"
         align="center"
         w="100%"
@@ -31,7 +31,7 @@ export const Header = observer(() => {
       </Group>
       <Group
         component="header"
-        className={cx(classes.header, classes.mobile)}
+        className={clsx(classes.header, classes.mobile)}
         justify="space-between"
         align="center"
         w="100%"

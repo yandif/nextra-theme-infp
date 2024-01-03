@@ -1,0 +1,22 @@
+.body {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.default {
+  padding: 0 var(--mantine-spacing-md);
+}
+
+.raw {
+}
+
+.full {
+}

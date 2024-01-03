@@ -1,0 +1,60 @@
+.h1 {
+  margin-top: rem(8px);
+  color: var(--mantine-primary-color-6);
+  @mixin dark {
+    color: var(--mantine-primary-color-8);
+  }
+}
+
+.h2 {
+  margin-top: rem(40px);
+  padding-bottom: rem(4px);
+  color: var(--mantine-primary-color-6);
+  border-bottom: rem(1px) solid var(--mantine-color-gray-3);
+  @mixin dark {
+    border-color: var(--mantine-color-dark-4);
+    color: var(--mantine-primary-color-8);
+  }
+}
+
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: rem(32px);
+  color: var(--mantine-primary-color-6);
+  @mixin dark {
+    color: var(--mantine-primary-color-8);
+  }
+}
+
+.anchor {
+  font-size: inherit;
+  opacity: 0;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-property: opacity;
+
+  @mixin ltr {
+    margin-left: rem(4px);
+  }
+  @mixin rtl {
+    margin-right: rem(4px);
+  }
+
+  :hover > &,
+  &:focus {
+    opacity: 100;
+  }
+
+  &:after {
+    content: '#';
+    padding-right: rem(4px);
+    padding-left: rem(4px);
+
+    color: var(--mantine-color-gray-3);
+    @mixin dark {
+      color: var(--mantine-color-dark-3);
+    }
+  }
+}

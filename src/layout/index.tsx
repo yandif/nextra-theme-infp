@@ -3,11 +3,13 @@ import { NextraThemeLayoutProps } from 'nextra';
 import { FC } from 'react';
 
 import { theme } from '../../theme';
+import { BackToTop } from '../components';
 import { StoreProvider } from '../contents';
 import { Banner } from './banner/banner';
 import { Head } from './head/head';
 import { Header } from './header/header';
 import classes from './index.module.css';
+import { Main } from './main/main';
 
 const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   return (
@@ -18,12 +20,9 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
             <Head />
             <Banner />
             <Header />
-            <div className={classes.main}>
-              <div className={classes.aside}>aside</div>
-              <div className={classes.content}>content</div>
-              <div className={classes.nav}>nav</div>
-            </div>
+            <Main>{children}</Main>
             <div className={classes.footer}>footer</div>
+            <BackToTop />
           </div>
         </StoreProvider>
       </MantineProvider>

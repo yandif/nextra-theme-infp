@@ -1,7 +1,7 @@
 import { observer } from '@legendapp/state/react';
 import { Anchor, Center, Group, Menu as IMenu, Text } from '@mantine/core';
 import { IconCaretDownFilled } from '@tabler/icons-react';
-import cx from 'clsx';
+import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useFSRoute } from 'nextra/hooks';
 import { MenuItem, PageItem } from 'nextra/normalize-pages';
@@ -46,7 +46,7 @@ export const Menu = observer(() => {
               <IMenu.Target>
                 <Anchor
                   underline="never"
-                  className={cx(
+                  className={clsx(
                     classes.iconWrapper,
                     classes.text,
                     isActive ? classes.active : classes.inactive,
@@ -103,7 +103,7 @@ export const Menu = observer(() => {
             href={href}
             component={NextLink}
             underline="never"
-            className={cx(
+            className={clsx(
               classes.text,
               !isActive || page.newWindow ? classes.inactive : classes.active,
             )}

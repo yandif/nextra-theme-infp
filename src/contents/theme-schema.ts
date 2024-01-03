@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash';
-import { FC, isValidElement,ReactNode } from 'react';
+import { FC, isValidElement, ReactNode } from 'react';
 import { z } from 'zod';
 
 import { locale } from './locales';
@@ -17,6 +17,8 @@ const reactNode = [
   isReactNode,
   { message: '必须是 React.ReactNode 或者 React.FC' },
 ] as const;
+
+const fc = [isFunction, { message: '必须是 React.FC' }] as const;
 
 const i18nSchema = z.array(
   z.strictObject({
@@ -52,6 +54,7 @@ export const themeSchema = z.strictObject({
   logo: z.custom<ReactNode | FC>(...reactNode),
   logoLink: z.boolean().or(z.string()),
   locales: z.record(locale),
+  components: z.record(z.custom<FC>(...fc)).optional(),
 });
 
 const partialThemeSchema = themeSchema.deepPartial().extend({

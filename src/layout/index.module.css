@@ -74,7 +74,6 @@
 
 .main {
   display: flex;
-  max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -84,7 +83,7 @@
   top: 60px;
   flex-shrink: 0;
   align-self: flex-start;
-  width: 200px;
+  width: 250px;
   height: 600px;
 
   @mixin smaller-than $mantine-breakpoint-sm {
@@ -92,19 +91,10 @@
   }
 }
 
-.content {
-  flex: 1;
-  width: 800px;
-  overflow: hidden;
-  img {
-    max-width: 100%;
-  }
-}
-
-.nav {
+.navbar {
   position: sticky;
   top: 60px;
-  width: 200px;
+  width: 250px;
   height: 1200px;
 
   @mixin smaller-than $mantine-breakpoint-sm {

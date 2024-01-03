@@ -4,15 +4,15 @@ import {
   Tooltip,
   UnstyledButton,
 } from '@mantine/core';
-import cx from 'clsx';
-import React from 'react';
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import classes from './action.module.css';
 
 export interface ActionProps extends BoxProps {
   tooltip: string;
   'aria-label'?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 function _Action({
@@ -24,7 +24,7 @@ function _Action({
   return (
     <Tooltip label={tooltip}>
       <UnstyledButton
-        className={cx(classes.root, className)}
+        className={clsx(classes.root, className)}
         aria-label={label || tooltip}
         {...others}
       />

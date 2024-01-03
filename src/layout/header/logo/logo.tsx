@@ -1,6 +1,6 @@
 import { observer } from '@legendapp/state/react';
 import { Anchor, Box } from '@mantine/core';
-import cx from 'clsx';
+import clsx from 'clsx';
 import { isString } from 'lodash';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -32,7 +32,7 @@ export const Logo = observer(() => {
 
   return (
     <Anchor
-      className={cx(classes.root, classes.link)}
+      className={clsx(classes.root, classes.link)}
       component={NextLink}
       href={isString(logoLink) ? logoLink : '/'}
       underline="never">

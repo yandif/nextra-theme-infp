@@ -8,7 +8,7 @@ import {
   UnstyledButton,
 } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
-import cx from 'clsx';
+import clsx from 'clsx';
 import React from 'react';
 
 import { useLocale } from '../../../contents';
@@ -19,7 +19,7 @@ interface SearchActionProps extends BoxProps, ElementProps<'button'> {}
 export function SearchAction({ className, ...others }: SearchActionProps) {
   const locale = useLocale();
   return (
-    <UnstyledButton {...others} className={cx(classes.root, className)}>
+    <UnstyledButton {...others} className={clsx(classes.root, className)}>
       <Group gap="xs" wrap="nowrap">
         <IconSearch style={{ width: rem(15), height: rem(15) }} stroke={1.5} />
         <Text fz="sm" c="dimmed" pr={40}>

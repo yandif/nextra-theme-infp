@@ -1,6 +1,6 @@
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { IconMoon, IconSun } from '@tabler/icons-react';
-import cx from 'clsx';
+import clsx from 'clsx';
 
 import { useLocale } from '../../../contents';
 import { Action } from './action';
@@ -22,8 +22,8 @@ export function ThemeSwitchAction() {
         computedColorScheme === 'dark' ? locale.lightMode : locale.darkMode
       }
       aria-label="Toggle theme">
-      <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
-      <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
+      <IconSun className={clsx(classes.icon, classes.light)} stroke={1.5} />
+      <IconMoon className={clsx(classes.icon, classes.dark)} stroke={1.5} />
     </Action>
   );
 }
