@@ -10,9 +10,16 @@
   --infp-header-border-color: var(--mantine-color-gray-2);
   --infp-header-body: rgba(248, 248, 248, 0.6);
 
+  --infp-footer-height: rem(100px);
+  --infp-footer-border-color: var(--mantine-color-gray-2);
+  --infp-footer-text: var(--mantine-color-gray-8);
+  --infp-footer-body: var(--mantine-color-gray-1);
   @mixin dark {
     --infp-header-border-color: var(--mantine-color-dark-8);
     --infp-header-body: var(--mantine-color-dark-7);
+    --infp-footer-border-color: var(--mantine-color-dark-5);
+    --infp-footer-text: var(--mantine-color-gray-4);
+    --infp-footer-body: var(--mantine-color-dark-6);
   }
 }
 
@@ -76,6 +83,7 @@
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-height: calc(100vh - var(--infp-header-height));
 
   :global(.contains-task-list) {
     margin-left: 0;
@@ -108,15 +116,25 @@
   position: sticky;
   top: rem(60px);
   width: rem(250px);
-  padding: rem(16px);
   max-height: calc(100vh - rem(60px));
+  padding: rem(16px);
   @mixin smaller-than $mantine-breakpoint-sm {
     display: none;
   }
 }
 
 .footer {
-  height: 100px;
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  padding: 0 rem(48px);
+  color: var(--infp-footer-text);
+  background-color: var(--infp-footer-body);
+  border-top: rem(1px) solid var(--infp-footer-border-color);
+  @mixin smaller-than $mantine-breakpoint-sm {
+    justify-content: center;
+    padding: 0 rem(24px);
+  }
 }
 
 .mobile {
