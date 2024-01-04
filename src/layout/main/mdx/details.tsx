@@ -1,7 +1,11 @@
-import { Box, Button, Collapse, Group, Text } from '@mantine/core';
+import { Box, Collapse, Text, UnstyledButton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { IconChevronRight } from '@tabler/icons-react';
+import { useMounted } from 'nextra/hooks';
 import type { ComponentProps, FC, ReactElement, ReactNode } from 'react';
 import { Children, cloneElement } from 'react';
+
+import classes from './details.module.css';
 
 const findSummary = (children: ReactNode) => {
   let summary: ReactNode = null;
@@ -39,14 +43,23 @@ const findSummary = (children: ReactNode) => {
 export const Details: FC<ComponentProps<'details'>> = ({ children }) => {
   const [summary, restChildren] = findSummary(children);
   const [opened, { toggle }] = useDisclosure(false);
+  const mounted = useMounted();
 
   return (
-    <Box>
-      <Button onClick={toggle}>{summary}</Button>
+    <Box className={classes.details}>
+      <UnstyledButton
+        className={classes.toggle}
+        onClick={toggle}
+        data-opened={opened}>
+        <IconChevronRight size={16} stroke={2} />
+        {summary}
+      </UnstyledButton>
 
-      <Collapse in={opened}>
-        <Text>{restChildren}</Text>
-      </Collapse>
+      {mounted && (
+        <Collapse in={opened}>
+          <Text className={classes.collapse}>{restChildren}</Text>
+        </Collapse>
+      )}
     </Box>
   );
 };
