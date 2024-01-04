@@ -6,7 +6,8 @@
   text-align: right;
   color: var(--mantine-color-gray-6);
   overflow-wrap: break-word;
+
   @mixin dark {
-    color: var(--mantine-color-gray-4);
+    color: var(--mantine-color-gray-5);
   }
 }

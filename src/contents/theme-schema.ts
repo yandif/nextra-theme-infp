@@ -55,6 +55,12 @@ export const themeSchema = z.strictObject({
   logoLink: z.boolean().or(z.string()),
   locales: z.record(locale),
   components: z.record(z.custom<FC>(...fc)).optional(),
+  navigation: z.boolean().or(
+    z.strictObject({
+      next: z.boolean(),
+      prev: z.boolean(),
+    }),
+  ),
 });
 
 const partialThemeSchema = themeSchema.deepPartial().extend({
