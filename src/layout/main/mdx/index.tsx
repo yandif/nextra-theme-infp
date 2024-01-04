@@ -32,7 +32,14 @@ export const getComponents = ({
     li: (props) => <li className={classes.li} {...props} />,
     strong: (props) => <strong className={classes.strong} {...props} />,
     p: (props) => <p className={classes.p} {...props} />,
-    blockquote: (props) => <Blockquote p="md" mt="md" {...(props as any)} />,
+    blockquote: (props) => (
+      <Blockquote
+        p="md"
+        mt="md"
+        className={classes.blockquote}
+        {...(props as any)}
+      />
+    ),
     a: (props) => (
       <Anchor
         component={NextLink}

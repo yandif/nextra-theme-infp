@@ -11,7 +11,7 @@ export const Timestamp = observer(() => {
   const { locale = 'zh-CN' } = useRouter();
   const locales = useLocale();
   const mounted = useMounted();
-
+  const activeType = store.normalizePages.activeType.get();
   const activeThemeContext = store.normalizePages.activeThemeContext.get();
   const frontMatter = store.pageOpts.frontMatter.get();
   const timestamp = store.pageOpts.timestamp.get();
@@ -19,7 +19,7 @@ export const Timestamp = observer(() => {
 
   const date = themeContext.timestamp && timestamp ? new Date(timestamp) : null;
 
-  return mounted && date ? (
+  return mounted && date && activeType !== 'page' ? (
     <Box className={classes.root}>
       {locales.lastUpdate}{' '}
       <time dateTime={date.toISOString()}>

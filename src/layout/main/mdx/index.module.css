@@ -52,8 +52,14 @@
 }
 
 .code {
-  --code-bg: var(--mantine-color-gray-0);
+  --code-bg: var(--mantine-primary-color-light);
   @mixin dark {
-    --code-bg: var(--mantine-color-dark-6);
+    --code-bg: var(--mantine-primary-color-light);
+  }
+}
+
+.blockquote {
+  & > p:last-child {
+    margin-bottom: 0;
   }
 }

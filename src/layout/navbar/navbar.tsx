@@ -1,7 +1,5 @@
 import { observer } from '@legendapp/state/react';
 import { Box } from '@mantine/core';
-import { Button } from '@mantine/core';
-import clsx from 'clsx';
 
 import { useStore } from '../../contents';
 import classes from '../index.module.css';

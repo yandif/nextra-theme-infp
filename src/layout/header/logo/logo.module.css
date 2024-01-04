@@ -7,7 +7,7 @@
   @mixin dark {
     color: var(--mantine-primary-color-8);
   }
-  @mixin smaller-than $mantine-breakpoint-sm {
+  @mixin smaller-than $mantine-breakpoint-md {
     display: inline-block;
     width: 100%;
     text-align: center;

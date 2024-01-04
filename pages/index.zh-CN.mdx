@@ -2,17 +2,16 @@
 createDate: 2020-03-21
 ---
 
-
 <details>
   <summary>Details</summary>
-Something small enough to escape casual notice.
+  Something small enough to escape casual notice.
 </details>
 
 `let x = 1{:jsx}`
 
 <details>
   <summary>Details</summary>
-Something small enough to escape casual notice.
+  Something small enough to escape casual notice.
 </details>
 
 ```ansi
@@ -29,27 +28,32 @@ Something small enough to escape casual notice.
 
 ### 标题
 
-```javascript filename="a.js" {1,3-5} showLineNumbers 
+```javascript filename="a.js" {1,3-5} showLineNumbers
 let a = 1;
 let b = 2;
 let c = a + b;
 let ab = 1;
-let bb = "letlet a let";
+let bb = 'letlet a let';
 let cb = ab + bb;
 ```
+
 ```js /useState/
-import { useState } from 'react'
- 
+import { useState } from 'react';
+
 function Counter() {
-  const [count, setCount] = useState(0)
-  return <button onClick={() => setCount(count + 1)}>{count}</button>
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 ```
 
 ## 二级标题
+
 ### 三级标题
+
 #### 四级标题
+
 ##### 五级标题
+
 ###### 六级标题
 
 ### 引用
@@ -66,32 +70,31 @@ function Counter() {
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 ### 无序列表
 
 - First item
 - Second item
 - Third item
-    - Indented item
-    - Indented item
+  - Indented item
+  - Indented item
 - Fourth item
 
 * This is the first list item.
 * Here's the second list item.
-    
-    I need to add another paragraph below the second list item.
-    
-    I need to add another paragraph below the second list item.
 
+  I need to add another paragraph below the second list item.
+
+  I need to add another paragraph below the second list item.
 
 * And here's the third list item.
 
 1. First item
 2. Second item
 3. Third item
-    - Indented item
-    - Indented item
+   - Indented item
+   - Indented item
 4. Fourth item
 
 ### 有序列表
@@ -99,8 +102,8 @@ function Counter() {
 1. First item
 2. Second item
 3. Third item
-    1. Indented item
-    2. Indented item
+   1. Indented item
+   2. Indented item
 4. Fourth item
 
 ### 任务列表
@@ -109,8 +112,6 @@ function Counter() {
 - [ ] 复选框
 - [x] 复选框
 - [x] 复选框
-
-
 
 ### 段落
 
@@ -122,12 +123,12 @@ This is the first line.
 And this is the second line.
 
 I just love **bold text**.
-I just love __bold text__.
+I just love **bold text**.
 Love**is**bold
 
-Italicized text is the *cat's meow*.
+Italicized text is the _cat's meow_.
 
-This text is ***really important***.
+This text is **_really important_**.
 
 ### 图片
 
@@ -139,62 +140,66 @@ At the command prompt, type `nano`.
 
 ```html
 <html>
-  <head>
-  </head>
+  <head></head>
 </html>
 ```
 
 ### 分割线
 
-***
+---
 
 ### 链接
+
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com 'The best search engine for privacy').
 
 ### 网址和邮件
 
 I love supporting the **[EFF](https://eff.org)**.
-This is the *[Markdown Guide](https://www.markdownguide.org)*.
+This is the _[Markdown Guide](https://www.markdownguide.org)_.
 
-
-![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg 'San Juan Mountains')
 
 ### 表格
 
-|表格头|表格头|
-|---|---|
-|表格行|表格行|
-|表格行|表格行|
-|表格行|表格行|
-|表格行|表格行|
+| 表格头 | 表格头 |
+| ------ | ------ |
+| 表格行 | 表格行 |
+| 表格行 | 表格行 |
+| 表格行 | 表格行 |
+| 表格行 | 表格行 |
 
 # Markdown 基础语法演示
 
 ### 标题
 
-```javascript filename="a.js" {1,3-5} showLineNumbers 
+```javascript filename="a.js" {1,3-5} showLineNumbers
 let a = 1;
 let b = 2;
 let c = a + b;
 let ab = 1;
-let bb = "letlet a let";
+let bb = 'letlet a let';
 let cb = ab + bb;
 ```
+
 ```js /useState/
-import { useState } from 'react'
- 
+import { useState } from 'react';
+
 function Counter() {
-  const [count, setCount] = useState(0)
-  return <button onClick={() => setCount(count + 1)}>{count}</button>
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 ```
 
 ## 二级标题
+
 ### 三级标题
+
 #### 四级标题
+
 ##### 五级标题
+
 ###### 六级标题
 
 ### 引用
@@ -207,32 +212,31 @@ function Counter() {
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 ### 无序列表
 
 - First item
 - Second item
 - Third item
-    - Indented item
-    - Indented item
+  - Indented item
+  - Indented item
 - Fourth item
 
 * This is the first list item.
 * Here's the second list item.
-    
-    I need to add another paragraph below the second list item.
-    
-    I need to add another paragraph below the second list item.
 
+  I need to add another paragraph below the second list item.
+
+  I need to add another paragraph below the second list item.
 
 * And here's the third list item.
 
 1. First item
 2. Second item
 3. Third item
-    - Indented item
-    - Indented item
+   - Indented item
+   - Indented item
 4. Fourth item
 
 ### 有序列表
@@ -240,8 +244,8 @@ function Counter() {
 1. First item
 2. Second item
 3. Third item
-    1. Indented item
-    2. Indented item
+   1. Indented item
+   2. Indented item
 4. Fourth item
 
 ### 任务列表
@@ -249,8 +253,6 @@ function Counter() {
 - [ ] 复选框
 - [x] 复选框
 - [x] 复选框
-
-
 
 ### 段落
 
@@ -262,12 +264,12 @@ This is the first line.
 And this is the second line.
 
 I just love **bold text**.
-I just love __bold text__.
+I just love **bold text**.
 Love**is**bold
 
-Italicized text is the *cat's meow*.
+Italicized text is the _cat's meow_.
 
-This text is ***really important***.
+This text is **_really important_**.
 
 ### 图片
 
@@ -279,60 +281,64 @@ At the command prompt, type `nano`.
 
 ```html
 <html>
-  <head>
-  </head>
+  <head></head>
 </html>
 ```
 
 ### 分割线
 
-***
+---
 
 ### 链接
+
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com 'The best search engine for privacy').
 
 ### 网址和邮件
 
 I love supporting the **[EFF](https://eff.org)**.
-This is the *[Markdown Guide](https://www.markdownguide.org)*.
+This is the _[Markdown Guide](https://www.markdownguide.org)_.
 
-
-![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg 'San Juan Mountains')
 
 ### 表格
 
-|表格头|表格头|
-|---|---|
-|表格行|表格行|
-|表格行|表格行|
+| 表格头 | 表格头 |
+| ------ | ------ |
+| 表格行 | 表格行 |
+| 表格行 | 表格行 |
 
 # Markdown 基础语法演示
 
 ### 标题
 
-```javascript filename="a.js" {1,3-5} showLineNumbers 
+```javascript filename="a.js" {1,3-5} showLineNumbers
 let a = 1;
 let b = 2;
 let c = a + b;
 let ab = 1;
-let bb = "letlet a let";
+let bb = 'letlet a let';
 let cb = ab + bb;
 ```
+
 ```js /useState/
-import { useState } from 'react'
- 
+import { useState } from 'react';
+
 function Counter() {
-  const [count, setCount] = useState(0)
-  return <button onClick={() => setCount(count + 1)}>{count}</button>
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
 }
 ```
 
 ## 二级标题
+
 ### 三级标题
+
 #### 四级标题
+
 ##### 五级标题
+
 ###### 六级标题
 
 ### 引用
@@ -345,32 +351,31 @@ function Counter() {
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 ### 无序列表
 
 - First item
 - Second item
 - Third item
-    - Indented item
-    - Indented item
+  - Indented item
+  - Indented item
 - Fourth item
 
 * This is the first list item.
 * Here's the second list item.
-    
-    I need to add another paragraph below the second list item.
-    
-    I need to add another paragraph below the second list item.
 
+  I need to add another paragraph below the second list item.
+
+  I need to add another paragraph below the second list item.
 
 * And here's the third list item.
 
 1. First item
 2. Second item
 3. Third item
-    - Indented item
-    - Indented item
+   - Indented item
+   - Indented item
 4. Fourth item
 
 ### 有序列表
@@ -378,8 +383,8 @@ function Counter() {
 1. First item
 2. Second item
 3. Third item
-    1. Indented item
-    2. Indented item
+   1. Indented item
+   2. Indented item
 4. Fourth item
 
 ### 任务列表
@@ -387,8 +392,6 @@ function Counter() {
 - [ ] 复选框
 - [x] 复选框
 - [x] 复选框
-
-
 
 ### 段落
 
@@ -400,12 +403,12 @@ This is the first line.
 And this is the second line.
 
 I just love **bold text**.
-I just love __bold text__.
+I just love **bold text**.
 Love**is**bold
 
-Italicized text is the *cat's meow*.
+Italicized text is the _cat's meow_.
 
-This text is ***really important***.
+This text is **_really important_**.
 
 ### 图片
 
@@ -417,33 +420,32 @@ At the command prompt, type `nano`.
 
 ```html
 <html>
-  <head>
-  </head>
+  <head></head>
 </html>
 ```
 
 ### 分割线
 
-***
+---
 
 ### 链接
+
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com 'The best search engine for privacy').
 
 ### 网址和邮件
 
 I love supporting the **[EFF](https://eff.org)**.
-This is the *[Markdown Guide](https://www.markdownguide.org)*.
+This is the _[Markdown Guide](https://www.markdownguide.org)_.
 
-
-![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+![The San Juan Mountains are beautiful!](https://www.markdown.xyz/assets/images/san-juan-mountains.jpg 'San Juan Mountains')
 
 ### 表格
 
-|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|表格头|
-|---|   ---|---|---|---|---|---|---|---|---|---|---|---|
-|表格行表格行表格行表格行表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|
-|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|表格行|
+| 表格头                         | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 | 表格头 |
+| ------------------------------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| 表格行表格行表格行表格行表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 |
+| 表格行                         | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 | 表格行 |
 
 export const a = 123;

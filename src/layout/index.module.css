@@ -107,7 +107,7 @@
   width: 250px;
   height: 600px;
 
-  @mixin smaller-than $mantine-breakpoint-sm {
+  @mixin smaller-than $mantine-breakpoint-md {
     display: none;
   }
 }
@@ -118,7 +118,7 @@
   width: rem(250px);
   max-height: calc(100vh - rem(60px));
   padding: rem(16px);
-  @mixin smaller-than $mantine-breakpoint-sm {
+  @mixin smaller-than $mantine-breakpoint-lg {
     display: none;
   }
 }
@@ -138,13 +138,13 @@
 }
 
 .mobile {
-  @mixin larger-than $mantine-breakpoint-sm {
+  @mixin larger-than $mantine-breakpoint-md {
     display: none;
   }
 }
 
 .desktop {
-  @mixin smaller-than $mantine-breakpoint-sm {
+  @mixin smaller-than $mantine-breakpoint-md {
     display: none;
   }
 }
