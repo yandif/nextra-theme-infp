@@ -10,7 +10,7 @@
   padding-left: rem(24px);
   list-style-type: disc;
 
-  :first-child {
+  &:first-child {
     margin-top: rem(8px);
   }
 }
@@ -20,7 +20,7 @@
   padding-left: rem(24px);
   list-style-type: decimal;
 
-  :first-child {
+  &:first-child {
     margin-top: rem(8px);
   }
 }
@@ -34,7 +34,7 @@
   margin-top: rem(8px);
   margin-bottom: rem(8px);
   line-height: rem(28px);
-  :first-child {
+  &:first-child {
     margin-top: 0;
   }
 }

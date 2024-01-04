@@ -38,14 +38,16 @@ export const Pre: FC<PreProps> = ({
     <div className={classes.root}>
       {filename && <div className={classes.filename}>{filename}</div>}
 
-      <Box
-        component="pre"
-        className={classes.pre}
-        ref={preRef as any}
-        data-filename={!!filename}
-        {...props}>
-        {children}
-      </Box>
+      <ScrollArea>
+        <Box
+          component="pre"
+          className={classes.pre}
+          ref={preRef as any}
+          data-filename={!!filename}
+          {...props}>
+          {children}
+        </Box>
+      </ScrollArea>
 
       <Box className={classes.actions} data-filename={!!filename}>
         <Tooltip label={locale.codeWrap} withArrow>
