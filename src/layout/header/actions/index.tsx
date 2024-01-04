@@ -1,7 +1,7 @@
 import { observer } from '@legendapp/state/react';
-import { Group } from '@mantine/core';
+import { Button, Group } from '@mantine/core';
 
-import { useStore } from '../../../contents';
+import { mantineTheme, setMantineTheme, useStore } from '../../../contents';
 import classes from '../../index.module.css';
 import { BilibiliAction } from './bilibili';
 import { DiscordAction } from './discord';
@@ -12,7 +12,7 @@ import { SearchMobileAction } from './search-mobile';
 import { ThemeSwitchAction } from './theme-switch';
 import { TwitterAction } from './twitter';
 import { WechatAction } from './wechat';
-
+let i = 0;
 export const Actions = observer(() => {
   const {
     search,
@@ -29,6 +29,35 @@ export const Actions = observer(() => {
   return (
     <>
       <Group gap="xs" className={classes.desktop} wrap="nowrap">
+        <Button
+          onClick={() => {
+            i++;
+            const arr = [
+              'infp',
+              'tomato',
+              'sky',
+              'dark',
+              'gray',
+              'red',
+              'pink',
+              'grape',
+              'violet',
+              'indigo',
+              'blue',
+              'cyan',
+              'green',
+              'lime',
+              'yellow',
+              'orange',
+              'teal',
+            ];
+
+            setMantineTheme({
+              primaryColor: arr[(i % arr.length) - 1] || 'blue',
+            });
+          }}>
+          切换主题
+        </Button>
         {search && <SearchAction />}
         {bilibili && <BilibiliAction link={bilibili} />}
         {wechat && <WechatAction link={wechat} />}
