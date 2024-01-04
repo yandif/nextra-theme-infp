@@ -1,5 +1,5 @@
 import { observer } from '@legendapp/state/react';
-import { Anchor, rem } from '@mantine/core';
+import { Anchor } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import NextLink from 'next/link';
 import { useMounted } from 'nextra/hooks';
@@ -9,9 +9,6 @@ import classes from './nav-links.module.css';
 
 export const NavLinks = observer(() => {
   const store = useStore();
-
-  const locales = useLocale();
-  const mounted = useMounted();
   const { activeType, activeIndex, flatDocsDirectories, activeThemeContext } =
     store.normalizePages.get();
   const nav = store.themeConfig.navigation.get();

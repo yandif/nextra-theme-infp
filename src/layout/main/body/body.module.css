@@ -12,7 +12,10 @@
 }
 
 .default {
-  padding: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-md) rem(48px);
+  @mixin smaller-than $mantine-breakpoint-sm {
+    padding: var(--mantine-spacing-md) rem(24px);
+  }
 }
 
 .raw {

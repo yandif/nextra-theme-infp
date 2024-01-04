@@ -57,7 +57,7 @@ export const Details: FC<ComponentProps<'details'>> = ({ children }) => {
 
       {mounted && (
         <Collapse in={opened}>
-          <Text className={classes.collapse}>{restChildren}</Text>
+          <Box className={classes.collapse}>{restChildren}</Box>
         </Collapse>
       )}
     </Box>

@@ -1,0 +1,13 @@
+.text {
+  color: var(--mantine-color-gray-6);
+  @mixin dark {
+    color: var(--mantine-color-gray-5);
+  }
+}
+.active {
+  color: var(--mantine-color-gray-7);
+  @mixin dark {
+    color: var(--mantine-color-gray-4);
+  }
+  font-weight: 700;
+}
