@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import { useStore } from '../../../contents';
+import { Timestamp } from '../timestamp/timestamp';
 import classes from './body.module.css';
 
 export const Body = observer(({ children }: { children: ReactNode }) => {
@@ -21,6 +22,7 @@ export const Body = observer(({ children }: { children: ReactNode }) => {
   return (
     <Box component="article" className={clsx(classes.body, className)}>
       {children}
+      <Timestamp />
     </Box>
   );
 });

@@ -44,7 +44,8 @@ export const Pre: FC<PreProps> = ({
           className={classes.pre}
           ref={preRef as any}
           data-filename={!!filename}
-          {...props}>
+          {...props}
+          dir="rtl">
           {children}
         </Box>
       </ScrollArea>

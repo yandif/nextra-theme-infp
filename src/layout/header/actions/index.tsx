@@ -4,7 +4,6 @@ import { Group } from '@mantine/core';
 import { useStore } from '../../../contents';
 import classes from '../../index.module.css';
 import { BilibiliAction } from './bilibili';
-import { DirectionAction } from './direction';
 import { DiscordAction } from './discord';
 import { GithubAction } from './github';
 import { RssAction } from './rss';
@@ -19,7 +18,6 @@ export const Actions = observer(() => {
     search,
     mobileSearch,
     themeSwitch,
-    direction,
     bilibili,
     wechat,
     twitter,
@@ -38,7 +36,6 @@ export const Actions = observer(() => {
         {discord && <DiscordAction link={discord} />}
         {rss && <RssAction link={rss} />}
         {github && <GithubAction link={github} />}
-        {direction && <DirectionAction />}
         {themeSwitch && <ThemeSwitchAction />}
       </Group>
 

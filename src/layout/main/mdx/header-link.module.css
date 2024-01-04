@@ -12,8 +12,8 @@
   color: var(--mantine-primary-color-6);
   border-bottom: rem(1px) solid var(--mantine-color-gray-3);
   @mixin dark {
-    border-color: var(--mantine-color-dark-4);
     color: var(--mantine-primary-color-8);
+    border-color: var(--mantine-color-dark-4);
   }
 }
 
@@ -29,18 +29,12 @@
 }
 
 .anchor {
+  margin-left: rem(4px);
   font-size: inherit;
   opacity: 0;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   transition-property: opacity;
-
-  @mixin ltr {
-    margin-left: rem(4px);
-  }
-  @mixin rtl {
-    margin-right: rem(4px);
-  }
 
   :hover > &,
   &:focus {

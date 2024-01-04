@@ -79,8 +79,8 @@
 
   :global(.contains-task-list) {
     margin-left: 0;
-    list-style-type: none;
     padding-left: 0;
+    list-style-type: none;
     input[type='checkbox'] {
       margin-right: rem(4px);
     }
@@ -106,10 +106,10 @@
 
 .navbar {
   position: sticky;
-  top: 60px;
-  width: 250px;
-  height: 1200px;
-
+  top: rem(60px);
+  width: rem(250px);
+  padding: rem(16px);
+  max-height: calc(100vh - rem(60px));
   @mixin smaller-than $mantine-breakpoint-sm {
     display: none;
   }

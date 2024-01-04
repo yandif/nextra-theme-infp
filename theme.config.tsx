@@ -7,6 +7,7 @@ const themeConfig: ThemeConfig = {
   headerActions: {
     github: 'https://github.com/yandif',
     bilibili: '#',
+    direction: true,
   },
   locales: {
     'zh-CN': mergeZhCN({

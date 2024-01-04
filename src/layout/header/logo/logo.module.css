@@ -1,16 +1,11 @@
 .root {
   display: flex;
   align-items: center;
+  margin-right: auto;
   color: var(--mantine-primary-color-6);
 
   @mixin dark {
     color: var(--mantine-primary-color-8);
-  }
-  @mixin rtl {
-    margin-left: auto;
-  }
-  @mixin ltr {
-    margin-right: auto;
   }
 }
 

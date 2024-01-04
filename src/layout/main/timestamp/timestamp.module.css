@@ -1,0 +1,12 @@
+.root {
+  display: block;
+  margin-top: rem(48px);
+  margin-bottom: rem(32px);
+  font-size: rem(12px);
+  text-align: right;
+  color: var(--mantine-color-gray-6);
+  overflow-wrap: break-word;
+  @mixin dark {
+    color: var(--mantine-color-gray-4);
+  }
+}

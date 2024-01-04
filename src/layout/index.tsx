@@ -1,4 +1,4 @@
-import { DirectionProvider, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { NextraThemeLayoutProps } from 'nextra';
 import { FC } from 'react';
 
@@ -13,20 +13,18 @@ import { Main } from './main/main';
 
 const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
   return (
-    <DirectionProvider>
-      <MantineProvider theme={theme}>
-        <StoreProvider value={context}>
-          <div className={classes.root}>
-            <Head />
-            <Banner />
-            <Header />
-            <Main>{children}</Main>
-            <div className={classes.footer}>footer</div>
-            <BackToTop />
-          </div>
-        </StoreProvider>
-      </MantineProvider>
-    </DirectionProvider>
+    <MantineProvider theme={theme}>
+      <StoreProvider value={context}>
+        <div className={classes.root}>
+          <Head />
+          <Banner />
+          <Header />
+          <Main>{children}</Main>
+          <div className={classes.footer}>footer</div>
+          <BackToTop />
+        </div>
+      </StoreProvider>
+    </MantineProvider>
   );
 };
 
