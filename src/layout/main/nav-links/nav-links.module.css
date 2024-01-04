@@ -19,7 +19,7 @@
   @mixin hover {
     color: var(--mantine-primary-color-6);
     @mixin dark {
-      color: var(--mantine-primary-color-8);
+      color: var(--mantine-color-text);
     }
   }
 
@@ -39,7 +39,7 @@
   @mixin hover {
     color: var(--mantine-primary-color-6);
     @mixin dark {
-      color: var(--mantine-primary-color-8);
+      color: var(--mantine-color-text);
     }
   }
 
