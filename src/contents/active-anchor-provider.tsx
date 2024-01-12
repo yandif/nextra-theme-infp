@@ -91,8 +91,7 @@ export const ActiveAnchorProvider = ({
         });
       },
       {
-        // margin top need to be adjusted based on the height of the header
-        rootMargin: '-64px 0px -50%',
+        rootMargin: '-60px 0px -50%',
         threshold: [0, 1],
       },
     );

@@ -6,7 +6,7 @@
   --infp-banner-text: var(--mantine-color-white);
   --infp-banner-body: var(--mantine-primary-color-6);
 
-  --infp-header-height: 3.75rem;
+  --infp-header-height: 3.75rem; /* must sync with root margin (src/contents/active-anchor-provider.tsx) */
   --infp-header-border-color: var(--mantine-color-gray-2);
   --infp-header-body: rgba(248, 248, 248, 0.6);
 
