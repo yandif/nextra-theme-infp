@@ -48,7 +48,7 @@ export const Toc = observer(() => {
         [classes.linkActive]: activeAnchor[id]?.isActive,
       })}
       style={{
-        paddingLeft: `calc(${depth - 2} * var(--mantine-spacing-md))`,
+        paddingLeft: `calc(${depth - 1} * var(--mantine-spacing-md))`,
       }}>
       {value}
     </Box>
