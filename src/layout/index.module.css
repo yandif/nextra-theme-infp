@@ -103,6 +103,7 @@
   position: sticky;
   top: var(--infp-header-height);
   width: 250px;
+  max-height: calc(100vh - var(--infp-header-height));
   padding: var(--mantine-spacing-md);
 }
 
