@@ -12,20 +12,13 @@ export const Navbar = observer(() => {
   const frontMatter = store.pageOpts.frontMatter.get();
   const themeContext = { ...activeThemeContext, ...frontMatter };
 
-  if (
+  const hiddenNav =
     activeType === 'page' ||
     !themeContext.toc ||
-    themeContext.layout !== 'default'
-  ) {
-    return null;
-  }
-  //   <nav
-  //   className={clsx(classes.toc, 'nx-px-4')}
-  //   aria-label="table of contents">
-  //   <Toc />
-  // </nav>
+    themeContext.layout !== 'default';
+
   return (
-    <Box component="nav" className={classes.navbar}>
+    <Box component="nav" className={classes.navbar} hidden={hiddenNav}>
       <Toc />
     </Box>
   );

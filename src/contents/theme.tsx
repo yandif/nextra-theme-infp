@@ -19,4 +19,7 @@ export const defaultThemeConfig: DefaultThemeConfig = {
   logo: <InfpLogo />,
   logoLink: true,
   navigation: true,
+  toc: {
+    float: true,
+  },
 };

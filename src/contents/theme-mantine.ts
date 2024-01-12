@@ -9,7 +9,7 @@ import {
 
 const defaultTheme: MantineThemeOverride = {
   /* Put your mantine theme override here */
-  primaryColor: 'blue',
+  primaryColor: 'tomato',
   colors: {
     tomato: [
       '#fff0e4',

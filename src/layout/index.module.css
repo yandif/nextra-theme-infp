@@ -101,15 +101,11 @@
 
 .aside {
   position: sticky;
-  top: 60px;
+  top: var(--infp-header-height);
   flex-shrink: 0;
   align-self: flex-start;
   width: 250px;
-  height: 600px;
-
-  @mixin smaller-than $mantine-breakpoint-md {
-    display: none;
-  }
+  padding: var(--mantine-spacing-md);
 }
 
 .navbar {
@@ -146,5 +142,11 @@
 .desktop {
   @mixin smaller-than $mantine-breakpoint-md {
     display: none;
+  }
+}
+
+.body {
+  @mixin smaller-than $mantine-breakpoint-md {
+    overflow: hidden;
   }
 }

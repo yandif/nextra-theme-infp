@@ -14,7 +14,7 @@ export const Breadcrumbs = observer(() => {
   if (activeType === 'page' || !themeContext.breadcrumb) return null;
 
   return (
-    <MantineBreadcrumbs fz="xs">
+    <MantineBreadcrumbs fz="xs" separator=">">
       {activePath.map((item, index) => {
         const isLink = !item.children || item.withIndexPage;
         const isActive = index === activePath.length - 1;

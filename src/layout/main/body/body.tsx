@@ -11,7 +11,7 @@ import { Timestamp } from './timestamp';
 
 export const Body = observer(({ children }: { children: ReactNode }) => {
   const store = useStore();
-  const activeThemeContext = store.normalizePages.activeThemeContext.get();
+  const { activeThemeContext, activeType } = store.normalizePages.get();
   const frontMatter = store.pageOpts.frontMatter.get();
   const themeContext = { ...activeThemeContext, ...frontMatter };
 
@@ -21,8 +21,15 @@ export const Body = observer(({ children }: { children: ReactNode }) => {
     full: classes.full,
   }[themeContext.layout];
 
+  const pageClassName = {
+    page: classes.page,
+    doc: classes.doc,
+  }[activeType!];
+
   return (
-    <Box component="article" className={clsx(classes.body, className)}>
+    <Box
+      component="article"
+      className={clsx(classes.body, className, pageClassName)}>
       <Breadcrumbs />
       {children}
       <Timestamp />
