@@ -29,7 +29,7 @@ export const Navbar = observer(() => {
           <Text>{locales.tocTitle}</Text>
         </Group>
         <Toc />
-        <Group h={rem(64)}></Group>
+        <Group h={rem(128)}></Group>
       </Box>
       {backToTop && <BackToTop />}
     </Box>

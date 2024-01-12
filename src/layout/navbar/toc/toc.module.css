@@ -1,5 +1,5 @@
 .root {
-  max-height: calc(100vh - var(--infp-header-height) - rem(48) - rem(64));
+  max-height: calc(100vh - var(--infp-header-height) - rem(48) - rem(128));
 }
 
 .link {
