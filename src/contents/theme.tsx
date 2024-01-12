@@ -20,6 +20,6 @@ export const defaultThemeConfig: DefaultThemeConfig = {
   logoLink: true,
   navigation: true,
   toc: {
-    float: true,
+    backToTop: true,
   },
 };

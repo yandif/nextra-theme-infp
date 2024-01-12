@@ -81,9 +81,9 @@
 
 .main {
   display: flex;
+  min-height: calc(100vh - var(--infp-header-height));
   margin-right: auto;
   margin-left: auto;
-  min-height: calc(100vh - var(--infp-header-height));
 
   :global(.contains-task-list) {
     margin-left: 0;
@@ -102,17 +102,15 @@
 .aside {
   position: sticky;
   top: var(--infp-header-height);
-  flex-shrink: 0;
-  align-self: flex-start;
   width: 250px;
   padding: var(--mantine-spacing-md);
 }
 
 .navbar {
   position: sticky;
-  top: rem(60px);
+  top: var(--infp-header-height);
   width: rem(250px);
-  max-height: calc(100vh - rem(60px));
+  max-height: calc(100vh - var(--infp-header-height));
   padding: rem(16px);
   @mixin smaller-than $mantine-breakpoint-lg {
     display: none;

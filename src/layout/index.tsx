@@ -2,7 +2,6 @@ import { MantineProvider } from '@mantine/core';
 import { NextraThemeLayoutProps } from 'nextra';
 import { FC } from 'react';
 
-import { BackToTop } from '../components';
 import { StoreProvider, useMantineTheme } from '../contents';
 import { Banner } from './banner/banner';
 import { Head } from './head/head';
@@ -22,7 +21,6 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
           <Header />
           <Main>{children}</Main>
           <div className={classes.footer}>footer</div>
-          <BackToTop />
         </div>
       </StoreProvider>
     </MantineProvider>

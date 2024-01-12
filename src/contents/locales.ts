@@ -14,6 +14,7 @@ export const locale = z.object({
   copied: z.string(),
   copy: z.string(),
   lastUpdate: z.string(),
+  tocTitle: z.string(),
 });
 
 export type Locale = z.infer<typeof locale>;
@@ -32,6 +33,7 @@ export const zhCN: Locale = {
   copied: '复制成功',
   copy: '复制',
   lastUpdate: '最后更新于',
+  tocTitle: '目录',
 };
 
 export const enUS: Locale = {
@@ -48,6 +50,7 @@ export const enUS: Locale = {
   copied: 'Copied',
   copy: 'Copy',
   lastUpdate: 'Last update on',
+  tocTitle: 'Table of Contents',
 };
 
 const merge =

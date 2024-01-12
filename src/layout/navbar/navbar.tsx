@@ -1,7 +1,9 @@
 import { observer } from '@legendapp/state/react';
-import { Box } from '@mantine/core';
+import { Box, Group, rem, Text } from '@mantine/core';
+import { IconList } from '@tabler/icons-react';
 
-import { useStore } from '../../contents';
+import { BackToTop } from '../../components';
+import { useLocale, useStore } from '../../contents';
 import classes from '../index.module.css';
 import { Toc } from './toc/toc';
 
@@ -11,6 +13,8 @@ export const Navbar = observer(() => {
   const activeThemeContext = store.normalizePages.activeThemeContext.get();
   const frontMatter = store.pageOpts.frontMatter.get();
   const themeContext = { ...activeThemeContext, ...frontMatter };
+  const { backToTop } = store.themeConfig.toc.get();
+  const locales = useLocale();
 
   const hiddenNav =
     activeType === 'page' ||
@@ -18,8 +22,16 @@ export const Navbar = observer(() => {
     themeContext.layout !== 'default';
 
   return (
-    <Box component="nav" className={classes.navbar} hidden={hiddenNav}>
-      <Toc />
+    <Box component="nav">
+      <Box className={classes.navbar} hidden={hiddenNav}>
+        <Group h={rem(48)}>
+          <IconList size={20} />
+          <Text>{locales.tocTitle}</Text>
+        </Group>
+        <Toc />
+        <Group h={rem(64)}></Group>
+      </Box>
+      {backToTop && <BackToTop />}
     </Box>
   );
 });

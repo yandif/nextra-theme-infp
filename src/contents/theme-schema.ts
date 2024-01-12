@@ -61,9 +61,7 @@ export const themeSchema = z.strictObject({
       prev: z.boolean(),
     }),
   ),
-  toc: z.strictObject({
-    float: z.boolean(),
-  }),
+  toc: z.strictObject({ backToTop: z.boolean() }),
 });
 
 const partialThemeSchema = themeSchema.deepPartial().extend({
