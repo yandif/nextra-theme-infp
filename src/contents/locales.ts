@@ -20,7 +20,7 @@ export const locale = z.object({
 export type Locale = z.infer<typeof locale>;
 
 export const zhCN: Locale = {
-  bilibili: '哔哩哔哩',
+  bilibili: 'B站',
   github: 'Github',
   discord: 'Discord',
   RSS: 'RSS 订阅',

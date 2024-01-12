@@ -9,8 +9,34 @@ import {
 
 const defaultTheme: MantineThemeOverride = {
   /* Put your mantine theme override here */
-  primaryColor: 'blue',
+  primaryColor: 'green',
   colors: {
+    green: [
+      '#e6f7e2',
+      '#ccedcf',
+      '#a3e0b3',
+      '#80d49c',
+      '#66c285',
+      '#4dbf6a',
+      '#33ad5c',
+      '#279a4f',
+      '#1a8740',
+      '#0d7533',
+    ],
+
+    goldenHour: [
+      '#fff5e6',
+      '#ffe6cc',
+      '#ffd699',
+      '#ffcc66',
+      '#ffbf40',
+      '#ffa726',
+      '#ff9900',
+      '#e68a00',
+      '#cc7a00',
+      '#b36600',
+    ],
+
     tomato: [
       '#fff0e4',
       '#ffe0cf',

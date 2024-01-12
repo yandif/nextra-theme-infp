@@ -6,13 +6,6 @@ const themeConfig: ThemeConfig = {
   banner: { text: '测试横幅' },
   headerActions: {
     github: 'https://github.com/yandif',
-    bilibili: '#',
-    direction: true,
-  },
-  locales: {
-    'zh-CN': mergeZhCN({
-      bilibili: 'B站',
-    }),
   },
 };
 
