@@ -16,6 +16,7 @@
     "@mantine/spotlight": "^7.4.1",
     "@tabler/icons-react": "^2.45.0",
     "@types/lodash": "^4.14.202",
+    "chroma-js": "^2.4.2",
     "clsx": "^2.1.0",
     "intersection-observer": "^0.12.2",
     "lodash": "^4.17.21",
@@ -29,6 +30,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.4.3",
     "@types/node": "20.11.0",
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
