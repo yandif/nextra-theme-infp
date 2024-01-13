@@ -39,21 +39,23 @@ export const MobileAside = observer(() => {
           key={item.route}
           label={item.title}
           childrenOffset={16}
-          defaultOpened={route.startsWith(item.route)}>
+          defaultOpened={route.startsWith(item.route)}
+          className={classes.navLink}>
           {item.children?.map(renderLinks)}
         </NavLink>
       );
     }
-
+    const active = !!(
+      item.route && [route, route + '/'].includes(item.route + '/')
+    );
     return (
       <NavLink
-        active={
-          !!(item.route && [route, route + '/'].includes(item.route + '/'))
-        }
+        active={active}
         component={NextLink}
         href={item.route}
         key={item.route}
         label={item.title}
+        className={!active ? classes.navLink : undefined}
       />
     );
   };

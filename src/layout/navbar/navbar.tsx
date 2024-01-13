@@ -1,9 +1,9 @@
 import { observer } from '@legendapp/state/react';
-import { Box, Group, rem, Text } from '@mantine/core';
+import { ActionIcon, Box, Group, rem, Text } from '@mantine/core';
 import { IconList } from '@tabler/icons-react';
 
 import { BackToTop } from '../../components';
-import { useLocale, useStore } from '../../contents';
+import { layoutStore, useLocale, useStore } from '../../contents';
 import classes from '../index.module.css';
 import { Toc } from './toc/toc';
 
@@ -14,18 +14,34 @@ export const Navbar = observer(() => {
   const frontMatter = store.pageOpts.frontMatter.get();
   const themeContext = { ...activeThemeContext, ...frontMatter };
   const { backToTop } = store.themeConfig.toc.get();
+  const tocOpened = layoutStore.tocOpened.get();
   const locales = useLocale();
+
+  const toggle = () => layoutStore.tocOpened.set(!tocOpened);
 
   const hiddenNav =
     activeType === 'page' ||
     !themeContext.toc ||
     themeContext.layout !== 'default';
 
+  if (tocOpened) {
+    return (
+      <ActionIcon
+        variant="transparent"
+        onClick={toggle}
+        className={classes.navbarIcon}>
+        <IconList size={20} />
+      </ActionIcon>
+    );
+  }
+
   return (
     <Box component="nav">
       <Box className={classes.navbar} hidden={hiddenNav}>
         <Group h={rem(48)}>
-          <IconList size={20} />
+          <ActionIcon variant="transparent" onClick={toggle}>
+            <IconList size={20} />
+          </ActionIcon>
           <Text>{locales.tocTitle}</Text>
         </Group>
         <Toc />

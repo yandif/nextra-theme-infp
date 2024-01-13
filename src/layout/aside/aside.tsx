@@ -42,21 +42,23 @@ export const Aside = observer(() => {
           key={item.route}
           label={item.title}
           childrenOffset={16}
-          defaultOpened={route.startsWith(item.route)}>
+          defaultOpened={route.startsWith(item.route)}
+          className={classes.navLink}>
           {item.children?.map(renderLinks)}
         </NavLink>
       );
     }
-
+    const active = !!(
+      item.route && [route, route + '/'].includes(item.route + '/')
+    );
     return (
       <NavLink
-        active={
-          !!(item.route && [route, route + '/'].includes(item.route + '/'))
-        }
+        active={active}
         component={NextLink}
         href={item.route}
         key={item.route}
         label={item.title}
+        className={!active ? classes.navLink : undefined}
       />
     );
   };
@@ -71,7 +73,7 @@ export const Aside = observer(() => {
         component="aside"
         className={clsx(classes.aside, classes.desktop)}
         hidden={hideSidebar}>
-        <ScrollArea h="calc(100vh - var(--infp-header-height))">
+        <ScrollArea h="calc(100vh - var(--infp-header-height) - 2rem * var(--mantine-scale))">
           {docsDirectories.map(renderLinks)}
         </ScrollArea>
       </Box>

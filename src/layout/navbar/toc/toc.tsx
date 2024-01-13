@@ -5,8 +5,8 @@ import { useEffect, useRef } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { useActiveAnchor, useStore } from '../../../contents';
+import layoutClasses from '../../index.module.css';
 import classes from './toc.module.css';
-
 function useScrollIntoView() {
   const tocRef = useRef<HTMLDivElement>(null);
   const activeAnchor = useActiveAnchor();
@@ -44,9 +44,10 @@ export const Toc = observer(() => {
       component={'a'}
       key={id}
       href={`#${id}`}
-      className={clsx(classes.link, {
-        [classes.linkActive]: activeAnchor[id]?.isActive,
-      })}
+      className={clsx(
+        classes.link,
+        activeAnchor[id]?.isActive ? classes.linkActive : layoutClasses.navLink,
+      )}
       style={{
         paddingLeft: `calc(${depth - 1} * var(--mantine-spacing-md))`,
       }}>

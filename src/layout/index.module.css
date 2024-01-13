@@ -107,6 +107,21 @@
   padding: var(--mantine-spacing-md);
 }
 
+.navLink {
+  color: var(--mantine-color-gray-6);
+  transition: color 0.1s ease;
+  @mixin hover {
+    color: var(--mantine-color-gray-8);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-2);
+    @mixin hover {
+      color: var(--mantine-color-dark-1);
+    }
+  }
+}
+
 .navbar {
   position: sticky;
   top: var(--infp-header-height);
@@ -114,6 +129,15 @@
   max-height: calc(100vh - var(--infp-header-height));
   padding: rem(16px);
   @mixin smaller-than $mantine-breakpoint-lg {
+    display: none;
+  }
+}
+.navbarIcon {
+  position: sticky;
+  top: calc(var(--infp-header-height) + rem(26px));
+  right: 0;
+
+  @mixin smaller-than $mantine-breakpoint-md {
     display: none;
   }
 }

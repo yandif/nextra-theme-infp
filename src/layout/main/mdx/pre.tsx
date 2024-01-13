@@ -1,6 +1,13 @@
-import { Box, Button, ScrollArea } from '@mantine/core';
-import { IconTextWrap } from '@tabler/icons-react';
-import clsx from 'clsx';
+import {
+  ActionIcon,
+  Box,
+  CopyButton,
+  rem,
+  ScrollArea,
+  Tooltip,
+  UnstyledButton,
+} from '@mantine/core';
+import { IconCheck, IconCopy, IconTextWrap } from '@tabler/icons-react';
 import type { ComponentProps, FC } from 'react';
 import { useCallback, useRef } from 'react';
 
@@ -10,8 +17,6 @@ type PreProps = ComponentProps<'pre'> & {
   filename?: string;
   hasCopyCode?: boolean;
 };
-import { ActionIcon, CopyButton, rem, Tooltip } from '@mantine/core';
-import { IconCheck, IconCopy } from '@tabler/icons-react';
 
 import { useLocale } from '../../../contents';
 
@@ -35,7 +40,7 @@ export const Pre: FC<PreProps> = ({
   }, []);
 
   return (
-    <div className={classes.root}>
+    <UnstyledButton className={classes.root}>
       {filename && <div className={classes.filename}>{filename}</div>}
 
       <ScrollArea>
@@ -77,6 +82,6 @@ export const Pre: FC<PreProps> = ({
           </CopyButton>
         )}
       </Box>
-    </div>
+    </UnstyledButton>
   );
 };

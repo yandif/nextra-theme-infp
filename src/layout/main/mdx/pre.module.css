@@ -1,6 +1,16 @@
 .root {
   position: relative;
   margin-top: rem(24px);
+  display: block;
+  width: 100%;
+
+  @mixin smaller-than $mantine-breakpoint-md {
+    &:focus {
+      .actions {
+        opacity: 1;
+      }
+    }
+  }
 
   @mixin hover {
     .actions {
@@ -86,10 +96,6 @@
     white-space: pre-wrap;
     word-break: break-word;
 
-    @mixin smaller-than $mantine-breakpoint-sm {
-      white-space: pre;
-    }
-
     :global(.line) {
       display: inline-block;
     }
@@ -101,6 +107,7 @@
   top: rem(8px);
   right: rem(8px);
   opacity: 0;
+
   &[data-filename='true'] {
     top: rem(45px);
   }
