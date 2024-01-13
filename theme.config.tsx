@@ -6,6 +6,7 @@ const themeConfig: ThemeConfig = {
   banner: { text: '测试横幅' },
   headerActions: {
     github: 'https://github.com/yandif',
+    toggleTheme: true,
   },
 };
 

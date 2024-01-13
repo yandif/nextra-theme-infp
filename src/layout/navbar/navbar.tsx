@@ -24,7 +24,7 @@ export const Navbar = observer(() => {
     !themeContext.toc ||
     themeContext.layout !== 'default';
 
-  if (tocOpened) {
+  if (tocOpened && !hiddenNav) {
     return (
       <ActionIcon
         variant="transparent"

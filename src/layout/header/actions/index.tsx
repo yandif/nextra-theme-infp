@@ -10,6 +10,7 @@ import { RssAction } from './rss';
 import { SearchAction } from './search';
 import { SearchMobileAction } from './search-mobile';
 import { ThemeSwitchAction } from './theme-switch';
+import { ToggleTheme } from './toggle-theme';
 import { TwitterAction } from './twitter';
 import { WechatAction } from './wechat';
 
@@ -24,18 +25,21 @@ export const Actions = observer(() => {
     discord,
     rss,
     github,
+    toggleTheme,
   } = useStore().themeConfig.headerActions.get();
 
   return (
     <>
       <Group gap="xs" className={classes.desktop} wrap="nowrap">
         {search && <SearchAction />}
+
         {bilibili && <BilibiliAction link={bilibili} />}
         {wechat && <WechatAction link={wechat} />}
         {twitter && <TwitterAction link={twitter} />}
         {discord && <DiscordAction link={discord} />}
         {rss && <RssAction link={rss} />}
         {github && <GithubAction link={github} />}
+        {toggleTheme && <ToggleTheme />}
         {themeSwitch && <ThemeSwitchAction />}
       </Group>
       <Group gap="xs" className={classes.mobile} wrap="nowrap">

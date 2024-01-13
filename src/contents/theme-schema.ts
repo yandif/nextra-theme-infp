@@ -43,6 +43,7 @@ export const themeSchema = z.strictObject({
     search: z.boolean(),
     mobileSearch: z.boolean(),
     themeSwitch: z.boolean(),
+    toggleTheme: z.boolean(),
     direction: z.boolean().optional(),
     bilibili: z.string().startsWith('https://').optional(),
     twitter: z.string().startsWith('https://').optional(),

@@ -1,0 +1,11 @@
+.theme {
+  --theme-color: var(--mantine-primary-color-6);
+
+  @mixin dark {
+    --theme-color: var(--mantine-primary-color-8);
+  }
+
+  color: var(--mantine-color-white) !important;
+  background-color: var(--theme-color) !important;
+  border-color: var(--theme-color) !important;
+}
