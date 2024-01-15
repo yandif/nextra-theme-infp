@@ -44,7 +44,8 @@
 }
 
 .td {
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  min-width: rem(100px);
 }
 
 .th {
