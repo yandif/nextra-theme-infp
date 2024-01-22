@@ -1,8 +1,8 @@
 import { observer } from '@legendapp/state/react';
-import { Box, Drawer, NavLink, ScrollArea } from '@mantine/core';
+import { Drawer, NavLink } from '@mantine/core';
 import clsx from 'clsx';
 import NextLink from 'next/link';
-import { useFSRoute } from 'nextra/hooks';
+import { useFSRoute, useMounted } from 'nextra/hooks';
 import { Item } from 'nextra/normalize-pages';
 import { useEffect } from 'react';
 
@@ -14,6 +14,7 @@ export const MobileAside = observer(() => {
   const navbarOpened = layoutStore.navbarOpened.get();
   const directories = store.normalizePages.directories.get();
   const route = useFSRoute();
+  const mounted = useMounted();
 
   useEffect(() => {
     if (navbarOpened) {
@@ -61,21 +62,23 @@ export const MobileAside = observer(() => {
   };
 
   return (
-    <Drawer
-      withinPortal={false}
-      component="aside"
-      className={clsx(classes.mobile)}
-      opened={navbarOpened}
-      onClose={() => {}}
-      size="100%"
-      styles={{
-        inner: { zIndex: 10, top: 'var(--infp-header-height)' },
-        header: { display: 'none' },
-        overlay: { display: 'none' },
-      }}
-      withCloseButton={false}
-      lockScroll={false}>
-      {directories.map(renderLinks)}
-    </Drawer>
+    mounted && (
+      <Drawer
+        withinPortal={false}
+        component="aside"
+        className={clsx(classes.mobile)}
+        opened={navbarOpened}
+        onClose={() => {}}
+        size="100%"
+        styles={{
+          inner: { zIndex: 10, top: 'var(--infp-header-height)' },
+          header: { display: 'none' },
+          overlay: { display: 'none' },
+        }}
+        withCloseButton={false}
+        lockScroll={false}>
+        {directories.map(renderLinks)}
+      </Drawer>
+    )
   );
 });
