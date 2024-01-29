@@ -6,6 +6,7 @@ import type { ReactNode } from 'react';
 import { useStore } from '../../contents';
 import { ActiveAnchorProvider } from '../../contents/';
 import { Aside } from '../aside/aside';
+import { Flexsearch } from '../header/search/flexsearch';
 import classes from '../index.module.css';
 import { Navbar } from '../navbar/navbar';
 import { Body } from './body/body';
@@ -28,6 +29,7 @@ export const Main = observer(({ children }: { children: ReactNode }) => {
         <Aside />
         <Body>
           <MDXProvider components={getComponents({ isRawLayout, components })}>
+            <Flexsearch />
             {children}
           </MDXProvider>
         </Body>

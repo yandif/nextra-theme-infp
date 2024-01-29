@@ -1,5 +1,6 @@
 import { observer } from '@legendapp/state/react';
 import { Group } from '@mantine/core';
+import { spotlight } from '@mantine/spotlight';
 
 import { useStore } from '../../../contents';
 import classes from '../../index.module.css';
@@ -31,7 +32,7 @@ export const Actions = observer(() => {
   return (
     <>
       <Group gap="xs" className={classes.desktop} wrap="nowrap">
-        {search && <SearchAction />}
+        {search && <SearchAction onClick={spotlight.open} />}
 
         {bilibili && <BilibiliAction link={bilibili} />}
         {wechat && <WechatAction link={wechat} />}
@@ -43,7 +44,7 @@ export const Actions = observer(() => {
         {themeSwitch && <ThemeSwitchAction />}
       </Group>
       <Group gap="xs" className={classes.mobile} wrap="nowrap">
-        {mobileSearch && <SearchMobileAction />}
+        {mobileSearch && <SearchMobileAction onClick={spotlight.open} />}
         {themeSwitch && <ThemeSwitchAction />}
       </Group>
     </>

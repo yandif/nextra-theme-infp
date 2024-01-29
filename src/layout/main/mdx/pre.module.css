@@ -54,7 +54,7 @@
   code {
     padding: 0;
     font-size: rem(13px);
-    background-color: transparent;
+    background-color: transparent !important;
     box-decoration-break: slice;
     counter-reset: line;
     font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
