@@ -2,12 +2,18 @@
   "name": "nextra-theme-infp",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "commit": "git add . && git-cz && git push"
+    "commit": "git add . && git-cz && git push",
+    "build:theme": "rimraf ./lib && rimraf ./dist && rimraf ./style.css && vite build && pnpm build:css && pnpm build:lib",
+    "build:lib": "tsc -p ./tsconfig.build.json",
+    "build:css": "pnpm postcss src/styles/index.css -o style.css --verbose --minify"
   },
   "dependencies": {
     "@legendapp/state": "^2.1.4",
@@ -43,7 +49,10 @@
     "postcss": "^8.4.33",
     "postcss-preset-mantine": "1.12.3",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "5.3.3"
+    "rimraf": "^5.0.5",
+    "typescript": "5.3.3",
+    "vite": "^5.0.12",
+    "vite-plugin-dts": "^3.7.2"
   },
   "config": {
     "commitizen": {
