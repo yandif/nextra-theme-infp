@@ -5,7 +5,7 @@ import { IconSearch } from '@tabler/icons-react';
 import FlexSearch from 'flexsearch';
 import { useRouter } from 'next/router';
 import type { SearchData } from 'nextra';
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useLocale } from '../../../contents';
 

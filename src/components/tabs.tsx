@@ -6,7 +6,7 @@ export const Tab = MantineTabs.Panel;
 const transformTabs = (children: ReactNode, items: string[]) => {
   const tabs: any[] = [];
 
-  Children.forEach(children, (child, index) => {
+  Children.forEach(children, (child) => {
     if (child && (child as ReactElement).type === Tab) {
       tabs.push(child);
     }

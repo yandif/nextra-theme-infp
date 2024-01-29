@@ -14,7 +14,7 @@ export const ToggleTheme = () => {
       onClick={() => {
         const index = colors.findIndex((c) => c === theme.primaryColor);
 
-        const i = setMantineTheme({
+        setMantineTheme({
           primaryColor: colors[index === colors.length - 1 ? 0 : index + 1],
         });
       }}>

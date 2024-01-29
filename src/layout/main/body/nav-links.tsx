@@ -2,9 +2,8 @@ import { observer } from '@legendapp/state/react';
 import { Anchor } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import NextLink from 'next/link';
-import { useMounted } from 'nextra/hooks';
 
-import { useLocale, useStore } from '../../../contents';
+import { useStore } from '../../../contents';
 import classes from './nav-links.module.css';
 
 export const NavLinks = observer(() => {

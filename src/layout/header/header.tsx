@@ -7,7 +7,6 @@ import classes from '../index.module.css';
 import { Actions } from './actions';
 import { Logo } from './logo/logo';
 import { Menu } from './menu/menu';
-import { Flexsearch } from './search/flexsearch';
 
 export const Header = observer(() => {
   const navbarOpened = layoutStore.navbarOpened.get();

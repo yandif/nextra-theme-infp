@@ -1,4 +1,4 @@
-import { Box, Collapse, Text, UnstyledButton } from '@mantine/core';
+import { Box, Collapse, UnstyledButton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronRight } from '@tabler/icons-react';
 import { useMounted } from 'nextra/hooks';

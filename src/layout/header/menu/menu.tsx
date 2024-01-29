@@ -1,5 +1,5 @@
 import { observer } from '@legendapp/state/react';
-import { Anchor, Center, Group, Menu as IMenu, Text } from '@mantine/core';
+import { Anchor, Group, Menu as IMenu, Text } from '@mantine/core';
 import { IconCaretDownFilled } from '@tabler/icons-react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
