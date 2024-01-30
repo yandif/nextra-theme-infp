@@ -1,6 +1,6 @@
 {
   "name": "nextra-theme-infp",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "exports": {
     "./styles.css": "./dist/index.css",
     ".": {
@@ -34,6 +34,12 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "git add . && git-cz && git push"
+  },
+  "peerDependencies": {
+    "@mantine/core": "7.5.0",
+    "@mantine/hooks": "7.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
     "@legendapp/state": "^2.1.4",

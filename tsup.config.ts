@@ -13,7 +13,7 @@ export default defineConfig({
   dts: true,
   name: 'nextra-theme-infp',
   outExtension: () => ({ js: '.js' }),
-  external: ['nextra', 'react'],
+  external: ['nextra', 'react', 'react-dom', '@mantine/core', '@mantine/hooks'],
   esbuildPlugins: [
     {
       name: 'css-module',
