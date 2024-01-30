@@ -2,6 +2,8 @@ import { promises as fsPromises } from 'fs';
 import path from 'path';
 import postcss from 'postcss';
 import postcssModules from 'postcss-modules';
+import postcssMantine from 'postcss-preset-mantine';
+import postcssVars from 'postcss-simple-vars';
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
@@ -40,6 +42,16 @@ export default defineConfig({
 
             let cssModule = {};
             const result = await postcss([
+              postcssMantine(),
+              postcssVars({
+                variables: {
+                  'mantine-breakpoint-xs': '36em',
+                  'mantine-breakpoint-sm': '48em',
+                  'mantine-breakpoint-md': '62em',
+                  'mantine-breakpoint-lg': '75em',
+                  'mantine-breakpoint-xl': '88em',
+                },
+              }),
               postcssModules({
                 getJSON(_, json) {
                   cssModule = json;
