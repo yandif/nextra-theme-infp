@@ -2,15 +2,16 @@
   "name": "nextra-theme-infp",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "exports": {
+    "./styles.css": "./dist/index.css",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.mts"
+    }
+  },
+  "types": "./dist/index.d.mts",
   "files": [
-    "dist/",
-    "lib/",
-    "package.json",
-    "style.css",
-    "README.md"
+    "dist/"
   ],
   "keywords": [
     "nextra",
@@ -30,12 +31,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:tsup": "rimraf ./dist && tsup",
     "start": "next start",
     "lint": "next lint",
-    "commit": "git add . && git-cz && git push",
-    "build:theme": "rimraf ./lib && rimraf ./dist && rimraf ./style.css && vite build && pnpm build:css && pnpm build:lib",
-    "build:lib": "tsc -p ./tsconfig.build.json",
-    "build:css": "pnpm postcss src/styles/index.css -o style.css --verbose --minify"
+    "commit": "git add . && git-cz && git push"
   },
   "dependencies": {
     "@legendapp/state": "^2.1.4",
@@ -52,30 +51,31 @@
     "next": "14.1.0",
     "next-seo": "^6.4.0",
     "nextra": "^2.13.2",
-    "nextra-theme-docs": "^2.13.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "scroll-into-view-if-needed": "^3.1.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "tsup": "^8.0.1",
+    "type-fest": "3.13.1",
     "@types/chroma-js": "^2.4.3",
     "@types/node": "20.11.10",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog-chinese": "^2.3.0",
+    "esbuild-css-modules-plugin": "^3.1.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
-    "postcss-cli": "^11.0.0",
+    "postcss-modules": "^6.0.0",
     "postcss-preset-mantine": "1.12.3",
     "postcss-simple-vars": "^7.0.1",
     "rimraf": "^5.0.5",
-    "typescript": "5.3.3",
-    "vite": "^5.0.12",
-    "vite-plugin-dts": "^3.7.2"
+    "typescript": "5.3.3"
   },
   "config": {
     "commitizen": {
