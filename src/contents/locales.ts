@@ -16,6 +16,9 @@ export const locale = z.object({
   lastUpdate: z.string(),
   tocTitle: z.string(),
   noData: z.string(),
+  feedback: z.string(),
+  feedbackMessage: z.string(),
+  editPage: z.string(),
 });
 
 export type Locale = z.infer<typeof locale>;
@@ -36,6 +39,9 @@ export const zhCN: Locale = {
   lastUpdate: '最后更新于',
   tocTitle: '目录',
   noData: '无数据',
+  feedback: '反馈',
+  feedbackMessage: '有疑问？给我反馈 →',
+  editPage: '编辑本页 →',
 };
 
 export const enUS: Locale = {
@@ -54,6 +60,9 @@ export const enUS: Locale = {
   lastUpdate: 'Last update on',
   tocTitle: 'Table of Contents',
   noData: 'Nothing found',
+  feedback: 'Feedback',
+  feedbackMessage: 'Have questions? Give me feedback →',
+  editPage: 'Edit this page →',
 };
 
 const merge =
