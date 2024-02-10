@@ -28,6 +28,7 @@ const i18nSchema = z.array(
 );
 
 export const themeSchema = z.strictObject({
+  docsRepositoryBase: z.string().startsWith('https://'),
   /** favicon 文字图形 */
   faviconGlyph: z.string().optional(),
   /** 自定义 head */
@@ -62,7 +63,13 @@ export const themeSchema = z.strictObject({
       prev: z.boolean(),
     }),
   ),
-  toc: z.strictObject({ backToTop: z.boolean() }),
+  toc: z.strictObject({
+    backToTop: z.boolean(),
+    feedback: z.boolean(),
+    editPage: z.boolean(),
+  }),
+  /** 自定义 footer */
+  footer: z.custom<ReactNode | FC>(...reactNode),
 });
 
 const partialThemeSchema = themeSchema.deepPartial().extend({

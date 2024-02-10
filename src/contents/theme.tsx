@@ -3,6 +3,7 @@ import { enUS, zhCN } from './locales';
 import { DefaultThemeConfig } from './theme-schema';
 
 export const defaultThemeConfig: DefaultThemeConfig = {
+  docsRepositoryBase: 'https://github.com/yandif/nextra-theme-infp',
   banner: {
     dismissible: true,
     key: 'infp-theme-banner',
@@ -21,5 +22,7 @@ export const defaultThemeConfig: DefaultThemeConfig = {
   navigation: true,
   toc: {
     backToTop: true,
+    feedback: true,
+    editPage: true,
   },
 };
