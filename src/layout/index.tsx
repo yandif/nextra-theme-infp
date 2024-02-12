@@ -4,6 +4,7 @@ import { FC } from 'react';
 
 import { StoreProvider, useMantineTheme } from '../contents';
 import { Banner } from './banner/banner';
+import { Footer } from './footer/footer';
 import { Head } from './head/head';
 import { Header } from './header/header';
 import classes from './index.module.css';
@@ -20,7 +21,7 @@ const Layout: FC<NextraThemeLayoutProps> = ({ children, ...context }) => {
           <Banner />
           <Header />
           <Main>{children}</Main>
-          <div className={classes.footer}>footer</div>
+          <Footer />
         </div>
       </StoreProvider>
     </MantineProvider>
