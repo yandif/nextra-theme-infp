@@ -1,4 +1,4 @@
-import { mergeZhCN, ThemeConfig } from './src';
+import { mergeZhCN, ThemeConfig } from './src/';
 
 const themeConfig: ThemeConfig = {
   faviconGlyph: '📖',
