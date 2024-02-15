@@ -7,6 +7,7 @@ import classes from '../index.module.css';
 
 export const Footer = observer(() => {
   const store = useStore();
-  const component = store.themeConfig.footer.get();
+  const component = store.themeConfig.get().footer;
+
   return <Box className={classes.footer}>{renderComponent(component)}</Box>;
 });
