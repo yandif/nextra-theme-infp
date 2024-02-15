@@ -33,7 +33,7 @@
     "build:tsup": "rimraf ./dist && tsup",
     "start": "next start",
     "lint": "next lint",
-    "commit": " git-cz && git push"
+    "commit": "git add . && git-cz && git push"
   },
   "peerDependencies": {
     "@mantine/core": "7.5.0",

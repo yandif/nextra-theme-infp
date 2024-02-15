@@ -40,7 +40,10 @@ export const Pre: FC<PreProps> = ({
   }, []);
 
   return (
-    <UnstyledButton component="div" className={classes.root}>
+    <UnstyledButton
+      component="div"
+      className={classes.root}
+      styles={{ root: { cursor: 'auto' } }}>
       {filename && <div className={classes.filename}>{filename}</div>}
 
       <ScrollArea>
