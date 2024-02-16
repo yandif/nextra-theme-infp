@@ -1,6 +1,6 @@
 {
   "name": "nextra-theme-infp",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "exports": {
     "./styles.css": "./dist/index.css",
     ".": {

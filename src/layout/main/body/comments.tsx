@@ -10,8 +10,7 @@ export const Comments = observer(() => {
   const computedColorScheme = useComputedColorScheme('light', {
     getInitialValueInEffect: true,
   });
-
-  const { locale = 'zh-CN' } = useRouter();
+  const { locale = 'zh-CN', route } = useRouter();
   const store = useStore();
   const { giscusProps } = store.themeConfig.get();
   const activeType = store.normalizePages.activeType.get();
@@ -36,6 +35,7 @@ export const Comments = observer(() => {
         }
         lang={locale}
         loading="lazy"
+        key={route}
       />
     )
   );
