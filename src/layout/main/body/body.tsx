@@ -6,6 +6,7 @@ import type { ReactNode } from 'react';
 import { useStore } from '../../../contents';
 import classes from './body.module.css';
 import { Breadcrumbs } from './breadcrumbs';
+import { Comments } from './comments';
 import { NavLinks } from './nav-links';
 import { Timestamp } from './timestamp';
 
@@ -34,6 +35,7 @@ export const Body = observer(({ children }: { children: ReactNode }) => {
       {children}
       <Timestamp />
       <NavLinks />
+      <Comments />
     </Box>
   );
 });

@@ -8,6 +8,17 @@ const themeConfig: ThemeConfig = {
     github: 'https://github.com/yandif',
     toggleTheme: true,
   },
+  giscusProps: {
+    repo: 'yandif/nextra-theme-infp',
+    repoId: 'R_kgDOKdG1og',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOKdG1os4CdQ3k',
+    mapping: 'pathname',
+    strict: '0',
+    reactionsEnabled: '1',
+    emitMetadata: '0',
+    inputPosition: 'top',
+  },
 };
 
 export default themeConfig;

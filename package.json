@@ -42,6 +42,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@giscus/react": "^2.4.0",
     "@legendapp/state": "^2.1.6",
     "@mantine/core": "7.5.2",
     "@mantine/hooks": "7.5.2",

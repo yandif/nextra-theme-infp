@@ -2,6 +2,7 @@ import { isFunction } from 'lodash';
 import { FC, isValidElement, ReactNode } from 'react';
 import { z } from 'zod';
 
+import { GiscusProps } from '../utils/giscusProps';
 import { locale } from './locales';
 
 function isReactNode(value: unknown): boolean {
@@ -76,5 +77,9 @@ const partialThemeSchema = themeSchema.deepPartial().extend({
   i18n: i18nSchema.optional(),
 });
 
-export type DefaultThemeConfig = z.infer<typeof themeSchema>;
-export type ThemeConfig = z.infer<typeof partialThemeSchema>;
+export type DefaultThemeConfig = z.infer<typeof themeSchema> & {
+  giscusProps?: GiscusProps;
+};
+export type ThemeConfig = z.infer<typeof partialThemeSchema> & {
+  giscusProps?: GiscusProps;
+};
