@@ -29,12 +29,12 @@ export const Comments = observer(() => {
     !hiddenComments &&
     giscusProps && (
       <Giscus
+        loading="eager"
         {...giscusProps}
         theme={
           computedColorScheme === 'dark' ? 'noborder_dark' : 'noborder_light'
         }
         lang={locale}
-        loading="lazy"
         key={route}
       />
     )
