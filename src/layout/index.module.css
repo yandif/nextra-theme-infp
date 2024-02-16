@@ -108,14 +108,14 @@
 }
 
 .navLink {
-  color: var(--mantine-color-gray-6);
+  color: var(--mantine-color-gray-7);
   transition: color 0.1s ease;
   @mixin hover {
     color: var(--mantine-color-gray-8);
   }
 
   @mixin dark {
-    color: var(--mantine-color-dark-2);
+    color: var(--mantine-color-dark-1);
     @mixin hover {
       color: var(--mantine-color-dark-1);
     }

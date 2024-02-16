@@ -5,7 +5,7 @@ import { IconSearch } from '@tabler/icons-react';
 import FlexSearch from 'flexsearch';
 import { useRouter } from 'next/router';
 import type { SearchData } from 'nextra';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useLocale } from '../../../contents';
 
@@ -221,7 +221,9 @@ export function Flexsearch() {
         })),
     );
   };
-
+  useEffect(() => {
+    handleChange('');
+  }, []);
   const handleChange = async (value: string) => {
     if (loading) {
       return;

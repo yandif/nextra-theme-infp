@@ -9,7 +9,6 @@
   padding: var(--mantine-spacing-xs);
   font-size: var(--mantine-font-size-sm);
   line-height: 1.2;
-  color: var(--mantine-color-text);
   text-decoration: none;
   overflow-wrap: break-word;
   border-left: rem(1px) solid
