@@ -24,7 +24,7 @@ type Store = {
   normalizePages: NormalizePages;
 };
 
-const storeContext = createContext<ObservableObject<Store>>(
+const StoreContext = createContext<ObservableObject<Store>>(
   observable({
     themeConfig: defaultThemeConfig,
     pageOpts: {} as PageOpts,
@@ -36,7 +36,7 @@ const storeContext = createContext<ObservableObject<Store>>(
 /**
  *  获取主题全局上下文
  */
-export const useStore = () => useContext(storeContext);
+export const useStore = () => useContext(StoreContext);
 
 /**
  *  获取多语言
@@ -88,6 +88,6 @@ export const StoreProvider: FC<{
   // TODO：校验主题配置是是否合法。
 
   return (
-    <storeContext.Provider value={store}>{children}</storeContext.Provider>
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
   );
 };

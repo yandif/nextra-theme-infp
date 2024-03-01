@@ -67,8 +67,8 @@ export const enUS: Locale = {
 
 const merge =
   (_locale: Locale) =>
-  (locale: Partial<Locale>): Locale => {
-    return { ..._locale, ...locale };
-  };
+    (locale: Partial<Locale>): Locale => {
+      return { ..._locale, ...locale };
+    };
 export const mergeZhCN = merge(zhCN);
 export const mergeEnUS = merge(enUS);
